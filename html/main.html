@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Diego Cicotoste - Software Developer">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Diego Cicotoste</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="icon" type="image/png" href="../img/smallLogo.png">
+</head>
+<body>
+
+<!--TITLES-->
+<header>
+  <div class="title"> <h2 class="typewriter"> Diego Cicotoste </h2> </div>
+</header>
+
+<div class="subTitle"> <h2 class="typewriter"> Software Developer </h2> </div>
+
+<script>
+  window.addEventListener('scroll', function() {
+    var header = document.querySelector("header");
+    var title = document.querySelector(".title h2");
+
+    header.classList.toggle('scrolled', window.scrollY > 50);
+    title.classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+
+<!--MEDIA-->
+<div class="photoTitle">
+  <div class="image-container">
+    <a href="https://github.com/DiegoCico"> <img src="../img/github.png" height="40" width="40"/> </a>
+    <div class="hover-line"></div>
+  </div>
+
+
+  <div class="image-container">
+    <a href="https://www.instagram.com/diego_cicotoste/"> <img src="../img/insta.png" height="40" width="40"/> </a>
+    <div class="hover-line"></div>
+  </div>
+
+  <div class="image-container">
+    <a href="https://www.linkedin.com/in/diego-cicotoste/"><img src="../img/linked.png" height="40" width="40"/> </a>
+    <div class="hover-line"></div>
+  </div>
+</div>
+
+<!--INTRODUCTION -->
+<div style="display: flex; align-items: center">
+  <img id = "myImage" class = "aboutMePhoto" src="../img/me.JPG"  height="300" width="200" style="margin: 40px; border-radius: 20px;"/>
+  <div class="animate-up">
+    <h3 class="aboutMe">About Me</h3>
+    <p class="aboutMe">Hi, I am a current student at Northeastern University studying Computer Science.</p>
+    <p class="aboutMe">I started coding when I was in 8th grade, creating games on Unity using the language C#.</p>
+    <p class="aboutMe">When I started High School, I participated in mobile development competitions at <strong><a href="https://www.fbla.org/" style="color: black">FBLA</a></strong>, qualified for <strong>regionals</strong>, and was awarded <strong>1st</strong> in states.</p>
+  </div>
+</div>
+
+<script>
+  // Use JavaScript to add the 'fade-in' class after a delay (e.g., 1 second)
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      document.getElementById('myImage').classList.add('fade-in');
+    }, 350); // 1000 milliseconds = 1 second
+  });
+</script>
+
+<!--RELATED COURSE-->
+<h3 style="margin-left: 100px; margin-top: 70px; font-size: x-large"> Related Course </h3>
+<div class="rowBox">
+  <div class="box">
+    <img src="../img/school.jpg" height="20" width="20"/>
+    <p class="boxTitle"> CS2500 </p>
+    <p class="boxSubTitle"> Explored the foundations of Computer Science I,
+      demonstrating proficiency through the development of diverse projects utilizing the Kotlin programming language.
+      Specialized in crafting robust Back-End systems to enhance practical skills and contribute to real-world applications.</p>
+    <p class="boxSubTitle">  FINAL PROJECT: <strong><a href="https://github.com/DiegoCico/CS2500/tree/main/project2" style="text-decoration: none; color: grey" > Flash Card </a></strong></p>
+    <div class="center-container">
+      <div class="image-container" >
+        <a href="https://github.com/DiegoCico/CS2500"> <img src="../img/github.png" height="40" width="40"/> </a>
+        <div class="hover-line"></div>
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <img src="../img/school.jpg" height="20" width="20"/>
+    <p class="boxTitle"> CS1800 </p>
+    <p class="boxSubTitle">  focus on mathematical structures and concepts that are countable and distinct,
+      such as sets, graphs, and logic. Explore the fundamentals of discrete mathematics to develop
+      problem-solving skills applicable in various computer science and information technology fields.</p>
+  </div>
+</div>
+</div>
+
+
+
+<!--ARCHIVE-->
+<center>
+  <a class="archive" href="https://github.com/DiegoCico?tab=repositories"> Archives </a>
+</center>
+
+<!--FOOTER-->
+<footer>
+  <p style="font-size: 10px"> © 2023 - Diego Cicotoste</p>
+  <div class="text-container">
+    <a href="https://github.com/DiegoCico/Resume" style="font-size: 10px; color: white; text-decoration: none"> Open Source On Github </a>
+    <div class="hover-line-text"></div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,264 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  margin-top: 155px;
+}
+
+/*HEADER*/
+header {
+  position: fixed;
+  top: -50px;
+  width: 100%;
+  text-align: center;
+  opacity: 1 !important;
+  background: #f0f0f0 !important;
+  padding: 10px;
+  z-index: 1000;
+}
+
+
+header.scrolled {
+  background: #f0f0f0;
+}
+
+.title h2 {
+  background: #f0f0f0;
+  font-size: xxx-large; /* Adjust the font size as needed */
+  transition: font-size 0.5s ease, padding 0.5s ease; /* Transition padding for smooth effect */
+  padding: 5px; /* Add padding for better spacing */
+}
+
+.title h2.scrolled {
+  background: #f0f0f0;
+  font-size: large; /* Adjust the font size for scrolled state */
+  padding: 5px; /* Adjust padding for scrolled state */
+}
+
+/*TITLES*/
+.title {
+  background: #f0f0f0;
+  font-size: xx-large;
+  font-family: monospace;
+  font-style: oblique;
+  margin-bottom: 0; /* Remove the bottom margin */
+  text-align: center;
+}
+
+.subTitle {
+  color: #888888;
+  text-align: center;
+  font-family: monospace;
+  margin-top: 10px; /* Adjust margin for better spacing */
+}
+
+/*PHTOS*/
+.photoTitle {
+  display: flex;
+  justify-content: center;
+}
+
+.photoTitle .image-container {
+  position: relative;
+  margin-right: 10px; /* Adjust the spacing between icons as needed */
+  overflow: hidden;
+}
+
+.photoTitle img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.photoTitle .hover-line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background-color: black; /* Change the color as needed */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.photoTitle .image-container:hover .hover-line {
+  opacity: 1; /* Show the line on hover */
+}
+
+/*ABOUT ME*/
+.aboutMe{
+  font-family: monospace;
+  margin-left: 28px;
+}
+
+/*ANIMATION */
+.title {
+  text-align: center;
+  margin-top: 100px;
+  opacity: 0;
+  animation: fadeIn 5s forwards;
+}
+
+.subTitle {
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: typing 5.5s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #3498db;
+  }
+}
+
+/*PHOTO ANIMATION*/
+.photoTitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.photoTitle a {
+  margin-right: 15px;
+}
+
+.animation-container {
+  position: relative;
+}
+
+.animate-up {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slide-up 1.75s ease-out forwards;
+}
+
+@keyframes slide-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Set initial opacity to 0 */
+.aboutMePhoto {
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Set the transition property for smooth fading */
+}
+
+/* Apply a class with JavaScript to trigger the animation */
+.fade-in {
+  opacity: 1;
+}
+
+/*RELATED COURSE*/
+.rowBox{
+  display: flex;
+  justify-content: center;
+}
+
+.box{
+  border: 2px dashed #888888;
+  padding: 10px;
+  width: 400px;
+  height: 350px;
+  margin: 80px;
+  border-radius: 30px;
+}
+
+.boxTitle{
+  font-size: 40px;
+  text-align: center;
+  font-family: "Times New Roman";
+  font-style: italic;
+}
+
+.boxSubTitle{
+  margin: 10px;
+  color: darkgrey;
+  text-align: center;
+  font-family: "Times New Roman";
+  color: darkgrey;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*ARCHIVE*/
+.archive {
+  text-align: center;
+  color: #333; /* Dark text color */
+  font-family: 'Arial', sans-serif;
+  font-size: 1.5em; /* Adjust font size */
+  font-style: italic;
+  margin-top: 20px; /* Adjust margin for better spacing */
+}
+
+.archive:hover {
+  color: #3498db; /* Change color on hover */
+}
+
+
+/*FOOTER*/
+footer{
+  background-color: dimgrey; /* Choose your background color */
+  color: white; /* Choose your text color */
+  padding: 20px;
+  text-align: center;
+}
+
+.text-container {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-line-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Adjust the height of the line */
+  background-color: white;
+  transform: scaleX(0); /* Initial state, line is invisible */
+  transform-origin: bottom left;
+  transition: transform 0.3s ease; /* Add smooth transition effect */
+}
+
+.text-container:hover .hover-line-text {
+  transform: scaleX(1); /* On hover, the line expands to full width */
+}
+
+
