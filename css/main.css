@@ -61,8 +61,8 @@ header.scrolled {
 
 .image-container {
   position: relative;
-  display: inline-block; /* Aligns the container neatly and allows for hover effect */
-  margin: 10px; /* Space around each image container */
+  display: inline-block;
+  margin: 10px;
 }
 
 .image-container a {
@@ -167,9 +167,9 @@ header.scrolled {
   flex-wrap: wrap;
 }
 
-/* Base styles */
+
 .box {
-  flex: 0 1 90%; /* Default width for small screens */
+  flex: 0 1 90%;
   border: 1px solid #ccc;
   padding: 20px;
   height: 350px;
@@ -179,17 +179,17 @@ header.scrolled {
   background-color: #f9f9f9;
 }
 
-/* Medium screens (e.g., tablets) */
+
 @media (min-width: 600px) {
   .box {
-    flex: 0 1 50%; /* Increased width for medium screens */
+    flex: 0 1 50%;
   }
 }
 
-/* Large screens (e.g., desktops) */
+
 @media (min-width: 1024px) {
   .box {
-    flex: 0 1 30%; /* Increased width for large screens */
+    flex: 0 1 30%;
   }
 }
 
