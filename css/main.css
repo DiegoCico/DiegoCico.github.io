@@ -3,108 +3,100 @@ body {
   padding: 0;
   font-family: 'Arial', sans-serif;
   background-color: #f0f0f0;
-  margin-top: 155px;
 }
 
-/*HEADER*/
 header {
   position: fixed;
-  top: -50px;
+  top: 0;
   width: 100%;
   text-align: center;
-  opacity: 1 !important;
-  background: #f0f0f0 !important;
+  background: #f0f0f0;
   padding: 10px;
   z-index: 1000;
 }
-
 
 header.scrolled {
   background: #f0f0f0;
 }
 
 .title h2 {
+  font-size: xxx-large;
+  transition: font-size 0.5s ease, padding 0.5s ease;
+  padding: 5px;
   background: #f0f0f0;
-  font-size: xxx-large; /* Adjust the font size as needed */
-  transition: font-size 0.5s ease, padding 0.5s ease; /* Transition padding for smooth effect */
-  padding: 5px; /* Add padding for better spacing */
+  margin-bottom: 0;
+  text-align: center;
 }
 
 .title h2.scrolled {
+  font-size: large;
+  padding: 5px;
   background: #f0f0f0;
-  font-size: large; /* Adjust the font size for scrolled state */
-  padding: 5px; /* Adjust padding for scrolled state */
 }
 
-/*TITLES*/
 .title {
   background: #f0f0f0;
-  font-size: xx-large;
   font-family: monospace;
   font-style: oblique;
-  margin-bottom: 0; /* Remove the bottom margin */
   text-align: center;
+  opacity: 0;
+  animation: fadeIn 5s forwards;
 }
 
 .subTitle {
   color: #888888;
-  text-align: center;
   font-family: monospace;
-  margin-top: 10px; /* Adjust margin for better spacing */
-}
-
-/*PHTOS*/
-.photoTitle {
-  display: flex;
-  justify-content: center;
-}
-
-.photoTitle .image-container {
-  position: relative;
-  margin-right: 10px; /* Adjust the spacing between icons as needed */
-  overflow: hidden;
-}
-
-.photoTitle img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-.photoTitle .hover-line {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  height: 2px;
-  background-color: black; /* Change the color as needed */
-  opacity: 0; /* Initially hidden */
-  transition: opacity 0.3s ease-in-out;
-}
-
-.photoTitle .image-container:hover .hover-line {
-  opacity: 1; /* Show the line on hover */
-}
-
-/*ABOUT ME*/
-.aboutMe{
-  font-family: monospace;
-  margin-left: 28px;
-}
-
-/*ANIMATION */
-.title {
   text-align: center;
   margin-top: 100px;
   opacity: 0;
   animation: fadeIn 5s forwards;
 }
 
-.subTitle {
+.photoTitle {
+  display: flex;
+  justify-content: center;
   text-align: center;
+  margin-top: 20px;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block; /* Aligns the container neatly and allows for hover effect */
+  margin: 10px; /* Space around each image container */
+}
+
+.image-container a {
+  display: block;
+  text-decoration: none;
+}
+
+.image-container img {
+  display: block;
+  height: 40px;
+  width: 40px;
+}
+
+.hover-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1);
+  width: 80%;
+  height: 2px;
+  background-color: black;
+  bottom: -15px;
   opacity: 0;
-  animation: fadeIn 5s forwards;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.image-container:hover .hover-line {
+  opacity: 1;
+  transform: translateX(-50%) scaleY(1.5);
+}
+
+
+.aboutMe {
+  font-family: monospace;
+  margin-left: 28px;
 }
 
 @keyframes fadeIn {
@@ -143,16 +135,6 @@ header.scrolled {
   }
 }
 
-/*PHOTO ANIMATION*/
-.photoTitle {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.photoTitle a {
-  margin-right: 15px;
-}
-
 .animation-container {
   position: relative;
 }
@@ -170,45 +152,59 @@ header.scrolled {
   }
 }
 
-/* Set initial opacity to 0 */
 .aboutMePhoto {
   opacity: 0;
-  transition: opacity 1s ease-in-out; /* Set the transition property for smooth fading */
+  transition: opacity 1s ease-in-out;
 }
 
-/* Apply a class with JavaScript to trigger the animation */
 .fade-in {
   opacity: 1;
 }
 
-/*RELATED COURSE*/
-.rowBox{
+.rowBox {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-.box{
-  border: 2px dashed #888888;
-  padding: 10px;
-  width: 400px;
+/* Base styles */
+.box {
+  flex: 0 1 90%; /* Default width for small screens */
+  border: 1px solid #ccc;
+  padding: 20px;
   height: 350px;
-  margin: 80px;
-  border-radius: 30px;
+  margin: 3vw;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #f9f9f9;
 }
 
-.boxTitle{
-  font-size: 40px;
-  text-align: center;
-  font-family: "Times New Roman";
-  font-style: italic;
+/* Medium screens (e.g., tablets) */
+@media (min-width: 600px) {
+  .box {
+    flex: 0 1 50%; /* Increased width for medium screens */
+  }
 }
 
-.boxSubTitle{
-  margin: 10px;
-  color: darkgrey;
+/* Large screens (e.g., desktops) */
+@media (min-width: 1024px) {
+  .box {
+    flex: 0 1 30%; /* Increased width for large screens */
+  }
+}
+
+.boxTitle {
+  font-size: 30px;
   text-align: center;
-  font-family: "Times New Roman";
-  color: darkgrey;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+.boxSubTitle {
+  margin: 5px;
+  color: #666;
+  text-align: center;
+  font-family: Arial, sans-serif;
 }
 
 .center-container {
@@ -217,48 +213,49 @@ header.scrolled {
   align-items: center;
 }
 
-/*ARCHIVE*/
+
+
 .archive {
   text-align: center;
-  color: #333; /* Dark text color */
+  color: #333;
   font-family: 'Arial', sans-serif;
-  font-size: 1.5em; /* Adjust font size */
+  font-size: 1.5em;
   font-style: italic;
-  margin-top: 20px; /* Adjust margin for better spacing */
+  margin-top: 20px;
 }
 
 .archive:hover {
-  color: #3498db; /* Change color on hover */
+  color: #3498db;
 }
 
-
-/*FOOTER*/
-footer{
-  background-color: dimgrey; /* Choose your background color */
-  color: white; /* Choose your text color */
+footer {
+  background-color: dimgrey;
+  color: white;
   padding: 20px;
   text-align: center;
 }
 
+
 .text-container {
-  position: relative;
+  padding: 10px;
   display: inline-block;
 }
 
-.hover-line-text {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px; /* Adjust the height of the line */
-  background-color: white;
-  transform: scaleX(0); /* Initial state, line is invisible */
-  transform-origin: bottom left;
-  transition: transform 0.3s ease; /* Add smooth transition effect */
+.text-container a {
+  font-size: 10px;
+  text-decoration: none;
 }
 
+.text-container .hover-line-text {
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+
 .text-container:hover .hover-line-text {
-  transform: scaleX(1); /* On hover, the line expands to full width */
+  width: 100%;
 }
 
 
