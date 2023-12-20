@@ -1,3 +1,4 @@
+/* Global body styles */
 body {
   margin: 0;
   padding: 0;
@@ -5,6 +6,7 @@ body {
   background-color: #f0f0f0;
 }
 
+/* Header styles */
 header {
   position: fixed;
   top: 0;
@@ -15,10 +17,12 @@ header {
   z-index: 1000;
 }
 
+/* Header styles when scrolled */
 header.scrolled {
   background: #f0f0f0;
 }
 
+/* Title within the header */
 .title h2 {
   font-size: xxx-large;
   transition: font-size 0.5s ease, padding 0.5s ease;
@@ -28,12 +32,14 @@ header.scrolled {
   text-align: center;
 }
 
+/* Title style changes on scroll */
 .title h2.scrolled {
   font-size: large;
   padding: 5px;
   background: #f0f0f0;
 }
 
+/* Container for the title */
 .title {
   background: #f0f0f0;
   font-family: monospace;
@@ -43,6 +49,7 @@ header.scrolled {
   animation: fadeIn 5s forwards;
 }
 
+/* Subtitle styles */
 .subTitle {
   color: #888888;
   font-family: monospace;
@@ -52,6 +59,7 @@ header.scrolled {
   animation: fadeIn 5s forwards;
 }
 
+/* Styles for photo titles */
 .photoTitle {
   display: flex;
   justify-content: center;
@@ -59,6 +67,7 @@ header.scrolled {
   margin-top: 20px;
 }
 
+/* Container for images */
 .image-container {
   position: relative;
   display: inline-block;
@@ -70,12 +79,14 @@ header.scrolled {
   text-decoration: none;
 }
 
+/* Image styles */
 .image-container img {
   display: block;
   height: 40px;
   width: 40px;
 }
 
+/* Hover effect for images */
 .hover-line {
   position: absolute;
   left: 50%;
@@ -88,17 +99,19 @@ header.scrolled {
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
+/* Hover effect changes for images */
 .image-container:hover .hover-line {
   opacity: 1;
   transform: translateX(-50%) scaleY(1.5);
 }
 
-
+/* Styles for 'About Me' section */
 .aboutMe {
   font-family: monospace;
   margin-left: 28px;
 }
 
+/* Animation for fading in elements */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -108,6 +121,7 @@ header.scrolled {
   }
 }
 
+/* Typewriter effect for text */
 .typewriter {
   display: inline-block;
   overflow: hidden;
@@ -117,6 +131,7 @@ header.scrolled {
   animation: typing 5.5s steps(30, end), blink-caret 0.75s step-end infinite;
 }
 
+/* Typing animation */
 @keyframes typing {
   from {
     width: 0;
@@ -126,6 +141,7 @@ header.scrolled {
   }
 }
 
+/* Blinking caret effect */
 @keyframes blink-caret {
   from, to {
     border-color: transparent;
@@ -135,16 +151,19 @@ header.scrolled {
   }
 }
 
+/* Container for animations */
 .animation-container {
   position: relative;
 }
 
+/* Slide-up animation */
 .animate-up {
   opacity: 0;
   transform: translateY(50px);
   animation: slide-up 1.75s ease-out forwards;
 }
 
+/* Keyframes for slide-up animation */
 @keyframes slide-up {
   to {
     opacity: 1;
@@ -152,6 +171,7 @@ header.scrolled {
   }
 }
 
+/* Styles for 'About Me' photo with fade-in effect */
 .aboutMePhoto {
   opacity: 0;
   transition: opacity 1s ease-in-out;
@@ -161,13 +181,14 @@ header.scrolled {
   opacity: 1;
 }
 
+/* Flex container for rows */
 .rowBox {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-
+/* Styles for individual boxes */
 .box {
   flex: 0 1 90%;
   border: 1px solid #ccc;
@@ -179,20 +200,21 @@ header.scrolled {
   background-color: #f9f9f9;
 }
 
-
+/* Box styles for medium screens */
 @media (min-width: 600px) {
   .box {
     flex: 0 1 50%;
   }
 }
 
-
+/* Box styles for large screens */
 @media (min-width: 1024px) {
   .box {
     flex: 0 1 30%;
   }
 }
 
+/* Title styles within boxes */
 .boxTitle {
   font-size: 30px;
   text-align: center;
@@ -200,6 +222,7 @@ header.scrolled {
   font-weight: bold;
 }
 
+/* Subtitle styles within boxes */
 .boxSubTitle {
   margin: 5px;
   color: #666;
@@ -207,12 +230,14 @@ header.scrolled {
   font-family: Arial, sans-serif;
 }
 
+/* Centering container */
 .center-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Archive link styles */
 .archive {
   text-align: center;
   color: #333;
@@ -222,10 +247,12 @@ header.scrolled {
   margin-top: 20px;
 }
 
+/* Archive hover effect */
 .archive:hover {
   color: #3498db;
 }
 
+/* Footer styles */
 footer {
   background-color: dimgrey;
   color: white;
@@ -233,7 +260,7 @@ footer {
   text-align: center;
 }
 
-
+/* Text container styles */
 .text-container {
   padding: 10px;
   display: inline-block;
@@ -244,6 +271,7 @@ footer {
   text-decoration: none;
 }
 
+/* Hover line effect in text container */
 .text-container .hover-line-text {
   width: 0;
   height: 2px;
@@ -251,11 +279,12 @@ footer {
   transition: width 0.3s ease;
 }
 
-
+/* Hover effect changes in text container */
 .text-container:hover .hover-line-text {
   width: 100%;
 }
 
+/* Title styles for projects */
 .projectsTitle {
   margin-left: 100px;
   margin-top: 70px;
@@ -265,11 +294,8 @@ footer {
   width: fit-content;
 }
 
+/* Special character after project titles */
 .projectsTitle::after {
   content: '+';
   color: lightskyblue;
 }
-
-
-
-
