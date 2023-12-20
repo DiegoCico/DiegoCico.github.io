@@ -213,8 +213,6 @@ header.scrolled {
   align-items: center;
 }
 
-
-
 .archive {
   text-align: center;
   color: #333;
@@ -257,5 +255,21 @@ footer {
 .text-container:hover .hover-line-text {
   width: 100%;
 }
+
+.projectsTitle {
+  margin-left: 100px;
+  margin-top: 70px;
+  font-size: x-large;
+  white-space: nowrap;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.projectsTitle::after {
+  content: '+';
+  color: lightskyblue;
+}
+
+
 
 
