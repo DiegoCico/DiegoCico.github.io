@@ -1,4 +1,11 @@
-### Hi there 👋
+<h1 align="center">Hi there! I'm <a href="https://diegocico.github.io">Diego Cicotoste</a>.</h1>
+
+<div align="center">
+  
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=slightlyskepticalpotat&count_private=true&show_icons=true&theme=material-palenight&icon_color=6a5acd&hide_border=true&line_height=28&custom_title=Contribution%20Statistics&count_private=true)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs?username=slightlyskepticalpotat&theme=material-palenight&hide_border=true&layout=compact&langs_count=10&card_width=333)
+
+</div>
 
 <!--
 **DiegoCico/DiegoCico** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
