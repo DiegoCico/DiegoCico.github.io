@@ -3,40 +3,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Fetch all repositories of the user
   fetch(`https://api.github.com/users/${username}/repos`)
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Error fetching repositories: ${response.statusText}`);
+      }
+      return response.json();
+    })
     .then(repos => {
       if (repos && repos.length > 0) {
-        let promises = repos.map(repo => {
-          return fetch(`https://api.github.com/repos/${username}/${repo.name}/commits`)
-            .then(response => response.json())
-            .then(commits => {
-              if (commits && commits.length > 0) {
-                return {
-                  repoName: repo.name,
-                  lastCommitDate: new Date(commits[0].commit.author.date)
-                };
-              } else {
-                return null;
-              }
-            });
-        });
+        // Get the first repository
+        const firstRepo = repos[0];
 
-        // Process all promises
-        Promise.all(promises).then(results => {
-          let latestCommit = results.filter(result => result !== null).sort((a, b) => b.lastCommitDate - a.lastCommitDate)[0];
+        // Fetch commits of the first repository
+        return fetch(`https://api.github.com/repos/${username}/${firstRepo.name}/commits`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`Error fetching commits for ${firstRepo.name}: ${response.statusText}`);
+            }
+            return response.json();
+          })
+          .then(commits => {
+            if (commits && commits.length > 0) {
+              const latestCommit = commits[0];
+              const latestCommitDate = new Date(latestCommit.commit.author.date);
+              const currentDate = new Date();
+              const timeDifference = Math.floor((currentDate - latestCommitDate) / (1000 * 60 * 60 * 24)); // Difference in days
 
-          if (latestCommit) {
-            const currentDate = new Date();
-            const timeDifference = Math.floor((currentDate - latestCommit.lastCommitDate) / (1000 * 60 * 60 * 24)); // Difference in days
-
-            document.getElementById('lastCommitDate').innerHTML = `<strong>${latestCommit.repoName}</strong>: ${timeDifference} days ago`;
-          } else {
-            document.getElementById('lastCommitDate').textContent = 'No commits found';
-          }
-        }).catch(error => {
-          console.error('Error processing commit data:', error);
-          document.getElementById('lastCommitDate').textContent = 'Error loading commit data';
-        });
+              document.getElementById('lastCommitDate').innerHTML = `<strong>${firstRepo.name}</strong>: ${timeDifference} days ago`;
+            } else {
+              document.getElementById('lastCommitDate').textContent = 'No commits found';
+            }
+          });
       } else {
         document.getElementById('lastCommitDate').textContent = 'No repositories found';
       }
