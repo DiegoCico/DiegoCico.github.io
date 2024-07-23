@@ -30,33 +30,34 @@
 
 <!--MEDIA-->
 <div class="animate-up">
-<div class="photoTitle">
-  <div class="image-container">
-    <a href="https://github.com/DiegoCico"> <img src="../img/github.png" height="40" width="40"/> </a>
-    <div class="hover-line"></div>
-  </div>
+  <div class="photoTitle">
+    <div class="image-container">
+      <a href="https://github.com/DiegoCico"> <img src="../img/github.png" height="40" width="40"/> </a>
+      <div class="hover-line"></div>
+    </div>
 
-  <div class="image-container">
-    <a href="https://www.instagram.com/diego_cicotoste/"> <img src="../img/insta.png" height="40" width="40"/> </a>
-    <div class="hover-line"></div>
-  </div>
+    <div class="image-container">
+      <a href="https://www.instagram.com/diego_cicotoste/"> <img src="../img/insta.png" height="40" width="40"/> </a>
+      <div class="hover-line"></div>
+    </div>
 
-  <div class="image-container">
-    <a href="https://www.linkedin.com/in/diego-cicotoste/"><img src="../img/linked.png" height="40" width="40"/> </a>
-    <div class="hover-line"></div>
+    <div class="image-container">
+      <a href="https://www.linkedin.com/in/diego-cicotoste/"><img src="../img/linked.png" height="40" width="40"/> </a>
+      <div class="hover-line"></div>
+    </div>
   </div>
-</div>
 </div>
 
 <!--INTRODUCTION -->
 <div style="display: flex; align-items: center">
-  <img id = "myImage" class = "aboutMePhoto" src="../img/me.JPG"  height="300" width="200" style="margin: 40px; border-radius: 20px;"/>
+  <img id="myImage" class="aboutMePhoto" src="../img/me.JPG" height="300" width="200" style="margin: 40px; border-radius: 20px;"/>
   <div class="animate-up">
     <h3 class="aboutMe">About Me</h3>
     <p class="aboutMe">Hi, I am a current student at Northeastern University class of 2027, studying Computer Science.</p>
     <p class="aboutMe">I started coding when I was in 8th grade, creating games on Unity using the language C#.</p>
     <p class="aboutMe">When I started High School, I participated in mobile development competitions at <strong><a href="https://www.fbla.org/" style="color: black">FBLA</a></strong>, qualified for <strong>regionals</strong>, and was awarded <strong>1st</strong> in states.</p>
     <p class="aboutMe"> Currently, doing my internship at <strong>Amazon</strong>, also working on a project to help kids learn how to code!</p>
+    <p class="aboutMe">Last thing I worked on, <span id="lastCommitDate">Loading...</span></p>
   </div>
 </div>
 
@@ -70,7 +71,7 @@
 
 <!--PROJECTS-->
 <h3 class="projectsTitle"> Projects </h3>
-<div class = "rowBox">
+<div class="rowBox">
   <div class="box">
     <img src="../img/toolKit.png" height="30" width="30"/>
     <p class="boxTitle"> diego.tools </p>
@@ -82,8 +83,8 @@
         <a href="https://github.com/DiegoCico/diego.tools"> <img src="../img/github.png" height="40" width="40"/> </a>
         <div class="hover-line"></div>
       </div>
+    </div>
   </div>
-</div>
 
   <div class="box">
     <img src="../img/toolGuide.png" height="30" width="30"/>
@@ -99,7 +100,7 @@
         <div class="hover-line"></div>
       </div>
     </div>
-</div>
+  </div>
 
   <div class="box">
     <img src="../img/toolKit.png" height="30" width="30"/>
@@ -110,8 +111,8 @@
         <a href="https://github.com/DiegoCico/PredatorPreySim"> <img src="../img/github.png" height="40" width="40"/> </a>
         <div class="hover-line"></div>
       </div>
-      </div>
     </div>
+  </div>
 
   <div class="box">
     <img src="../img/toolKit.png" height="30" width="30"/>
@@ -126,7 +127,7 @@
       </div>
     </div>
   </div>
-  </div>
+</div>
 
 
 <!--RELATED COURSE-->
@@ -168,5 +169,8 @@
     <div class="hover-line-text"></div>
   </div>
 </footer>
+
+<!-- Include the new JavaScript file -->
+<script src="js/githubCommit.js"></script>
 </body>
 </html>
