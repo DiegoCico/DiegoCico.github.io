@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const username = 'DiegoCico';
 
   // Fetch all repositories of the user
-  fetch(`https://api.github.com/users/${username}/repos`)
+  fetch(`https://api.github.com/users/${username}/repos?sort=updated&direction=desc`)
     .then(response => {
       if (!response.ok) {
         throw new Error(`Error fetching repositories: ${response.statusText}`);
@@ -11,14 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(repos => {
       if (repos && repos.length > 0) {
-        // Get the first repository
-        const firstRepo = repos[0];
+        // Get the most recently updated repository
+        const latestRepo = repos[0];
 
-        // Fetch commits of the first repository
-        return fetch(`https://api.github.com/repos/${username}/${firstRepo.name}/commits`)
+        // Fetch commits of the latest repository
+        return fetch(`https://api.github.com/repos/${username}/${latestRepo.name}/commits`)
           .then(response => {
             if (!response.ok) {
-              throw new Error(`Error fetching commits for ${firstRepo.name}: ${response.statusText}`);
+              throw new Error(`Error fetching commits for ${latestRepo.name}: ${response.statusText}`);
             }
             return response.json();
           })
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
               const currentDate = new Date();
               const timeDifference = Math.floor((currentDate - latestCommitDate) / (1000 * 60 * 60 * 24)); // Difference in days
 
-              document.getElementById('lastCommitDate').innerHTML = `<strong>${firstRepo.name}</strong>: ${timeDifference} days ago`;
+              document.getElementById('lastCommitDate').innerHTML = `<strong>${latestRepo.name}</strong>: ${timeDifference} days ago`;
             } else {
               document.getElementById('lastCommitDate').textContent = 'No commits found';
             }
