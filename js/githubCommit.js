@@ -29,7 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
               const currentDate = new Date();
               const timeDifference = Math.floor((currentDate - latestCommitDate) / (1000 * 60 * 60 * 24));
 
-              document.getElementById('lastCommitDate').innerHTML = `<strong>${latestRepo.name}</strong>: ${timeDifference} days ago`;
+              const timeText = timeDifference === 0 ? 'today' : `${timeDifference} days ago`;
+
+              document.getElementById('lastCommitDate').innerHTML = `<strong>${latestRepo.name}</strong>: ${timeText}`;
             } else {
               document.getElementById('lastCommitDate').textContent = 'No commits found';
             }
