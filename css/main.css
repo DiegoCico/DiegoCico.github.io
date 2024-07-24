@@ -198,6 +198,9 @@ header.scrolled {
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   background-color: #f9f9f9;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slide-up 1.75s ease-out forwards;
 }
 
 /* Box styles for medium screens */

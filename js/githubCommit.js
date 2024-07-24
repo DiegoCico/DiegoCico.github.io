@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
               const latestCommit = commits[0];
               const latestCommitDate = new Date(latestCommit.commit.author.date);
               const currentDate = new Date();
-              const timeDifference = Math.floor((currentDate - latestCommitDate) / (1000 * 60 * 60 * 24)); // Difference in days
+              const timeDifference = Math.floor((currentDate - latestCommitDate) / (1000 * 60 * 60 * 24));
 
               document.getElementById('lastCommitDate').innerHTML = `<strong>${latestRepo.name}</strong>: ${timeDifference} days ago`;
             } else {
