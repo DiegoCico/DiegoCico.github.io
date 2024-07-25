@@ -29,7 +29,18 @@ document.addEventListener('DOMContentLoaded', function() {
               const currentDate = new Date();
               const timeDifference = Math.floor((currentDate - latestCommitDate) / (1000 * 60 * 60 * 24));
 
-              const timeText = timeDifference === 0 ? 'today' : `${timeDifference} days ago`;
+              let timeText;
+              if (timeDifference === 0) {
+                const hoursDifference = Math.floor((currentDate - latestCommitDate) / (1000 * 60 * 60));
+                if (hoursDifference === 0) {
+                  const minutesDifference = Math.floor((currentDate - latestCommitDate) / (1000 * 60));
+                  timeText = `${minutesDifference} minutes ago`;
+                } else {
+                  timeText = `${hoursDifference} hours ago`;
+                }
+              } else {
+                timeText = `${timeDifference} days ago`;
+              }
 
               document.getElementById('lastCommitDate').innerHTML = `<strong>${latestRepo.name}</strong>: ${timeText}`;
             } else {
