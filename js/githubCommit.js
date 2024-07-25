@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 timeText = `${timeDifference} days ago`;
               }
 
-              document.getElementById('lastCommitDate').innerHTML = `<strong>${latestRepo.name}</strong>: ${timeText}`;
+              document.getElementById('lastCommitDate').innerHTML = `<strong><a href="https://github.com/${username}/${latestRepo.name}" target="_blank" style="color: black; text-decoration: underline;">${latestRepo.name}</a></strong>: ${timeText}`;
             } else {
               document.getElementById('lastCommitDate').textContent = 'No commits found';
             }
