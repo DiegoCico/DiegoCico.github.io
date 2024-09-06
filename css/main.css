@@ -109,6 +109,7 @@ header.scrolled {
 .aboutMe {
   font-family: monospace;
   margin-left: 28px;
+  font-size: 15px;
 }
 
 /* Animation for fading in elements */
