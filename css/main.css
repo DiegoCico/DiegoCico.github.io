@@ -303,3 +303,91 @@ footer {
   content: '+';
   color: lightcoral;
 }
+
+
+
+/* Experience Section */
+.experience-section {
+  margin: 50px 0;
+  text-align: left;
+}
+
+.section-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+}
+
+.experience-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  margin-left: 120px;
+  justify-content: flex-start;
+}
+
+.experience-item {
+  min-width: 200px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideIn 0.8s forwards ease-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(128, 128, 128, 0.3); /* Subtle grey border */
+}
+
+.experience-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(128, 128, 128, 0.8); /* Grey border intensifies on hover */
+}
+
+.experience-item h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.experience-item p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Slide-in keyframes */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+}
+
+.close-btn {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+

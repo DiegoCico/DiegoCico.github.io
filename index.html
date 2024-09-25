@@ -73,6 +73,57 @@
   });
 </script>
 
+
+<!-- Experience Section -->
+<div class="experience-section">
+  <h3 class="section-title">Experience</h3>
+  <div class="experience-slider">
+    <div class="experience-item" data-role="Data Engineer" data-duration="Sept 2024 - Present" data-description="Manage our website data, create algorithms to make sure the data travels more smootly -- https://supplytrace.org">
+      <h4>Suply Trace</h4>
+      <p>Data Engineer</p>
+    </div>
+    <div class="experience-item" data-role="Software Developer Intern" data-duration="May 2024 - Aug 2024" data-description="
+I extracted and processed data from over 2 million users monthly using the Productiv API, which significantly enhanced data insights for business strategies. Additionally, I designed and deployed a custom data pipeline using TypeScript, which reduced data processing time by 40%. I also implemented data visualization on Amazon QuickSight, improving user interface satisfaction by 15% and contributing to a cost reduction of 15 million dollars.">
+      <h4>Amazon</h4>
+      <p>Software Developer Intern</p>
+    </div>
+    <div class="experience-item" data-role="Founder" data-duration="Jun 2021 - Sep 2023" data-description="
+Founded and scaled an online coding tutoring platform, delivering 1,000+ hours of personalized
+sessions to children aged 8-16.">
+      <h4>Kid Teaches Kids</h4>
+      <p>Founder</p>
+    </div>
+    <div class="experience-item" data-role="Manager" data-duration="Jun 2021 - Aug 2023" data-description="
+I led a team of 15 instructors, consistently delivering over $30,000 in revenue each month, with a peak of more than $70,000 during summer camps.">
+      <h4>Code Ninjas</h4>
+      <p>Manager</p>
+    </div>
+    <div class="experience-item" data-role="Founder" data-duration="Jun 2021 - May 2023" data-description="
+Club chapter focuses on collecting toys and school/hygiene items in support of unprivileged children. with a goal of 1500 items per year">
+      <h4>The Hope Box</h4>
+      <p>Founder</p>
+    </div>
+    <div class="experience-item" data-role="Assistant" data-duration="Jun 2021 - May 2023" data-description="
+During this unpaid internship, I contributed to the development of application projects utilizing the Android platform, leveraging technologies such as Java, XML, HTML, and CSS to build and optimize user interfaces and functionality.">
+      <h4>Pinbank Brazil</h4>
+      <p>Assistant</p>
+    </div>
+  </div>
+</div>
+
+<!-- Pop-up modal for job details -->
+<div id="experience-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h4 id="company-name"></h4>
+    <p><strong>Role:</strong> <span id="job-role"></span></p>
+    <p><strong>Duration:</strong> <span id="job-duration"></span></p>
+    <p id="job-description"></p>
+  </div>
+</div>
+
+
+
 <!-- LIVE PROJECTS -->
 <h3 class="projectsTitle"> Live Projects </h3>
 <div class="rowBox">
@@ -211,5 +262,6 @@
 <!-- Include the new JavaScript file -->
 <script src="js/githubCommit.js"></script>
 <script src="js/githubLines.js"></script>
+<script src="js/experience.js"></script>
 </body>
 </html>
