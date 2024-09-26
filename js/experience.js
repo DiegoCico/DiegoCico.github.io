@@ -25,3 +25,56 @@ window.addEventListener('click', (event) => {
     modal.style.display = 'none';
   }
 });
+
+const slider = document.querySelector('.experience-slider');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+// Mouse down event
+slider.addEventListener('mousedown', (e) => {
+  isDown = true;
+  slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+// Mouse leave event
+slider.addEventListener('mouseleave', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+// Mouse up event
+slider.addEventListener('mouseup', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+// Mouse move event
+slider.addEventListener('mousemove', (e) => {
+  if (!isDown) return; // Stop the function from running if not holding the mouse button
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 2; // Multiply by 2 to make the scroll faster
+  slider.scrollLeft = scrollLeft - walk;
+});
+
+// Touch support (for mobile)
+slider.addEventListener('touchstart', (e) => {
+  isDown = true;
+  startX = e.touches[0].pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('touchend', () => {
+  isDown = false;
+});
+
+slider.addEventListener('touchmove', (e) => {
+  if (!isDown) return;
+  const x = e.touches[0].pageX - slider.offsetLeft;
+  const walk = (x - startX) * 2;
+  slider.scrollLeft = scrollLeft - walk;
+});
+

@@ -320,14 +320,18 @@ footer {
 
 .experience-slider {
   display: flex;
-  overflow-x: auto;
+  overflow-x: hidden; /* Hide the scrollbar */
   gap: 20px;
-  margin-left: 120px;
-  justify-content: flex-start;
+  margin-left: 100px; /* Aligns properly with title */
+  padding-bottom: 10px;
+  padding-right: 20px;
+  scroll-behavior: smooth; /* Smooth scrolling */
+  cursor: grab; /* Corrected grab cursor */
 }
 
 .experience-item {
-  min-width: 200px;
+  flex: 0 0 auto; /* Ensures items stay same width and don't shrink */
+  min-width: 250px;
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 10px;
@@ -354,6 +358,7 @@ footer {
 .experience-item p {
   font-size: 16px;
   color: #666;
+  margin: 0;
 }
 
 /* Slide-in keyframes */
@@ -378,11 +383,12 @@ footer {
 
 .modal-content {
   background-color: #fff;
-  margin: 15% auto;
+  margin: 10% auto;
   padding: 20px;
   border-radius: 10px;
   width: 80%;
   max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .close-btn {
@@ -391,3 +397,17 @@ footer {
   cursor: pointer;
 }
 
+/* Dragging styles */
+.experience-slider.active {
+  cursor: grabbing;
+}
+
+/* Hide scrollbar */
+.experience-slider::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar in WebKit browsers */
+}
+
+.experience-slider {
+  -ms-overflow-style: none;  /* Hides scrollbar in IE and Edge */
+  scrollbar-width: none;  /* Hides scrollbar in Firefox */
+}
