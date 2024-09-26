@@ -305,7 +305,6 @@ footer {
 }
 
 
-
 /* Experience Section */
 .experience-section {
   margin: 50px 0;
@@ -325,12 +324,13 @@ footer {
   margin-left: 100px; /* Aligns properly with title */
   padding-bottom: 10px;
   padding-right: 20px;
-  scroll-behavior: smooth; /* Smooth scrolling */
-  cursor: grab; /* Corrected grab cursor */
+  cursor: grab;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Add for smoother scrolling in iOS Safari */
 }
 
 .experience-item {
-  flex: 0 0 auto; /* Ensures items stay same width and don't shrink */
+  flex: 0 0 auto;
   min-width: 250px;
   background-color: #f9f9f9;
   padding: 20px;
@@ -340,32 +340,23 @@ footer {
   opacity: 0;
   transform: translateX(-50px);
   animation: slideIn 0.8s forwards ease-out;
+  -webkit-animation: slideIn 0.8s forwards ease-out; /* Safari support */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 2px solid rgba(128, 128, 128, 0.3); /* Subtle grey border */
+  border: 2px solid rgba(128, 128, 128, 0.3);
 }
 
 .experience-item:hover {
   transform: scale(1.05);
+  -webkit-transform: scale(1.05); /* Safari support */
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  border: 2px solid rgba(128, 128, 128, 0.8); /* Grey border intensifies on hover */
+  border: 2px solid rgba(128, 128, 128, 0.8);
 }
 
-.experience-item h4 {
-  font-size: 18px;
-  margin-bottom: 5px;
-}
-
-.experience-item p {
-  font-size: 16px;
-  color: #666;
-  margin: 0;
-}
-
-/* Slide-in keyframes */
 @keyframes slideIn {
   to {
     opacity: 1;
     transform: translateX(0);
+    -webkit-transform: translateX(0); /* Safari support */
   }
 }
 
@@ -397,17 +388,7 @@ footer {
   cursor: pointer;
 }
 
-/* Dragging styles */
-.experience-slider.active {
-  cursor: grabbing;
-}
-
-/* Hide scrollbar */
+/* Safari-specific scrollbar */
 .experience-slider::-webkit-scrollbar {
-  display: none; /* Hides the scrollbar in WebKit browsers */
-}
-
-.experience-slider {
-  -ms-overflow-style: none;  /* Hides scrollbar in IE and Edge */
-  scrollbar-width: none;  /* Hides scrollbar in Firefox */
+  display: none;
 }

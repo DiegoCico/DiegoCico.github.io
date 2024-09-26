@@ -53,10 +53,10 @@ slider.addEventListener('mouseup', () => {
 
 // Mouse move event
 slider.addEventListener('mousemove', (e) => {
-  if (!isDown) return; // Stop the function from running if not holding the mouse button
+  if (!isDown) return;
   e.preventDefault();
   const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 2; // Multiply by 2 to make the scroll faster
+  const walk = (x - startX) * 2;
   slider.scrollLeft = scrollLeft - walk;
 });
 
@@ -78,3 +78,11 @@ slider.addEventListener('touchmove', (e) => {
   slider.scrollLeft = scrollLeft - walk;
 });
 
+// Smooth scrolling in Safari with fallback
+slider.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  slider.scrollBy({
+                    left: e.deltaY < 0 ? -100 : 100,
+                    behavior: 'smooth',
+                  });
+});
