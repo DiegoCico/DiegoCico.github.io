@@ -21,16 +21,6 @@
   <h2 class="typewriter">Software Developer Engineer</h2>
 </div>
 
-<script>
-  window.addEventListener('scroll', function() {
-    var header = document.querySelector("header");
-    var title = document.querySelector(".title h2");
-
-    header.classList.toggle('scrolled', window.scrollY > 50);
-    title.classList.toggle('scrolled', window.scrollY > 50);
-  });
-</script>
-
 <!-- MEDIA -->
 <div class="animate-up">
   <div class="photoTitle">
@@ -61,54 +51,52 @@
     <p class="aboutMe">When I started High School, I participated in mobile development competitions at <strong><a href="https://www.fbla.org/" style="color: black">FBLA</a></strong>, qualified for <strong>regionals</strong>, and was awarded <strong>1st</strong> in states.</p>
     <p class="aboutMe"> Currently, working on OOD (Object-Oriented Design) and creating an algorithm for my job!</p>
     <p class="aboutMe">Last project I worked on, <span id="lastCommitDate">Loading...</span></p>
-<!--    <p class="aboutMe">As of today, I've coded <span id="linesOfCode">Loading...</span> lines of code.</p>-->
+    <!-- <p class="aboutMe">As of today, I've coded <span id="linesOfCode">Loading...</span> lines of code.</p> -->
   </div>
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-      document.getElementById('myImage').classList.add('fade-in');
-    }, 350);
-  });
-</script>
-
-
-<!-- Experience Section -->
+<!-- EXPERIENCE SECTION -->
 <div class="experience-section">
   <h3 class="section-title">Experience</h3>
   <div class="experience-slider">
-    <div class="experience-item" data-role="Data Engineer" data-duration="Sept 2024 - Present" data-description="Manage our website data, create algorithms to make sure the data travels more smootly -- https://supplytrace.org">
-      <h4>Supply Trace</h4>
-      <p>Data Engineer</p>
-    </div>
-    <div class="experience-item" data-role="Software Developer Intern" data-duration="May 2024 - Aug 2024" data-description="
+    <!-- Experience items grouped into pages -->
+    <div class="experience-page">
+      <div class="experience-item" data-role="Data Engineer" data-duration="Sept 2024 - Present" data-description="Manage our website data, create algorithms to make sure the data travels more smoothly -- https://supplytrace.org">
+        <h4>Supply Trace</h4>
+        <p>Data Engineer</p>
+      </div>
+      <div class="experience-item" data-role="Software Developer Intern" data-duration="May 2024 - Aug 2024" data-description="
 I extracted and processed data from over 2 million users monthly using the Productiv API, which significantly enhanced data insights for business strategies. Additionally, I designed and deployed a custom data pipeline using TypeScript, which reduced data processing time by 40%. I also implemented data visualization on Amazon QuickSight, improving user interface satisfaction by 15% and contributing to a cost reduction of 15 million dollars.">
-      <h4>Amazon</h4>
-      <p>Software Developer Intern</p>
-    </div>
-    <div class="experience-item" data-role="Founder" data-duration="Jun 2021 - Sep 2023" data-description="
+        <h4>Amazon</h4>
+        <p>Software Developer Intern</p>
+      </div>
+      <div class="experience-item" data-role="Founder" data-duration="Jun 2021 - Sep 2023" data-description="
 Founded and scaled an online coding tutoring platform, delivering 1,000+ hours of personalized
 sessions to children aged 8-16.">
-      <h4>Kid Teaches Kids</h4>
-      <p>Founder</p>
+        <h4>Kid Teaches Kids</h4>
+        <p>Founder</p>
+      </div>
     </div>
-    <div class="experience-item" data-role="Manager" data-duration="Jun 2021 - Aug 2023" data-description="
+    <div class="experience-page">
+      <div class="experience-item" data-role="Manager" data-duration="Jun 2021 - Aug 2023" data-description="
 I led a team of 15 instructors, consistently delivering over $30,000 in revenue each month, with a peak of more than $70,000 during summer camps.">
-      <h4>Code Ninjas</h4>
-      <p>Manager</p>
-    </div>
-    <div class="experience-item" data-role="Founder" data-duration="Jun 2021 - May 2023" data-description="
-Club chapter focuses on collecting toys and school/hygiene items in support of unprivileged children. with a goal of 1500 items per year">
-      <h4>The Hope Box</h4>
-      <p>Founder</p>
-    </div>
-    <div class="experience-item" data-role="Assistant" data-duration="Jun 2021 - May 2023" data-description="
+        <h4>Code Ninjas</h4>
+        <p>Manager</p>
+      </div>
+      <div class="experience-item" data-role="Founder" data-duration="Jun 2021 - May 2023" data-description="
+Club chapter focuses on collecting toys and school/hygiene items in support of unprivileged children, with a goal of 1500 items per year.">
+        <h4>The Hope Box</h4>
+        <p>Founder</p>
+      </div>
+      <div class="experience-item" data-role="Assistant" data-duration="Jun 2021 - May 2023" data-description="
 During this unpaid internship, I contributed to the development of application projects utilizing the Android platform, leveraging technologies such as Java, XML, HTML, and CSS to build and optimize user interfaces and functionality.">
-      <h4>Pinbank Brazil</h4>
-      <p>Assistant</p>
+        <h4>Pinbank Brazil</h4>
+        <p>Assistant</p>
+      </div>
     </div>
   </div>
+  <!-- Pagination Lines -->
+  <div class="pagination-lines"></div>
 </div>
 
 <!-- Pop-up modal for job details -->
@@ -121,8 +109,6 @@ During this unpaid internship, I contributed to the development of application p
     <p id="job-description"></p>
   </div>
 </div>
-
-
 
 <!-- LIVE PROJECTS -->
 <h3 class="projectsTitle"> Live Projects </h3>
@@ -158,23 +144,23 @@ During this unpaid internship, I contributed to the development of application p
   </div>
 </div>
 
-  <div class="box animate-up" style="position: relative; flex-basis: 100%; display: flex; align-items: center;">
-    <img src="../img/toolGuide.png" height="10%" width="50px" style="margin-right: 20px;"/>
-    <div>
-      <p class="boxTitle"> tools.guide </p>
-      <p class="boxSubTitle"> A comprehensive guide to various tools and technologies in the software development world. This project aims to help developers find the right tools for their needs and understand their usage and benefits. </p>
+<div class="box animate-up" style="position: relative; flex-basis: 100%; display: flex; align-items: center;">
+  <img src="../img/toolGuide.png" height="10%" width="50px" style="margin-right: 20px;"/>
+  <div>
+    <p class="boxTitle"> tools.guide </p>
+    <p class="boxSubTitle"> A comprehensive guide to various tools and technologies in the software development world. This project aims to help developers find the right tools for their needs and understand their usage and benefits. </p>
+  </div>
+  <div class="center-container" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex;">
+    <div class="image-container" style="margin-right: 10px;">
+      <a href="https://github.com/DiegoCico/tools.guide"> <img src="../img/github.png" height="40" width="40"/> </a>
+      <div class="hover-line"></div>
     </div>
-    <div class="center-container" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex;">
-      <div class="image-container" style="margin-right: 10px;">
-        <a href="https://github.com/DiegoCico/tools.guide"> <img src="../img/github.png" height="40" width="40"/> </a>
-        <div class="hover-line"></div>
-      </div>
-      <div class="image-container">
-        <a href="http://diegocico.github.io/tools.guide/"> <img src="../img/web.png" height="40" width="40"/> </a>
-        <div class="hover-line"></div>
-      </div>
+    <div class="image-container">
+      <a href="http://diegocico.github.io/tools.guide/"> <img src="../img/web.png" height="40" width="40"/> </a>
+      <div class="hover-line"></div>
     </div>
   </div>
+</div>
 </div>
 
 <!-- PROJECTS -->
@@ -259,7 +245,28 @@ During this unpaid internship, I contributed to the development of application p
   </div>
 </footer>
 
-<!-- Include the new JavaScript file -->
+<!-- Embedded Scripts -->
+<script>
+  // Scroll Event Listener for Header and Title
+  window.addEventListener('scroll', function() {
+    var header = document.querySelector("header");
+    var title = document.querySelector(".title h2");
+
+    header.classList.toggle('scrolled', window.scrollY > 50);
+    title.classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+
+<script>
+  // Fade-in Effect for 'About Me' Image
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      document.getElementById('myImage').classList.add('fade-in');
+    }, 350);
+  });
+</script>
+
+<!-- Include the External JavaScript Files -->
 <script src="js/githubCommit.js"></script>
 <script src="js/githubLines.js"></script>
 <script src="js/experience.js"></script>
