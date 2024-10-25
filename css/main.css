@@ -108,6 +108,21 @@ header.scrolled {
   font-size: 15px;
 }
 
+.schedule-button {
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.schedule-button:hover {
+  background-color: #005bb5;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -657,22 +672,6 @@ footer {
   font-size: 10px;
   color: white;
   text-decoration: none;
-}
-
-
-.schedule-button {
-  background-color: #0073e6;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.schedule-button:hover {
-  background-color: #005bb5;
 }
 
 
