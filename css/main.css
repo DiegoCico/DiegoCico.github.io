@@ -342,10 +342,9 @@ footer {
 }
 
 .experience-page {
-  display: flex;
   flex: 0 0 100%;
-  gap: 20px;
-  scroll-snap-align: start;
+  width: 100%;
+  transition: transform 0.5s ease;
 }
 
 .experience-item {
