@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const line = document.createElement('div');
       line.classList.add('line');
       if (index === 0) line.classList.add('active');
-      line.setAttribute('data-index', index);
-      line.setAttribute('aria-label', `Go to experience section ${index + 1}`);
+      line.dataset.index = index;
+      line.ariaLabel = `Go to experience section ${index + 1}`;
       pagination.appendChild(line);
     });
   };
@@ -25,20 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // Function to Update Active Line
   const updateActiveLine = (index) => {
     lines.forEach(line => line.classList.remove('active'));
-    if (lines[index]) {
-      lines[index].classList.add('active');
-    }
+    if (lines[index]) lines[index].classList.add('active');
   };
 
   // Function to Scroll to Specific Experience Page
   const scrollToPage = (index) => {
     const page = experiencePages[index];
     if (page) {
-      const pagePosition = page.offsetLeft;
       slider.scrollTo({
-                        left: pagePosition,
-                        behavior: 'smooth'
-                      });
+        left: page.offsetLeft,
+        behavior: 'smooth',
+      });
       currentIndex = index;
       updateActiveLine(index);
     }
@@ -47,27 +44,26 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add Click Event Listeners to Lines
   lines.forEach(line => {
     line.addEventListener('click', (e) => {
-      const index = parseInt(e.target.getAttribute('data-index'));
+      const index = parseInt(e.target.dataset.index);
       scrollToPage(index);
     });
   });
 
-  // Update Active Line on Manual Scroll
-  const handleScroll = () => {
+  // Scroll Event with Debounce to Update Active Line
+  const debounceScroll = () => {
     if (isScrolling) return;
     isScrolling = true;
 
     setTimeout(() => {
-      const sliderScrollLeft = slider.scrollLeft;
-      const sliderWidth = slider.offsetWidth;
+      const sliderCenter = slider.scrollLeft + (slider.offsetWidth / 2);
       let closestIndex = 0;
-      let closestDistance = Infinity;
+      let minDistance = Infinity;
 
       experiencePages.forEach((page, index) => {
         const pageCenter = page.offsetLeft + (page.offsetWidth / 2);
-        const distance = Math.abs(pageCenter - (sliderScrollLeft + (sliderWidth / 2)));
-        if (distance < closestDistance) {
-          closestDistance = distance;
+        const distance = Math.abs(pageCenter - sliderCenter);
+        if (distance < minDistance) {
+          minDistance = distance;
           closestIndex = index;
         }
       });
@@ -75,40 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
       currentIndex = closestIndex;
       updateActiveLine(closestIndex);
       isScrolling = false;
-    }, 100); // Debounce time
+    }, 150);
   };
 
-  slider.addEventListener('scroll', handleScroll);
-
-  // Modal Functionality
-  const modal = document.getElementById('experience-modal');
-  const closeBtn = modal.querySelector('.close-btn');
-  const companyName = document.getElementById('company-name');
-  const jobRole = document.getElementById('job-role');
-  const jobDuration = document.getElementById('job-duration');
-  const jobDescription = document.getElementById('job-description');
-
-  const experienceItems = document.querySelectorAll('.experience-item');
-
-  experienceItems.forEach(item => {
-    item.addEventListener('click', () => {
-      companyName.textContent = item.querySelector('h4').textContent;
-      jobRole.textContent = item.getAttribute('data-role');
-      jobDuration.textContent = item.getAttribute('data-duration');
-      jobDescription.textContent = item.getAttribute('data-description');
-      modal.style.display = 'block';
-    });
-  });
-
-  closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
-
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
+  slider.addEventListener('scroll', debounceScroll);
 
   // Drag-to-Scroll Functionality
   let isDown = false;
@@ -136,20 +102,46 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!isDown) return;
     e.preventDefault();
     const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 1.5; // Adjust scroll speed as needed
+    const walk = (x - startX) * 2; // Adjust scroll speed as needed
     slider.scrollLeft = scrollLeftPos - walk;
   });
 
   // Optional: Keyboard Navigation (Left and Right Arrow Keys)
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-      if (currentIndex > 0) {
-        scrollToPage(currentIndex - 1);
-      }
-    } else if (e.key === 'ArrowRight') {
-      if (currentIndex < experiencePages.length - 1) {
-        scrollToPage(currentIndex + 1);
-      }
+    if (e.key === 'ArrowLeft' && currentIndex > 0) {
+      scrollToPage(currentIndex - 1);
+    } else if (e.key === 'ArrowRight' && currentIndex < experiencePages.length - 1) {
+      scrollToPage(currentIndex + 1);
+    }
+  });
+
+  // Modal Functionality for Experience Details
+  const modal = document.getElementById('experience-modal');
+  const closeBtn = modal.querySelector('.close-btn');
+  const companyName = document.getElementById('company-name');
+  const jobRole = document.getElementById('job-role');
+  const jobDuration = document.getElementById('job-duration');
+  const jobDescription = document.getElementById('job-description');
+
+  const experienceItems = document.querySelectorAll('.experience-item');
+
+  experienceItems.forEach(item => {
+    item.addEventListener('click', () => {
+      companyName.textContent = item.querySelector('h4').textContent;
+      jobRole.textContent = item.dataset.role;
+      jobDuration.textContent = item.dataset.duration;
+      jobDescription.textContent = item.dataset.description;
+      modal.style.display = 'block';
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
     }
   });
 });
