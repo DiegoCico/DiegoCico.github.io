@@ -7,82 +7,118 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin: 0;
 }
 
-header {
-  background-color: #e63946; /* Vibrant red */
-  color: #fff;
-  padding: 1.5rem;
-  text-align: center;
-  font-size: 2.5rem;
+header.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #264653; /* Dark teal */
+  color: #e9c46a; /* Gold */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.header-left {
+  font-size: 1.5rem;
   font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-right a {
+  color: #e9c46a;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.header-right a:hover {
+  color: #f4a261; /* Lighter gold */
 }
 
 main {
-  flex: 1;
+  padding-top: 4rem; /* Space for fixed header */
 }
 
 /* Section Styling */
 section {
+  width: 100%; /* Remove white space */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  padding: 3rem;
+  align-items: center;
+  padding: 3rem 0; /* Reduce padding to balance layout */
 }
 
 #intro-section {
-  background-color: #000;
+  background: linear-gradient(to bottom, #264653, #2a9d8f); /* Dark teal to green gradient */
   color: #fff;
+  text-align: center;
 }
 
 #about-section {
-  background-color: #f4f4f9;
+  background-color: #fefae0; /* Light beige */
   color: #333;
 }
 
-#projects-section {
-  background-color: #fff;
-  color: #444;
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; /* Center align */
+  gap: 2rem;
+  text-align: left;
 }
 
-/* Text Styling */
-.intro-text {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+/* Modern Image Styling */
+.aboutMePhoto {
+  border-radius: 20px; /* Smooth rounded corners */
+  width: 150px; /* Smaller image */
+  height: 150px; /* Maintain proportion */
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Modern shadow effect */
+  border: none; /* Remove green border */
 }
 
-.typewriter-text {
-  font-size: 2rem;
-  font-weight: 500;
-}
-
-.name {
-  color: #e63946;
-}
-
-.about-text,
-.projects-text {
-  font-size: 1.5rem;
-  max-width: 800px;
-}
-
-/* Typewriter Animation */
-.typewriter-text::after {
-  content: "|";
-  display: inline-block;
-  animation: blink 0.7s step-end infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
   }
+
+  .aboutMePhoto {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Button Styling */
+.schedule-button {
+  background-color: #2a9d8f;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.schedule-button:hover {
+  background-color: #264653; /* Dark teal */
+  transform: scale(1.05);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }

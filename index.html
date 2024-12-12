@@ -9,24 +9,54 @@
   <link rel="icon" type="image/png" href="./img/smallLogo.png">
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Portfolio</h1>
+  <header class="fixed-header">
+    <div class="header-left">Diego Cicotoste</div>
+    <nav class="header-right">
+      <a href="#intro-section">Home</a>
+      <a href="#about-section">About Me</a>
+      <a href="#projects-section">Projects</a>
+    </nav>
   </header>
   <main>
-    <h1> HELLO THIS WEBSITE IS IN DEVELOPMENT, IF YOU LIKE TO SEE THE PREVIOUS PORTFOLIO CLICK HERE: <a href="http://diegocico.github.io/OldPortfolio/"> Portfolio </a></h1>
     <section id="intro-section">
+      <h1>Welcome to My Portfolio</h1>
       <p class="intro-text">Hello, my name is <span class="name">Diego Cicotoste</span></p>
-      <p class="typewriter-text">I'm <span id="dynamic-text"></span></p>
+      <p class="typewriter-text">I'm <span id="dynamic-text" style="color: red;"></span></p>
     </section>
     <section id="about-section">
-      <h2>About Me</h2>
-      <p class="about-text">I'm a passionate software engineer who loves creating innovative solutions. Explore my portfolio to see my work.</p>
+      <div class="about-container">
+        <img 
+          id="myImage" 
+          class="aboutMePhoto" 
+          src="./img/me.JPG" 
+          alt="Diego Cicotoste" 
+        />
+        <div class="about-content">
+          <h3>About Me</h3>
+          <p>Hi, I am a current student at Northeastern University, class of 2027, studying Computer Science.</p>
+          <p>I started coding in 8th grade, creating games on Unity using C#.</p>
+          <p>
+            In High School, I participated in mobile development competitions at 
+            <strong>
+              <a href="https://www.fbla.org/" target="_blank">FBLA</a>
+            </strong>, qualified for regionals, and won 1st in states.
+          </p>
+          <p>Currently, I am developing my own pipeline for big projects in Java and creating an algorithm for my job!</p>
+          <button 
+            onclick="window.open('https://calendly.com/cicotosted/coffee-chat', '_blank')" 
+            class="schedule-button"
+          >
+            Schedule a Meeting
+          </button>
+        </div>
+      </div>
     </section>
     <section id="projects-section">
       <h2>Projects</h2>
-      <p class="projects-text">Discover the projects I've worked on, showcasing my skills in web development, data science, and more.</p>
+      <p>Discover the projects I've worked on, showcasing my skills in web development, data science, and more.</p>
     </section>
   </main>
   <script src="./js/typewriter.js"></script>
+  <script src="./js/experience.js"></script>
 </body>
 </html>

@@ -7,9 +7,8 @@ const textArray = [
   "a Data Engineer at Supply Trace",
   "an Intern at Amazon",
   "a Manager at Code Ninjas",
-  "a Snowboarder",
+  "a snowboarder!",
   "a #LikeAHusky (Northeastern Mojo)",
-  "an Innovator"
 ];
 
 let currentText = ""; // Currently displayed text
