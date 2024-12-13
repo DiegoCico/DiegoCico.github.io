@@ -251,8 +251,8 @@ section {
 
 /* Projects Section */
 #projects-section {
-  background-color: #000000; /* Black */
-  color: #ffffff; /* White */
+  background-color: #ffffff; /* Black */
+  color: black; /* White */
   padding: 2rem;
   text-align: center;
 }
@@ -280,5 +280,117 @@ section {
   .schedule-button {
     font-size: 1rem; /* Smaller button text */
     padding: 0.8rem 1.5rem; /* Smaller button */
+  }
+}
+
+
+/* Experience Section Styling */
+#experience-section {
+  background-color: black; /* Black */
+  color: #ffffff; /* White */
+  padding: 2rem;
+  text-align: center;
+}
+
+.experience-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 2rem; /* Space between cards */
+  margin-top: 2rem;
+}
+
+.experience-card {
+  background-color: #1c1c1c; /* Dark gray */
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  padding: 2rem; /* Increased padding for larger cards */
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 90%; /* Adjust card width */
+  max-width: 400px; /* Ensure it doesn’t exceed a reasonable size */
+  margin: 0 auto; /* Center cards within the grid */
+}
+
+.experience-card h3 {
+  color: #ff0000; /* Red */
+  font-size: 1.8rem; /* Larger font size for title */
+  margin-bottom: 1rem;
+}
+
+.experience-card p {
+  font-size: 1.2rem; /* Larger text for details */
+  color: #dddddd; /* Light gray */
+}
+
+.experience-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Popup Modal */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.popup-content {
+  background-color: #ffffff; /* White */
+  color: #000000; /* Black */
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.popup-content h3 {
+  font-size: 2rem;
+  color: #ff0000; /* Red */
+  margin-bottom: 1rem;
+}
+
+.popup-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff0000; /* Red */
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .experience-cards {
+    grid-template-columns: 1fr; /* Single column for smaller screens */
+  }
+
+  .experience-card {
+    width: 100%; /* Full width on smaller screens */
   }
 }

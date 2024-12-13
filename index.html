@@ -58,6 +58,42 @@
         </div>
       </div>
     </section>
+
+
+    <section id="experience-section">
+      <h2>Experience</h2>
+      <div class="experience-cards">
+        <div class="experience-card" onclick="showPopup('Amazon', 'Summer 2025', 'Incoming Software Development Intern', 'I will be working on enhancing backend services for Amazon\'s global operations, focusing on scalable and efficient solutions.')">
+          <h3>Amazon</h3>
+          <p>Summer 2025</p>
+          <p>Software Development Intern</p>
+        </div>
+        <div class="experience-card" onclick="showPopup('Code Ninjas', 'June 2021 - August 2023', 'Manager', 'Led a team of 15 instructors, mentoring kids in coding, revamping the franchise\'s performance, and delivering $30,000+ in monthly revenue.')">
+          <h3>Code Ninjas</h3>
+          <p>June 2021 - August 2023</p>
+          <p>Manager</p>
+        </div>
+        <div class="experience-card" onclick="showPopup('Supply Trace', 'Ongoing', 'Data Engineer', 'Built data pipelines and analytical tools under Dr. Shawn at Northeastern University, helping streamline supply chain operations.')">
+          <h3>Supply Trace</h3>
+          <p>Ongoing</p>
+          <p>Data Engineer</p>
+        </div>
+      </div>
+      
+      <!-- Popup Modal -->
+      <div id="popup" class="popup hidden" onclick="closePopup(event)">
+        <div class="popup-content" onclick="event.stopPropagation()">
+          <span class="close-btn" onclick="closePopup()">&times;</span>
+          <h3 id="popup-title"></h3>
+          <p><strong>Duration:</strong> <span id="popup-duration"></span></p>
+          <p><strong>Role:</strong> <span id="popup-role"></span></p>
+          <p><strong>Description:</strong></p>
+          <p id="popup-description"></p>
+        </div>
+      </div>
+    </section>
+    
+
     <section id="projects-section">
       <h2>Projects</h2>
       <p>Discover the projects I've worked on, showcasing my skills in web development, data science, and more.</p>
@@ -70,6 +106,27 @@
       const menu = document.querySelector('.menu');
       menu.classList.toggle('active');
     }
+  </script>
+  <script>
+  function showPopup(title, duration, role, description) {
+  document.getElementById('popup-title').textContent = title;
+  document.getElementById('popup-duration').textContent = duration;
+  document.getElementById('popup-role').textContent = role;
+  document.getElementById('popup-description').textContent = description;
+
+  const popup = document.getElementById('popup');
+  popup.classList.remove('hidden');
+  popup.style.opacity = '1';  // Ensure the popup becomes visible
+  popup.style.visibility = 'visible';
+}
+
+function closePopup(event) {
+  const popup = document.getElementById('popup');
+  popup.classList.add('hidden');
+  popup.style.opacity = '0';
+  popup.style.visibility = 'hidden';
+}
+
   </script>
 </body>
 </html>
