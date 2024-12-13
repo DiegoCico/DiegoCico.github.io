@@ -143,35 +143,37 @@ section {
 }
 
 
-/* Typewriter Effect */
 .typewriter-text {
   overflow: hidden;
-  white-space: normal; /* Allow text to wrap to a new line */
+  white-space: nowrap; /* Prevent wrapping on larger screens */
   border-right: 2px solid #ff0000; /* Red */
   font-size: 1.5rem;
   color: #ff0000; /* Red for typing text */
   display: inline-block;
   animation: typing 4s steps(20, end), blink 0.6s step-end infinite;
-  width: 100%; /* Ensures it uses the full container width */
-  padding: 0.5rem; /* Add space around the text */
-  box-sizing: border-box; /* Include padding in width */
-  word-break: break-word; /* Break long words to avoid overflow */
+  width: auto; /* Auto-expand based on text content */
+  padding: 0.5rem;
+  box-sizing: border-box;
+  word-break: normal; /* Prevent breaking unless specified in media queries */
 }
 
-/* Adjust for smaller devices */
 @media (max-width: 768px) {
   .typewriter-text {
-    font-size: 1.2rem; /* Slightly smaller font size for mobile */
-    padding: 0.3rem; /* Adjust padding for smaller screens */
+    white-space: normal; /* Allow wrapping for smaller screens */
+    width: 100%; /* Ensure it uses the full width of the container */
+    font-size: 1.2rem; /* Adjust font size */
+    padding: 0.3rem; /* Adjust padding */
+    word-break: break-word; /* Break long words to fit small screens */
   }
 }
 
 @media (max-width: 480px) {
   .typewriter-text {
     font-size: 1rem; /* Even smaller font size for very small screens */
-    padding: 0.2rem; /* Reduce padding further for small devices */
+    padding: 0.2rem; /* Further reduce padding for tiny devices */
   }
 }
+
 
 
 
