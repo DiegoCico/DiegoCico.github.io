@@ -11,12 +11,13 @@
 <body>
   <header class="fixed-header">
     <div class="header-left">Portfolio.</div>
-    <nav class="header-right">
+    <button class="hamburger-menu" onclick="toggleMenu()">☰</button>
+    <nav class="header-right menu">
       <a href="#intro-section">Home</a>
       <a href="#about-section">About Me</a>
       <a href="#projects-section">Projects</a>
     </nav>
-  </header>
+  </header>  
   <main>
     <section id="intro-section">
       <div class="intro-text-container" style="text-align: left;">
@@ -64,5 +65,11 @@
   </main>
   <script src="./js/typewriter.js"></script>
   <script src="./js/githubCommit.js"></script>
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      menu.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>

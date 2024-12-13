@@ -46,6 +46,55 @@ header.fixed-header {
   transform: scale(1.1);
 }
 
+/* Header Styling */
+.header-right {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: none; /* Hide by default */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Dropdown Menu */
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.menu.active {
+  display: flex; /* Show dropdown on click */
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #000000; /* Black */
+  width: 100%; /* Full-width menu */
+  padding: 1rem;
+  z-index: 1000;
+  gap: 1rem;
+}
+
+/* Hide menu links for smaller screens by default */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block; /* Show hamburger menu */
+  }
+
+  .menu {
+    display: none; /* Hide menu links */
+  }
+}
+
+
 main {
   padding-top: 4rem; /* Space for fixed header */
 }
@@ -97,32 +146,33 @@ section {
 /* Typewriter Effect */
 .typewriter-text {
   overflow: hidden;
-  white-space: nowrap;
+  white-space: normal; /* Allow text to wrap to a new line */
   border-right: 2px solid #ff0000; /* Red */
   font-size: 1.5rem;
   color: #ff0000; /* Red for typing text */
   display: inline-block;
   animation: typing 4s steps(20, end), blink 0.6s step-end infinite;
-  max-width: 90%; /* Ensures it doesn't go off-screen */
-  overflow-wrap: break-word; /* Breaks long words properly */
-  padding: 0.5rem; /* Adds space around text */
-  box-sizing: border-box; /* Includes padding in width */
+  width: 100%; /* Ensures it uses the full container width */
+  padding: 0.5rem; /* Add space around the text */
+  box-sizing: border-box; /* Include padding in width */
+  word-break: break-word; /* Break long words to avoid overflow */
 }
 
 /* Adjust for smaller devices */
 @media (max-width: 768px) {
   .typewriter-text {
-    font-size: 0.9rem; /* Smaller font size for mobile */
-    max-width: 100%; /* Use full width on smaller devices */
+    font-size: 1.2rem; /* Slightly smaller font size for mobile */
+    padding: 0.3rem; /* Adjust padding for smaller screens */
   }
 }
 
 @media (max-width: 480px) {
   .typewriter-text {
-    font-size: 0.6rem; /* Even smaller font size for very small screens */
-    padding: 0.3rem; /* Adjust padding */
+    font-size: 1rem; /* Even smaller font size for very small screens */
+    padding: 0.2rem; /* Reduce padding further for small devices */
   }
 }
+
 
 
 @keyframes typing {
