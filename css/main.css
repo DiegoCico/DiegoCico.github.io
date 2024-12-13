@@ -394,3 +394,22 @@ section {
     width: 100%; /* Full width on smaller screens */
   }
 }
+
+/* Button Styling for Experience Card */
+.supply-trace-button {
+  margin-top: 1rem;
+  background-color: #ff0000; /* Red */
+  color: #ffffff; /* White */
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.supply-trace-button:hover {
+  background-color: #000000; /* Black */
+  transform: scale(1.05);
+}
