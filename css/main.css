@@ -78,11 +78,15 @@ section {
 }
 
 .intro-text-container h1 {
-  font-size: 3rem; /* Larger heading */
+  font-size: 1.5rem; /* Larger heading */
+}
+
+.name {
+  font-size: 2rem;
 }
 
 .intro-text-container p {
-  font-size: 1.8rem; /* Larger paragraph text */
+  font-size: 2rem; /* Larger paragraph text */
 }
 
 .typewriter-text {
