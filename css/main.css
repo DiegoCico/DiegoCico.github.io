@@ -63,16 +63,32 @@ section {
 #intro-section {
   background-color: #000000; /* Black */
   color: #ffffff; /* White */
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0 5rem; /* Middle left padding */
+  position: relative; /* Ensure absolute positioning works for children */
+  width: 100%; 
+  height: 100vh; /* Full viewport height */
 }
 
 .intro-text-container {
   max-width: auto;
-  
+  position: absolute;
+  left: 0; /* Align to the left */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust to center properly */
+  padding: 2rem; /* Add some padding for spacing */
 }
+
+.intro-text-container h1 {
+  font-size: 3rem; /* Larger heading */
+}
+
+.intro-text-container p {
+  font-size: 1.8rem; /* Larger paragraph text */
+}
+
+.typewriter-text {
+  font-size: 2rem; /* Increase typewriter text size */
+}
+
 
 /* Typewriter Effect */
 .typewriter-text {
@@ -104,32 +120,49 @@ section {
 #about-section {
   background-color: #ffffff; /* White */
   color: #000000; /* Black */
+  padding: 2rem;
 }
 
 .about-container {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  flex-wrap: wrap; /* Ensures wrapping for smaller screens */
 }
 
 .aboutMePhoto {
   border-radius: 20px;
-  width: 150px;
-  height: 150px;
+  width: 350px; /* Larger image */
+  height: 350px; /* Larger image */
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0; /* Prevent shrinking of the image */
 }
 
-/* Button Styling */
+.about-content {
+  max-width: 600px;
+  flex: 1; /* Ensures the text takes up available space */
+  text-align: left;
+}
+
+.about-content h3 {
+  font-size: 2.2rem; /* Larger heading size */
+  margin-bottom: 1rem;
+}
+
+.about-content p {
+  font-size: 1.2rem; /* Larger paragraph text */
+  line-height: 1.8; /* Improved readability */
+}
+
 .schedule-button {
   background-color: #ff0000; /* Red */
   color: #ffffff; /* White */
   border: none;
-  padding: 0.8rem 1.5rem;
+  padding: 1rem 2rem; /* Larger button */
   border-radius: 8px;
-  font-size: 1.1rem;
+  font-size: 1.2rem; /* Larger button text */
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -140,20 +173,36 @@ section {
   transform: scale(1.05);
 }
 
+/* Projects Section */
+#projects-section {
+  background-color: #000000; /* Black */
+  color: #ffffff; /* White */
+  padding: 2rem;
+  text-align: center;
+}
+
 /* Responsive Layout */
 @media (max-width: 768px) {
-  #intro-section {
-    padding: 2rem;
-    justify-content: center;
-  }
-
   .about-container {
-    flex-direction: column;
+    flex-direction: column; /* Stack items vertically */
     text-align: center;
   }
 
   .aboutMePhoto {
-    width: 120px;
-    height: 120px;
+    width: 250px; /* Smaller image for smaller screens */
+    height: 250px;
+  }
+
+  .about-content h3 {
+    font-size: 1.8rem; /* Slightly smaller heading */
+  }
+
+  .about-content p {
+    font-size: 1rem; /* Slightly smaller paragraph text */
+  }
+
+  .schedule-button {
+    font-size: 1rem; /* Smaller button text */
+    padding: 0.8rem 1.5rem; /* Smaller button */
   }
 }
