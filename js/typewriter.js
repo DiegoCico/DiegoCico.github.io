@@ -9,6 +9,8 @@ const textArray = [
   "a Manager at Code Ninjas",
   "a snowboarder!",
   "a #LikeAHusky (Northeastern Mojo)",
+  "a skater!",
+  "an Intern at PinBank Brazil"
 ];
 
 let currentText = ""; // Currently displayed text
