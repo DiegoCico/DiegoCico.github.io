@@ -32,7 +32,7 @@ function typeEffect() {
     if (charIndex < currentText.length) {
       dynamicText.textContent += currentText.charAt(charIndex);
       charIndex++;
-      setTimeout(typeEffect, 80); // Speed of typing
+      setTimeout(typeEffect, 90); // Speed of typing
     } else {
       typing = false;
       setTimeout(typeEffect, 1200); // Pause after typing the word
