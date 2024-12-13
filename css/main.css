@@ -112,14 +112,14 @@ section {
 /* Adjust for smaller devices */
 @media (max-width: 768px) {
   .typewriter-text {
-    font-size: 1.2rem; /* Smaller font size for mobile */
+    font-size: 0.9rem; /* Smaller font size for mobile */
     max-width: 100%; /* Use full width on smaller devices */
   }
 }
 
 @media (max-width: 480px) {
   .typewriter-text {
-    font-size: 1rem; /* Even smaller font size for very small screens */
+    font-size: 0.6rem; /* Even smaller font size for very small screens */
     padding: 0.3rem; /* Adjust padding */
   }
 }
