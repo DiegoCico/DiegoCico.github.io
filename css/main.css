@@ -194,54 +194,97 @@ section {
 
 /* About Section */
 #about-section {
-  background-color: #ffffff; /* White */
-  color: #000000; /* Black */
+  background-color: #f9f9f9; /* Light background for readability */
+  color: #333; /* Darker text for contrast */
   padding: 2rem;
 }
 
 .about-container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 2rem;
-  flex-wrap: wrap; /* Ensures wrapping for smaller screens */
+  margin-top: 2rem;
+  margin: 0 auto; /* Center the content block */
 }
 
 .aboutMePhoto {
   border-radius: 20px;
-  width: 350px; /* Larger image */
-  height: 350px; /* Larger image */
+  width: 300px; 
+  height: 300px; 
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  flex-shrink: 0; /* Prevent shrinking of the image */
 }
 
 .about-content {
   max-width: 600px;
-  flex: 1; /* Ensures the text takes up available space */
-  text-align: left;
+  text-align: left; 
+  margin: 0 auto; 
+  position: relative; 
 }
 
 .about-content h3 {
-  font-size: 2.2rem; /* Larger heading size */
+  font-size: 2rem;
+  color: #ff0000; /* Add a pop of color for headings */
   margin-bottom: 1rem;
 }
 
 .about-content p {
-  font-size: 1.2rem; /* Larger paragraph text */
-  line-height: 1.8; /* Improved readability */
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.highlight {
+  color: #007BFF; /* Blue highlight for dynamic content */
+  font-weight: bold;
 }
 
 .schedule-button {
-  background-color: #ff0000; /* Red */
-  color: #ffffff; /* White */
+  display: block; /* Ensure the button doesn't stretch */
+  background-color: red; /* Blue button */
+  margin: 1.5rem auto 0; /* Center the button horizontally with auto and add top margin */
+  color: white;
   border: none;
-  padding: 1rem 2rem; /* Larger button */
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
   border-radius: 8px;
-  font-size: 1.2rem; /* Larger button text */
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+.schedule-button:hover {
+  background-color: red; /* Darker blue on hover */
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .aboutMePhoto {
+    width: 250px;
+    height: 250px;
+  }
+
+  .about-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+  }
+
+  .schedule-button {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+}
+
 
 .schedule-button:hover {
   background-color: #000000; /* Black */
