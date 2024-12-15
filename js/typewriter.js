@@ -2,26 +2,44 @@ const dynamicText = document.getElementById('dynamic-text');
 
 // Array of text options
 const textArray = [
-  "a Software Engineer",
-  "a Full Stack Developer",
-  "a Data Engineer at Supply Trace",
-  "an Intern at Amazon",
-  "a Manager at Code Ninjas",
-  "a snowboarder!",
-  "a #LikeAHusky (Northeastern Mojo)",
-  "an Intern at PinBank Brazil",  
+  "A Software Engineer",
+  "A Full Stack Developer",
+  "A Data Engineer at Supply Trace",
+  "An Intern at Amazon",
+  "A Manager at Code Ninjas",
+  "A Snowboarder",
+  "A #LikeAHusky (Northeastern Mojo)",
+  "A Chef",
+  "A Wakeboarder",
+  "A Car Enthusiast",
+  "A Freelance Developer",
+  "An Intern at PinBank Brazil",  
+  "An Open-Source Contributor",
+  "A Coffee/Tea Lover",
+  "A Team Leader",
+  "A Hackathon Enthusiast",
 ];
 
 let currentText = ""; // Currently displayed text
 let charIndex = 0; // Index for characters in a word
 let typing = true; // Flag to indicate typing/deleting
+let recentIndices = []; // Queue to track the last 3 used indices
 
 function getRandomIndex() {
-  // Get a random index for the text array
-  let randomIndex;
-  do {
-    randomIndex = Math.floor(Math.random() * textArray.length);
-  } while (textArray[randomIndex] === currentText); // Ensure it's not the same as the current text
+  // Create a pool of valid indices excluding recent ones
+  const availableIndices = textArray
+    .map((_, index) => index)
+    .filter(index => !recentIndices.includes(index));
+  
+  // Pick a random index from the available pool
+  const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+  
+  // Update recent indices queue
+  recentIndices.push(randomIndex);
+  if (recentIndices.length > 3) {
+    recentIndices.shift(); // Remove the oldest index
+  }
+
   return randomIndex;
 }
 
