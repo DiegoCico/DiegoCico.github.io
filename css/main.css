@@ -308,8 +308,8 @@ section {
   }
 
   .aboutMePhoto {
-    width: 250px; /* Smaller image for smaller screens */
-    height: 250px;
+    width: 300px; /* Smaller image for smaller screens */
+    height: 300px;
   }
 
   .about-content h3 {

@@ -1,37 +1,26 @@
-// Fetches GitHub repo count with proper pagination for public repositories
-async function fetchAndDisplayRepoCount(username) {
-    const baseUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
+async function fetchAllGitHubProjects(username) {
+    const apiUrl = `https://api.github.com/users/${username}/repos`;
     let page = 1;
-    let repoCount = 0;
+    let repos = [];
 
     try {
-        while (true) {
-            const response = await fetch(`${baseUrl}&page=${page}`);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            const repos = await response.json();
-            if (repos.length === 0) break; // Stop when no more repos are returned
-            repoCount += repos.length;
-            console.log(`Page ${page}: Fetched ${repos.length} repositories`);
-            page++;
+      while (true) {
+        const response = await fetch(`${apiUrl}?per_page=100&page=${page}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch repositories');
         }
+        const data = await response.json();
+        if (data.length === 0) break; // Stop when no more repos are returned
+        repos = repos.concat(data);
+        page++;
+      }
 
-        // Update HTML dynamically
-        const aboutContent = document.querySelector(".about-content p:first-of-type");
-        if (aboutContent) {
-            aboutContent.innerHTML = `Hi, I am a current student at Northeastern University, class of 2026, studying Computer Science. I currently have <strong>${repoCount}</strong> public projects in my GitHub repository.`;
-        }
+      document.getElementById('projectCount').textContent = repos.length;
     } catch (error) {
-        console.error(`An error occurred: ${error}`);
+      console.error('Error fetching GitHub repositories:', error);
+      document.getElementById('projectCount').textContent = 'Error loading projects';
     }
-}
+  }
 
-// Main function
-async function main() {
-    const githubUsername = "DiegoCico"; // Replace with your GitHub username
-    await fetchAndDisplayRepoCount(githubUsername);
-}
-
-main();
+  // Call the function with your GitHub username
+  fetchAllGitHubProjects('DiegoCico');
