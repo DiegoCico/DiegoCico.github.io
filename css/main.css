@@ -456,3 +456,40 @@ section {
   background-color: #000000; /* Black */
   transform: scale(1.05);
 }
+
+/* Footer Styling */
+.footer {
+  background-color: black; /* Light background */
+  color: #333; /* Dark text for contrast */
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid black; /* Subtle top border */
+}
+
+.footer-text {
+  font-size: 10px;
+  margin: 0;
+  color: white; /* Slightly muted text */
+}
+
+.text-container {
+  margin-top: 0.5rem;
+}
+
+.footer-link {
+  font-size: 10px;
+  color: red; /* Blue text */
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-link:hover {
+  color: red; /* Darker blue on hover */
+  text-decoration: underline; /* Add underline on hover */
+}
+
+.hover-line-text {
+  margin-top: 0.5rem;
+  width: 100%;
+}
