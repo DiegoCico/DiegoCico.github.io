@@ -1,23 +1,36 @@
-// Fetches GitHub repo count and updates the "About Me" section dynamically
+// Fetches GitHub repo count with pagination and updates the "About Me" section dynamically
 async function fetchAndDisplayRepoCount(username) {
-    const url = `https://api.github.com/users/${username}/repos`;
+    const baseUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
+    let page = 1;
+    let repoCount = 0;
+
     try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        while (true) {
+            const response = await fetch(`${baseUrl}&page=${page}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const repos = await response.json();
+            if (repos.length === 0) break; // No more repositories to fetch
+            repoCount += repos.length;
+            page++;
         }
-        const repos = await response.json();
-        const repoCount = repos.length;
-        
-        // Update the HTML dynamically
-        const aboutContent = document.querySelector(".about-content");
-        const repoCountParagraph = document.createElement("p");
-        repoCountParagraph.innerHTML = `I currently have <strong>${repoCount}</strong> projects in my GitHub repository.`;
-        aboutContent.insertBefore(repoCountParagraph, aboutContent.querySelector("p:nth-of-type(2)")); // Insert after the first paragraph
+
+        // Update HTML with the correct repo count
+        const aboutContent = document.querySelector(".about-content p:first-of-type");
+        if (aboutContent) {
+            aboutContent.innerHTML = `Hi, I am a current student at Northeastern University, class of 2026, studying Computer Science. I currently have <strong>${repoCount}</strong> projects in my GitHub repository.`;
+        }
     } catch (error) {
         console.error(`An error occurred: ${error}`);
     }
 }
 
-// Replace 'DiegoCico' with your GitHub username
-fetchAndDisplayRepoCount("DiegoCico");
+// Main function
+async function main() {
+    const githubUsername = "DiegoCico"; // Replace with your GitHub username
+    await fetchAndDisplayRepoCount(githubUsername);
+}
+
+main();
