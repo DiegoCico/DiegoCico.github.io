@@ -211,8 +211,8 @@ section {
 
 .aboutMePhoto {
   border-radius: 20px;
-  width: 300px; 
-  height: 300px; 
+  width: 450px; 
+  height: 450px; 
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
