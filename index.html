@@ -10,7 +10,7 @@
 </head>
 <body>
   <header class="fixed-header">
-    <div class="header-left">Portfolio.</div>
+    <div class="header-left">Portfolio<span style="color: red; font-weight: bold;">.</span></div>
     <button class="hamburger-menu" onclick="toggleMenu()">☰</button>
     <nav class="header-right menu">
       <a href="#intro-section">Home</a>
@@ -89,13 +89,13 @@
         <div class="experience-card" onclick="showPopup('Amazon', 'Summer 2025', 'Incoming Software Development Engineer Intern', 
         'Incoming Amazon SDE')">
           <h3>Amazon</h3>
-          <p>Summer 2025</p>
+          <p>[Summer 2025]</p>
           <p>Software Development Engineer Intern</p>
         </div>
         <div class="experience-card" onclick="showPopup('Supply Trace', 'Sept 2024 - Present', 'Data Engineer',
          'Built data pipelines and analytical tools under Dr. Shawn at Northeastern University, helping streamline supply chain operations. As well as assisting in rebuilding infrastructure for faster and safer data loading')">
         <h3>Supply Trace</h3>
-        <p>Sept 2024 - Present</p>
+        <p>[Sept 2024 - Present]</p>
         <p>Data Engineer</p>
         <button class="supply-trace-button" onclick="window.open('https://supplytrace.org', '_blank'); event.stopPropagation();">
           Visit Supply Trace
@@ -104,24 +104,24 @@
         <div class="experience-card" onclick="showPopup('Amazon', 'May 2024 - Aug 2024', 'Software Development Engineer Intern', 
         'I extracted and processed data from over 2 million users utilizing the Productiv API, which enhanced data insights to inform business strategies. Additionally, I designed and deployed a custom data pipeline using TypeScript, achieving a 40% reduction in data processing time. To further optimize operations, I implemented data visualization on Amazon QuickSight, leading to a 15% improvement in user interface satisfaction and a cost savings of $15 million.')">
           <h3>Amazon</h3>
-          <p>May 2024 - Aug 2024</p>
+          <p>[May 2024 - Aug 2024]</p>
           <p>Software Development Engineer Intern</p>
         </div>
         <div class="experience-card" onclick="showPopup('Kid Teaches Kids', 'Jun 2021 - Sept 2023', 'Founder & CEO', 
         'Founded and scaled an online coding tutoring platform, delivering 1,000+ hours of personalized sessions to children aged 8-16.')">
           <h3>Kid Teaches Kids</h3>
-          <p>Jun 2021 - Sept 2023</p>
+          <p>[Jun 2021 - Sept 2023]</p>
           <p>Founder & CEO</p>
         </div>
         <div class="experience-card" onclick="showPopup('Code Ninjas', 'Jun 2021 - Aug 2023', 'Manager', 'Led a team of 15 instructors, mentoring kids in coding, revamping the franchise\'s performance, and delivering $30,000+ in monthly revenue.')">
           <h3>Code Ninjas</h3>
-          <p>Jun 2021 - Aug 2023</p>
+          <p>[Jun 2021 - Aug 2023]</p>
           <p>Manager</p>
         </div>
         <div class="experience-card" onclick="showPopup('Pinbank Brazil', 'Jun 2019 - Nov 201', 'Assistant Software Engineer', 
         'Unpaid internship. Development of application projects using an Android platform in conjunction with JAVA, XML, HTML and CSS languages.')">
           <h3>Pinbank Brazil</h3>
-          <p>Jun 2019 - Nov 2019</p>
+          <p>[Jun 2019 - Nov 2019]</p>
           <p>Assistant Software Engineer</p>
         </div>
       </div>
@@ -145,10 +145,51 @@
     </section>
     
 
-    <section id="projects-section">
-      <h2>Projects</h2>
-      <p>Discover the projects I've worked on, showcasing my skills in web development, data science, and more.</p>
+    <section id="projects-section" style="margin-top: 2rem;">
+      <h1 style="font-size: 2.2rem;">Projects</h1>
+      <div class="projects-cards">
+
+        <div class="project-card" onclick="window.open('https://github.com/DiegoCico/AlgoVisualizer', '_blank');">
+          <h3>AlgoVisualizer </h3>
+          <p>a Python application that graphically demonstrates
+             how various sorting algorithms work. It helps users understand the mechanics behind each algorithm 
+            through dynamic visualizations and interactive controls..</p>
+        </div>
+
+        <div class="project-card" onclick="window.open('https://github.com/DiegoCico/treeva', '_blank');">
+          <h3>Treeva</h3>
+          <p>Task management app with a unique 3D tree 
+            visualization of sprint progress, offering dark/light modes, 
+            Firebase integration, user profiles, team analytics, 
+            and task management for enhanced collaboration and productivity.</p>
+        </div>
+        <div class="project-card" onclick="window.open('https://github.com/DiegoCico/diego-pipeline', '_blank');">
+          <h3>diego-pipeline</h3>
+          <p>complete build, test, validation, and
+             deployment pipeline for a Java project. It includes stages for building the project, running tests, validating the program's behavior through user input,
+             and automatically deploying it to a GitHub repository.</p>
+        </div>
+        <div class="project-card" onclick="window.open('https://github.com/DiegoCico/PredatorPreySim', '_blank');">
+          <h3>PredatorPreySim</h3>
+          <p>Welcome to the Animal Simulation Project! This project simulates the interactions between prey and predators in a dynamic environment, complete with a graphical representation of their population changes over time.</p>
+        </div>
+      </div>
+    
+      <!-- View All Projects Button -->
+
+      <div style="margin-top: 2rem; text-align: center;">
+        <button class="view-all-projects-button" onclick="window.open('https://github.com/DiegoCico?tab=repositories', '_blank');">
+          View All Projects!
+        </button>
+      </div>
+
+      <!-- <div style="margin-top: 2rem; text-align: center;">
+        <button class="view-all-projects-button" onclick="window.location.href='all-projects.html';">
+          View All Projects!
+        </button>
+      </div> -->
     </section>
+    
 
 
     <footer class="footer">

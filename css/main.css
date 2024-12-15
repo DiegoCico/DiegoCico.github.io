@@ -457,6 +457,54 @@ section {
   transform: scale(1.05);
 }
 
+/* General styling for the Projects section */
+#projects-section {
+  background-color: black; /* Black background for consistency */
+  color: white; /* White text */
+  padding: 2rem;
+  text-align: center;
+}
+
+.projects-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem; /* Space between cards */
+}
+
+.project-card {
+  background-color: #1c1c1c; /* Dark gray */
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  padding: 2rem;
+  width: 300px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card h3 {
+  color: #ff0000; /* Red title text */
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.project-card p {
+  font-size: 0.8 rem;
+  color: #dddddd; /* Light gray for description */
+}
+
+.project-card:hover {
+  transform: scale(1.05); /* Slightly larger on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+.project-card:active {
+  transform: scale(1); /* Reset scale */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Reset shadow */
+}
+
+
 /* Footer Styling */
 .footer {
   background-color: black; /* Light background */
@@ -492,4 +540,21 @@ section {
 .hover-line-text {
   margin-top: 0.5rem;
   width: 100%;
+}
+
+.view-all-projects-button {
+  background-color: #ff0000; /* Red */
+  color: white; /* White text */
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.view-all-projects-button:hover {
+  background-color: #000000; /* Black on hover */
+  transform: scale(1.05);
 }
