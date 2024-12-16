@@ -577,3 +577,23 @@ section {
   color: red; /* Hover color */
 }
 
+
+.visit-bank-button {
+    display: block; /* Ensure the button doesn't stretch */
+    background-color: red; /* Red background */
+    margin: 0.8rem auto 0; /* Center the button horizontally with auto and add top margin */
+    color: white; /* White text color */
+    border: none; /* Remove default borders */
+    padding: 0.5rem 0.8rem; /* Button padding */
+    font-size: 0.8rem; /* Font size */
+    border-radius: 8px; /* Rounded corners */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+  }
+  
+.visit-bank-button:hover {
+    background-color: darkred; /* Darker red on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
