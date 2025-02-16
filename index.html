@@ -179,52 +179,122 @@
     
 
     <section id="projects-section" style="margin-top: 2rem;">
-      <h1 style="font-size: 2.2rem;" >Projects</h1>
-      <h5 style="margin-bottom: 2rem;"> *select to view the code* </h5>
+      <h1 style="font-size: 2.2rem;">Projects</h1>
+      <h5 style="margin-bottom: 2rem;">*select to view the code*</h5>
+    
+      <!-- Filter Buttons (No "All" button) -->
+      <div class="filter-buttons">
+        <button class="filter-btn" data-language="java">Java</button>
+        <button class="filter-btn" data-language="python">Python</button>
+        <button class="filter-btn" data-language="ai">AI/ML</button>
+        <button class="filter-btn" data-language="react">React</button>
+        <button class="filter-btn" data-language="htmlcss">HTML/CSS</button>
+      </div>
+    
+      <!-- Projects Cards with language tags -->
       <div class="projects-cards">
-
-        <div class="project-card" onclick="window.open('https://github.com/DiegoCico/AlgoVisualizer', '_blank');">
-          <h3>AlgoVisualizer </h3>
-          <p>a Python application that graphically demonstrates
-             how various sorting algorithms work. It helps users understand the mechanics behind each algorithm 
-            through dynamic visualizations and interactive controls..</p>
-        </div>
-
-        <div class="project-card" onclick="window.open('https://github.com/DiegoCico/treeva', '_blank');">
-          <h3>Treeva</h3>
-          <p>Task management app with a unique 3D tree 
-            visualization of sprint progress, offering dark/light modes, 
-            Firebase integration, user profiles, team analytics, 
-            and task management for enhanced collaboration and productivity.</p>
-        </div>
-        <div class="project-card" onclick="window.open('https://github.com/DiegoCico/HouseFinder', '_blank');">
-          <h3>HouseFinder</h3>
+        <!-- Project 1: AlgoVisualizer -->
+        <div class="project-card" data-language="python" onclick="window.open('https://github.com/DiegoCico/AlgoVisualizer', '_blank');">
+          <h3>AlgoVisualizer</h3>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+          </div>
           <p>
-            A Python app integrated with AWS EC2 and S3 
-            lets users add house links to a wishlist, analyze property details, gathers neighborhood insights 
-            check if prices are fair, 
-            and generate weekly CSV reports and charts with updates.</p>
+            A Python application that graphically demonstrates how various sorting algorithms work. It helps users understand the mechanics behind each algorithm through dynamic visualizations.
+          </p>
         </div>
-        <div class="project-card" onclick="window.open('https://github.com/DiegoCico/PredatorPreySim', '_blank');">
+    
+        <!-- Project 2: Treeva -->
+        <div class="project-card" data-language="react,htmlcss" onclick="window.open('https://github.com/DiegoCico/treeva', '_blank');">
+          <h3>Treeva</h3>
+          <div class="project-tags">
+            <span class="tag">React</span>
+            <span class="tag">HTML/CSS</span>
+          </div>
+          <p>
+            Task management app with a unique 3D tree visualization of sprint progress, featuring dark/light modes, Firebase integration, and team analytics.
+          </p>
+        </div>
+    
+        <!-- Project 3: HouseFinder -->
+        <div class="project-card" data-language="java" onclick="window.open('https://github.com/DiegoCico/HouseFinder', '_blank');">
+          <h3>HouseFinder</h3>
+          <div class="project-tags">
+            <span class="tag">Java</span>
+          </div>
+          <p>
+            An application integrated with AWS EC2 and S3 that allows users to add house links to a wishlist, analyze property details, and generate weekly reports.
+          </p>
+        </div>
+    
+        <!-- Project 4: PredatorPreySim -->
+        <div class="project-card" data-language="ai" onclick="window.open('https://github.com/DiegoCico/PredatorPreySim', '_blank');">
           <h3>PredatorPreySim</h3>
-          <p>Welcome to the Animal Simulation Project! This project simulates the interactions between prey and predators in a dynamic environment, complete with a graphical representation of their population changes over time.</p>
+          <div class="project-tags">
+            <span class="tag">AI/ML</span>
+          </div>
+          <p>
+            A simulation project that models the interactions between predators and prey, complete with graphical representations of population changes.
+          </p>
         </div>
       </div>
     
       <!-- View All Projects Button -->
-
       <div style="margin-top: 2rem; text-align: center;">
         <button class="view-all-projects-button" onclick="window.open('https://github.com/DiegoCico?tab=repositories', '_blank');">
           View All Projects!
         </button>
       </div>
-
-      <!-- <div style="margin-top: 2rem; text-align: center;">
-        <button class="view-all-projects-button" onclick="window.location.href='all-projects.html';">
-          View All Projects!
-        </button>
-      </div> -->
     </section>
+    
+    
+    
+
+    
+    <script>
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Toggle the active class on the clicked filter button.
+          btn.classList.toggle('active');
+    
+          // Gather all active filter languages.
+          const activeFilters = Array.from(document.querySelectorAll('.filter-btn.active'))
+            .map(b => b.getAttribute('data-language').toLowerCase());
+    
+          // Loop over each project card.
+          document.querySelectorAll('.project-card').forEach(card => {
+            const languages = card.getAttribute('data-language')
+              .toLowerCase()
+              .split(',')
+              .map(lang => lang.trim());
+            
+            // If no filters are active, show all projects.
+            if (activeFilters.length === 0) {
+              card.style.display = 'block';
+              // Restart the animation.
+              card.classList.remove('animate');
+              void card.offsetWidth; // Force reflow to restart animation.
+              card.classList.add('animate');
+            } else {
+              // If the card matches any active filter, show it; otherwise, hide it.
+              const match = activeFilters.some(filter => languages.includes(filter));
+              if (match) {
+                card.style.display = 'block';
+                card.classList.remove('animate');
+                void card.offsetWidth; // Force reflow.
+                card.classList.add('animate');
+              } else {
+                card.style.display = 'none';
+              }
+            }
+          });
+        });
+      });
+    </script>
+    
+    
+    
+    
     
 
 
