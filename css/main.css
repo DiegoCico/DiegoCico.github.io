@@ -699,3 +699,56 @@ section {
   margin-right: 0.3rem;
 }
 
+/* Projects Carousel Container */
+.projects-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Arrow Button Styles */
+.arrow {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 1rem;
+  z-index: 10;
+}
+
+/* Projects Page Container */
+.projects-page {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  animation: fadeIn 0.5s ease forwards;
+  width: 100%;
+}
+
+/* Active Page */
+.projects-page.active {
+  display: flex;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Filtered Projects Container */
+#filtered-projects {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}

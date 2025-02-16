@@ -81,108 +81,11 @@
     
 
 
-    <section id="experience-section">
-      <h1 style="font-size: 2.2rem;">Experience</h1>
-      <h5>*select to view the description*</h5>
-      <div class="experience-cards">
-        <div class="experience-card" onclick="showPopup('Amazon', 'Summer 2025', 'Incoming Software Development Engineer Intern', 
-        'Incoming Amazon SDE')">
-          <h3>Amazon</h3>
-          <p>[Summer 2025]</p>
-          <p>Software Development Engineer Intern</p>
-        </div>
-        <div class="experience-card" onclick="showPopup('Supply Trace', 'Sept 2024 - Present', 'Product Manager',
-         'Built data pipelines and analytical tools under Dr. Shawn at Northeastern University to streamline supply chain operations and enhance infrastructure for faster, safer data loading. Managed a high-performance team of 12, ensuring timely task completion and fostering productivity. Led weekly team meetings to align project goals and improve communication. Consolidated duplicated data on the platform to maintain accuracy and integrity.')">
-        <h3>Supply Trace</h3>
-        <p>[Sept 2024 - Present]</p>
-        <p>Product Manager</p>
-        <button class="supply-trace-button" onclick="window.open('https://supplytrace.org', '_blank'); event.stopPropagation();">
-          Visit Supply Trace
-        </button>
-      </div>
-        <div class="experience-card" onclick="showPopup('Amazon', 'May 2024 - Aug 2024', 'Software Development Engineer Intern', 
-        'I extracted and processed data from over 2 million users utilizing the Productiv API, which enhanced data insights to inform business strategies. Additionally, I designed and deployed a custom data pipeline using TypeScript, achieving a 40% reduction in data processing time. To further optimize operations, I implemented data visualization on Amazon QuickSight, leading to a 15% improvement in user interface satisfaction and a cost savings of $15 million.')">
-          <h3>Amazon</h3>
-          <p>[May 2024 - Aug 2024]</p>
-          <p>Software Development Engineer Intern</p>
-        </div>
-        <div class="experience-card" onclick="showPopup('Kid Teaches Kids', 'Jun 2021 - Sept 2023', 'Founder & CEO', 
-        'Founded and scaled an online coding tutoring platform, delivering 1,000+ hours of personalized sessions to children aged 8-16.')">
-          <h3>Kid Teaches Kids</h3>
-          <p>[Jun 2021 - Sept 2023]</p>
-          <p>Founder & CEO</p>
-        </div>
-        <div class="experience-card" onclick="showPopup('Code Ninjas', 'Jun 2021 - Aug 2023', 'Manager', 'Led a team of 15 instructors, mentoring kids in coding, revamping the franchise\'s performance, and delivering $30,000+ in monthly revenue.')">
-          <h3>Code Ninjas</h3>
-          <p>[Jun 2021 - Aug 2023]</p>
-          <p>Manager</p>
-        </div>
-        <div class="experience-card" onclick="showPopup('Pinbank Brazil', 'Jun 2019 - Nov 201', 'Assistant Software Engineer', 
-        'Unpaid internship. Development of application projects using an Android platform in conjunction with JAVA, XML, HTML and CSS languages.')">
-          <h3>Pinbank Brazil</h3>
-          <p>[Jun 2019 - Nov 2019]</p>
-          <p>Assistant Software Engineer</p>
-        </div>
-      </div>
-      
-      <!-- Popup Modal -->
-      <div id="popup" class="popup hidden" onclick="closePopup(event)">
-        <div class="popup-content" onclick="event.stopPropagation()">
-          <span class="close-btn" onclick="closePopup()">&times;</span>
-          <h3 id="popup-title"></h3>
-          <p><strong>Duration:</strong> <span id="popup-duration"></span></p>
-          <p><strong>Role:</strong> <span id="popup-role"></span></p>
-          <p><strong>Description:</strong></p>
-          <p id="popup-description"></p>
-        </div>
-      </div>
-    </section>
-
-    <section id="community-section" style="padding: 10px; text-align: center;">
-      <h2 style="font-size: 2rem; margin-bottom: 15px;">Community Involvement</h2>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
-        <!-- Role 1 -->
-        <div style="width: 200px; padding: 15px; border: 1px solid #ccc; border-radius: 8px; background-color: #ededed;">
-          <h3 style="font-size: 1rem;">MMBank</h3>
-          <h4 style="font-size: 0.8rem; margin-bottom: 10px; font-weight: lighter;"> Web Developer </h4>
-          <p style="font-size: 0.85rem; margin: 0;">Design and develop an engaging and user-friendly website for a leading bank in Brazil.</p>
-          <a href="https://mmbankbrasil.com.br" target="_blank" class="visit-bank-button">Visit Website!</a>
-        </div>
-        <!-- Role 2 -->
-        <div style="width: 200px; padding: 15px; border: 1px solid #ccc; border-radius: 8px; background-color: #ededed;">
-          <h3 style="font-size: 1rem;">AFE Ambassador</h3>
-          <h4 style="font-size: 0.8rem; margin-bottom: 10px; font-weight: lighter;"> Ambassador </h4>
-          <p style="font-size: 0.85rem; margin: 0;"> We represent Amazon on student panels and help organize events to support and promote the AFE Scholarship program. </p>
-          <a href="https://www.amazonfutureengineer.com/scholarships" target="_blank" class="visit-bank-button">Visit Website!</a>
-
-        </div>
-        <!-- Role 3 -->
-        <div style="width: 200px; padding: 15px; border: 1px solid #ccc; border-radius: 8px; background-color: #ededed;">
-          <h3 style="font-size: 1rem;">DYA</h3>
-          <h4 style="font-size: 0.8rem; margin-bottom: 10px; font-weight: lighter;"> Team Lead </h4>
-          <p style="font-size: 0.85rem; margin: 0;">DYA teaches coding to kids and beginners with interactive games, visual programming, and simple tutorials.</p>
-        </div>
-        <!-- Role 4 -->
-        <div style="width: 200px; padding: 15px; border: 1px solid #ccc; border-radius: 8px; background-color: #ededed;">
-          <h3 style="font-size: 1rem;">The Hope Box</h3>
-          <h4 style="font-size: 0.8rem; margin-bottom: 10px; font-weight: lighter;"> Founder </h4>
-          <p style="font-size: 0.85rem; margin: 0;">Organized and led initiatives to collect toys and school/hygiene items for underprivileged children, aiming for 1500 items annually.</p>
-        </div>
-      </div>
-      <button 
-        style="margin-top: 20px;" 
-        class="view-all-projects-button"
-        onclick="window.open('https://devpost.com/cicotoste-d?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav', '_blank');">
-        View Hackathon Involvement
-      </button>
-    </section>    
-    
-
     <section id="projects-section" style="margin-top: 2rem;">
       <h1 style="font-size: 2.2rem;">Projects</h1>
-      <h5 style="margin-bottom: 2rem;">*select to view the code*</h5>
-    
-      <!-- Filter Buttons (No "All" button) -->
+      <h5 style="margin-bottom: 2rem;">*select to view the code/documentation*</h5>
+      
+      <!-- Filter Buttons -->
       <div class="filter-buttons">
         <button class="filter-btn" data-language="java">Java</button>
         <button class="filter-btn" data-language="python">Python</button>
@@ -190,55 +93,136 @@
         <button class="filter-btn" data-language="react">React</button>
         <button class="filter-btn" data-language="htmlcss">HTML/CSS</button>
       </div>
-    
-      <!-- Projects Cards with language tags -->
-      <div class="projects-cards">
-        <!-- Project 1: AlgoVisualizer -->
-        <div class="project-card" data-language="python" onclick="window.open('https://github.com/DiegoCico/AlgoVisualizer', '_blank');">
-          <h3>AlgoVisualizer</h3>
-          <div class="project-tags">
-            <span class="tag">Python</span>
+      
+      <!-- Container for Filtered Results (initially hidden) -->
+      <div id="filtered-projects" style="display: none; flex-wrap: wrap; justify-content: center; gap: 2rem;"></div>
+      
+      <!-- Projects Carousel (Shown when no filter is active) -->
+      <div class="projects-carousel">
+        <button class="arrow left" onclick="showPrevProjects()">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <!-- Page 1 -->
+        <div class="projects-page active" id="projects-page-1">
+          <div class="project-card" data-language="python" onclick="window.open('https://github.com/DiegoCico/AlgoVisualizer', '_blank');">
+            <h3>AlgoVisualizer</h3>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+            </div>
+            <p>
+              A Python application that graphically demonstrates how various sorting algorithms work. It helps users understand the mechanics behind each algorithm through dynamic visualizations.
+            </p>
           </div>
-          <p>
-            A Python application that graphically demonstrates how various sorting algorithms work. It helps users understand the mechanics behind each algorithm through dynamic visualizations.
-          </p>
-        </div>
-    
-        <!-- Project 2: Treeva -->
-        <div class="project-card" data-language="react,htmlcss" onclick="window.open('https://github.com/DiegoCico/treeva', '_blank');">
-          <h3>Treeva</h3>
-          <div class="project-tags">
-            <span class="tag">React</span>
-            <span class="tag">HTML/CSS</span>
+          <div class="project-card" data-language="react,htmlcss" onclick="window.open('https://github.com/DiegoCico/treeva', '_blank');">
+            <h3>Treeva</h3>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">HTML/CSS</span>
+            </div>
+            <p>
+              Task management app with a unique 3D tree visualization of sprint progress, featuring dark/light modes, Firebase integration, and team analytics.
+            </p>
           </div>
-          <p>
-            Task management app with a unique 3D tree visualization of sprint progress, featuring dark/light modes, Firebase integration, and team analytics.
-          </p>
-        </div>
-    
-        <!-- Project 3: HouseFinder -->
-        <div class="project-card" data-language="java" onclick="window.open('https://github.com/DiegoCico/HouseFinder', '_blank');">
-          <h3>HouseFinder</h3>
-          <div class="project-tags">
-            <span class="tag">Java</span>
+          <div class="project-card" data-language="python" onclick="window.open('https://github.com/DiegoCico/HouseFinder', '_blank');">
+            <h3>HouseFinder</h3>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+            </div>
+            <p>
+              An application integrated with AWS EC2 and S3 that allows users to add house links to a wishlist, analyze property details, and generate weekly reports.
+            </p>
           </div>
-          <p>
-            An application integrated with AWS EC2 and S3 that allows users to add house links to a wishlist, analyze property details, and generate weekly reports.
-          </p>
-        </div>
-    
-        <!-- Project 4: PredatorPreySim -->
-        <div class="project-card" data-language="ai" onclick="window.open('https://github.com/DiegoCico/PredatorPreySim', '_blank');">
-          <h3>PredatorPreySim</h3>
-          <div class="project-tags">
-            <span class="tag">AI/ML</span>
+          <div class="project-card" data-language="ai,java" onclick="window.open('https://github.com/DiegoCico/PredatorPreySim', '_blank');">
+            <h3>PredatorPreySim</h3>
+            <div class="project-tags">
+              <span class="tag">AI/ML</span>
+              <span class="tag">Java</span>
+            </div>
+            <p>
+              A simulation project that models the interactions between predators and prey, complete with graphical representations of population changes.
+            </p>
           </div>
-          <p>
-            A simulation project that models the interactions between predators and prey, complete with graphical representations of population changes.
-          </p>
         </div>
+        
+        <!-- Page 2 -->
+        <div class="projects-page" id="projects-page-2">
+          <div class="project-card" data-language="react,htmlcss" onclick="window.open('https://github.com/DiegoCico/DYA', '_blank');">
+            <h3>DYA</h3>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">HTML/CSS</span>
+            </div>
+            <p>DYA is an educational website that teaches kids and beginners how to code through interactive, game-like elements, visual programming, and step-by-step tutorials.</p>
+          </div>
+          <div class="project-card" data-language="python" onclick="window.open('https://github.com/DiegoCico/MergeCompaniesAlgorithm', '_blank');">
+            <h3>MergeAlgorithm</h3>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+            </div>
+            <p>This script standardizes company data, geocodes addresses, and detects similar companies by name and location using two different geocoding and matching approaches.</p>
+          </div>
+          <div class="project-card" data-language="react,htmlcss,python" onclick="window.open('https://github.com/DiegoCico/text-me-wrapped', '_blank');">
+            <h3>Text Me Wrapped</h3>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">Python</span>
+            </div>
+            <p>React frontend with a Flask backend on AWS EC2, offering insights into chat logs like sentiment analysis, emoji usage, and participation stats in an interactive, visual format.</p>
+          </div>
+          <div class="project-card" data-language="java" onclick="window.open('https://github.com/DiegoCico/diego-pipeline', '_blank');">
+            <h3>diego-pipeline</h3>
+            <div class="project-tags">
+              <span class="tag">Java</span>
+            </div>
+            <p>This project automates the build, test, validation, and deployment of a Java project, including building, testing, user input validation, and automatic deployment to GitHub.</p>
+          </div>
+        </div>
+
+        <!-- Page 3 -->
+        <div class="projects-page" id="projects-page-3">
+          <div class="project-card" data-language="react,htmlcss,python,ai" onclick="window.open('https://github.com/DiegoCico/WaveCap', '_blank');">
+            <h3>WaveCap</h3>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">Python</span>
+              <span class="tag">AI/ML</span>
+            </div>
+            <p>Stock Portfolio Management System using Flask (backend) and React (frontend) for tracking stocks, viewing charts, managing portfolios, simulating trades, and analyzing news sentiment.</p>
+          </div>
+          <div class="project-card" data-language="react,htmlcss,python,ai" onclick="window.open('https://github.com/DiegoCico/ConnectHealth', '_blank');">
+            <h3>ConnectHealth</h3>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">Python</span>
+              <span class="tag">AI/ML</span>
+            </div>
+            <p>secure platform for hospitals to manage patient data, ensuring data security and collaboration. Powered by Ruff, an AI assistant, it helps doctors make informed decisions on medications, treatments, and care protocols.</p>
+          </div>
+          <div class="project-card" data-language="java" onclick="window.open('https://github.com/DiegoCico/diego.tools', '_blank');">
+            <h3>diego.tools</h3>
+            <div class="project-tags">
+              <span class="tag">Java</span>
+            </div>
+            <p>An intuitive tool for coding beginners, simplifying complex concepts and providing an easy starting point for learning programming.</p>
+          </div>
+          <div class="project-card" data-language="java" onclick="window.open('https://github.com/DiegoCico/SurvivalSprintHarvest', '_blank');">
+            <h3>SurvivalSprintHarvest</h3>
+            <div class="project-tags">
+              <span class="tag">Java</span>
+            </div>
+            <p>an AI-driven simulation where agents must find and collect food to survive. Manage their movements and energy to ensure they thrive, returning to base strategically to avoid running out of energy.            </p>
+          </div>
+        </div>
+        
+        <button class="arrow right" onclick="showNextProjects()">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
-    
+      
       <!-- View All Projects Button -->
       <div style="margin-top: 2rem; text-align: center;">
         <button class="view-all-projects-button" onclick="window.open('https://github.com/DiegoCico?tab=repositories', '_blank');">
@@ -246,51 +230,6 @@
         </button>
       </div>
     </section>
-    
-    
-    
-
-    
-    <script>
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          // Toggle the active class on the clicked filter button.
-          btn.classList.toggle('active');
-    
-          // Gather all active filter languages.
-          const activeFilters = Array.from(document.querySelectorAll('.filter-btn.active'))
-            .map(b => b.getAttribute('data-language').toLowerCase());
-    
-          // Loop over each project card.
-          document.querySelectorAll('.project-card').forEach(card => {
-            const languages = card.getAttribute('data-language')
-              .toLowerCase()
-              .split(',')
-              .map(lang => lang.trim());
-            
-            // If no filters are active, show all projects.
-            if (activeFilters.length === 0) {
-              card.style.display = 'block';
-              // Restart the animation.
-              card.classList.remove('animate');
-              void card.offsetWidth; // Force reflow to restart animation.
-              card.classList.add('animate');
-            } else {
-              // If the card matches any active filter, show it; otherwise, hide it.
-              const match = activeFilters.some(filter => languages.includes(filter));
-              if (match) {
-                card.style.display = 'block';
-                card.classList.remove('animate');
-                void card.offsetWidth; // Force reflow.
-                card.classList.add('animate');
-              } else {
-                card.style.display = 'none';
-              }
-            }
-          });
-        });
-      });
-    </script>
     
     
     
@@ -326,6 +265,7 @@
   <script src="./js/typewriter.js"></script>
   <script src="./js/githubCommit.js"></script>
   <script src="./js/repoCounter.js"></script>
+  <script src="./js/projectSlider.js"></script>
   <script>
     function toggleMenu() {
       const menu = document.querySelector('.menu');
