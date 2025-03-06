@@ -2,7 +2,7 @@
 
 /* ----- Pagination for Main Carousel ----- */
 let currentPage = 1;
-const totalPages = 3; // Adjust if you add more pages
+const totalPages = 4; // Adjust if you add more pages
 
 function showPage(page) {
   if (page < 1 || page > totalPages) return;
