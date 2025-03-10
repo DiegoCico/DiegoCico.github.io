@@ -13,12 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
   
-    // Adjust node count based on device type or screen width
+    // Adjust node count based on screen width
     let nodeCount;
-    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768) {
-      nodeCount = 50; // fewer nodes on mobile devices
+    const width = window.innerWidth;
+    if (width < 768) {
+      nodeCount = 50; // small screens
+    } else if (width < 1200) {
+      nodeCount = 150; // medium screens
     } else {
-      nodeCount = 350; // more nodes on larger screens
+      nodeCount = 250; // large screens
     }
   
     const nodes = [];
