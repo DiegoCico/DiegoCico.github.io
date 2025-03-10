@@ -19,13 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (isMobile || width < 768) {
     nodeCount = 50; // small screens
   } else if (width < 1200) {
-    nodeCount = 150; // medium screens
+    nodeCount = 100; // medium screens
   } else {
-    nodeCount = 250; // large screens
+    nodeCount = 150; // large screens
   }
 
   const nodes = [];
-  const maxDistance = 250; // maximum distance to draw a connection
+  const maxDistance = 150; // maximum distance to draw a connection
   const baseColor = "#8B0000"; // dark red color
   let mouse = { x: -9999, y: -9999 };
 
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Draw connections from nodes to mouse if the mouse is in range
+    // Connect nodes to the mouse if the mouse is within range (no dot is drawn for the mouse)
     nodes.forEach(node => {
       const dx = node.x - mouse.x;
       const dy = node.y - mouse.y;
