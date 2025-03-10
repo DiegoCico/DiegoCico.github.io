@@ -21,13 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isMobile || width < 768) {
       nodeCount = 50; // small screens
     } else if (width < 1200) {
-      nodeCount = 75; // medium screens
+      nodeCount = 100; // medium screens
     } else {
-      nodeCount = 100; // large screens
+      nodeCount = 150; // large screens
     }
   
     const nodes = [];
-    const maxDistance = 100; // maximum distance to draw a connection
+    const maxDistance = 150; // maximum distance to draw a connection
     const baseColor = "#8B0000"; // dark red color
     let mouse = { x: -9999, y: -9999 };
   
