@@ -49,21 +49,21 @@ function typeEffect() {
     if (charIndex < currentText.length) {
       dynamicText.textContent += currentText.charAt(charIndex);
       charIndex++;
-      setTimeout(typeEffect, 90); // Speed of typing
+      setTimeout(typeEffect, 40); // Speed of typing
     } else {
       typing = false;
-      setTimeout(typeEffect, 1200); // Pause after typing the word
+      setTimeout(typeEffect, 900); // Pause after typing the word
     }
   } else {
     // Deleting effect
     if (charIndex > 0) {
       dynamicText.textContent = currentText.substring(0, charIndex - 1);
       charIndex--;
-      setTimeout(typeEffect, 50); // Speed of deleting
+      setTimeout(typeEffect, 10); // Speed of deleting
     } else {
       typing = true;
       currentText = textArray[getRandomIndex()]; // Pick a new random word
-      setTimeout(typeEffect, 500); // Pause before typing the next word
+      setTimeout(typeEffect, 250); // Pause before typing the next word
     }
   }
 }
