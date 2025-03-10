@@ -632,25 +632,49 @@ section {
 }
 
 
-.visit-bank-button {
-    display: block; /* Ensure the button doesn't stretch */
-    background-color: red; /* Red background */
-    margin: 0.8rem auto 0; /* Center the button horizontally with auto and add top margin */
-    color: white; /* White text color */
-    border: none; /* Remove default borders */
-    padding: 0.5rem 0.8rem; /* Button padding */
-    font-size: 0.8rem; /* Font size */
-    border-radius: 8px; /* Rounded corners */
-    text-align: center; /* Center text */
-    text-decoration: none; /* Remove underline */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
-  }
-  
-.visit-bank-button:hover {
-    background-color: darkred; /* Darker red on hover */
-    transform: scale(1.05); /* Slight zoom effect */
+/* 1. Parent container: flex + stretch for equal card heights */
+.community-cards-container {
+  display: flex;          /* Enable flex layout */
+  flex-wrap: wrap;        /* Allow wrapping to new lines */
+  justify-content: center;/* Center cards horizontally */
+  gap: 15px;              /* Spacing between cards */
+  align-items: stretch;   /* Make all cards stretch to same height */
 }
+
+/* 2. Individual card: column + space-between to pin the button at the bottom */
+.community-card {
+  display: flex;               /* Enable flex layout */
+  flex-direction: column;      /* Stack content vertically */
+  justify-content: space-between; /* Space out top text and bottom button */
+  width: 200px;                /* Card width */
+  padding: 15px;               /* Card padding */
+  border: 1px solid #ccc;      /* Border style */
+  border-radius: 8px;          /* Rounded corners */
+  background-color: #ededed;   /* Light background */
+}
+
+/* 3. Visit Website button styling */
+.visit-bank-button {
+  display: inline-block; 
+  background-color: red; 
+  margin: 0.8rem auto 0; 
+  color: white; 
+  border: none; 
+  padding: 0.5rem 0.8rem; 
+  font-size: 0.8rem; 
+  border-radius: 8px; 
+  text-align: center; 
+  text-decoration: none; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* 4. Hover effect */
+.visit-bank-button:hover {
+  background-color: darkred;
+  transform: scale(1.05);
+}
+
 
 /* Filter Buttons */
 .filter-buttons {
