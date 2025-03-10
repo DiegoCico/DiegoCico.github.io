@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (width < 1200) {
       nodeCount = 150; // medium screens
     } else {
-      nodeCount = 350; // large screens
+      nodeCount = 250; // large screens
     }
   
     const nodes = [];
