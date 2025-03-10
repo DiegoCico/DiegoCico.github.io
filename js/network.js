@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     const nodes = [];
-    const maxDistance = 350; // maximum distance to draw a connection
+    const maxDistance = 250; // maximum distance to draw a connection
     const baseColor = "#8B0000"; // dark red color
     let mouse = { x: -9999, y: -9999 };
   
