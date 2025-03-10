@@ -13,8 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
   
-    // Increase node count for more dots
-    const nodeCount = 150;
+    // Adjust node count based on device type or screen width
+    let nodeCount;
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768) {
+      nodeCount = 50; // fewer nodes on mobile devices
+    } else {
+      nodeCount = 350; // more nodes on larger screens
+    }
+  
     const nodes = [];
     const maxDistance = 350; // maximum distance to draw a connection
     const baseColor = "#8B0000"; // dark red color
