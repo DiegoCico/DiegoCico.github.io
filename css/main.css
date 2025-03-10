@@ -192,6 +192,60 @@ section {
   }
 }
 
+
+.github-contributions-container {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+/* 7 columns (one for each day of the week) */
+.contribution-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 20px);
+  gap: 3px;
+  margin-top: 1rem;
+}
+
+/* Base style: Level 0 = no contributions */
+.contribution-square {
+  width: 20px;
+  height: 20px;
+  background-color: #ffcccc; /* Lightest red */
+}
+
+/* Deeper reds for higher levels */
+.contribution-square[data-level="1"] {
+  background-color: #ff9999;
+}
+.contribution-square[data-level="2"] {
+  background-color: #ff6666;
+}
+.contribution-square[data-level="3"] {
+  background-color: #ff3333;
+}
+.contribution-square[data-level="4"] {
+  background-color: #ff0000; /* Deepest red */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .github-contributions-container {
+    position: static;
+    transform: none;
+    margin-top: 2rem;
+  }
+  .contribution-grid {
+    grid-template-columns: repeat(7, 15px);
+    gap: 2px;
+    justify-content: center;
+  }
+}
+
+
+
 /* About Section */ 
 #about-section {
   background-color: #f9f9f9; /* Light background for readability */

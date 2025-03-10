@@ -27,10 +27,21 @@
     <section id="intro-section">
       <div class="intro-text-container" style="text-align: left;">
         <h1>Hello, My Name is</h1>
-        <p class="intro-text"><span class="name" style="font-size: 4rem;">Diego Cicotoste</span></p>
-        <p class="typewriter-text"><span style="color: white;">I'm</span> <span id="dynamic-text"></span></p>
+        <p class="intro-text">
+          <span class="name" style="font-size: 4rem;">Diego Cicotoste</span>
+        </p>
+        <p class="typewriter-text">
+          <span style="color: white;">I'm</span> <span id="dynamic-text"></span>
+        </p>
       </div>
-    </section>
+      <!-- <div class="github-contributions-container">
+        <h3 style="color: red;">GitHub Contributions</h3>
+        <div class="contribution-grid">
+        </div> -->
+      </div>
+    </section>    
+    
+    
 
     <section id="about-section">
     
@@ -89,11 +100,11 @@
           <p>[Summer 2025]</p>
           <p>Software Development Engineer Intern</p>
         </div>
-        <div class="experience-card" onclick="showPopup('Supply Trace', 'Sept 2024 - Present', 'Product Manager',
+        <div class="experience-card" onclick="showPopup('Supply Trace', 'Sept 2024 - Present', 'Product Manager/Data Engineer',
          'Built data pipelines and analytical tools under Dr. Shawn at Northeastern University to streamline supply chain operations and enhance infrastructure for faster, safer data loading. Managed a high-performance team of 12, ensuring timely task completion and fostering productivity. Led weekly team meetings to align project goals and improve communication. Consolidated duplicated data on the platform to maintain accuracy and integrity.')">
         <h3>Supply Trace</h3>
         <p>[Sept 2024 - Present]</p>
-        <p>Product Manager</p>
+        <p>Product Manager/Data Engineer</p>
         <button class="supply-trace-button" onclick="window.open('https://supplytrace.org', '_blank'); event.stopPropagation();">
           Visit Supply Trace
         </button>
@@ -399,6 +410,7 @@
   <script src="./js/githubCommit.js"></script>
   <script src="./js/repoCounter.js"></script>
   <script src="./js/projectSlider.js"></script>
+  <!-- <script src="./js/githubContribution.js"></script> -->
   <script>
     function toggleMenu() {
       const menu = document.querySelector('.menu');
