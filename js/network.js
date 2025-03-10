@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isMobile || width < 768) {
       nodeCount = 50; // small screens
     } else if (width < 1200) {
-      nodeCount = 150; // medium screens
+      nodeCount = 100; // medium screens
     } else {
-      nodeCount = 250; // large screens
+      nodeCount = 150; // large screens
     }
   
     const nodes = [];
