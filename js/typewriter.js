@@ -20,54 +20,44 @@ const textArray = [
   "A Hackathon Enthusiast",
 ];
 
-let currentText = ""; // Currently displayed text
-let charIndex = 0; // Index for characters in a word
-let typing = true; // Flag to indicate typing/deleting
-let recentIndices = []; // Queue to track the last 3 used indices
+let currentText = "";
+let charIndex = 0;
+let typing = true;
+let recentIndices = [];
 
 function getRandomIndex() {
-  // Create a pool of valid indices excluding recent ones
-  const availableIndices = textArray
-    .map((_, index) => index)
-    .filter(index => !recentIndices.includes(index));
-  
-  // Pick a random index from the available pool
+  const availableIndices = textArray.map((_, index) => index).filter(index => !recentIndices.includes(index));
   const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
-  
-  // Update recent indices queue
+
   recentIndices.push(randomIndex);
-  if (recentIndices.length > 3) {
-    recentIndices.shift(); // Remove the oldest index
-  }
+  if (recentIndices.length > 3) recentIndices.shift();
 
   return randomIndex;
 }
 
 function typeEffect() {
   if (typing) {
-    // Typing effect
     if (charIndex < currentText.length) {
       dynamicText.textContent += currentText.charAt(charIndex);
       charIndex++;
-      setTimeout(typeEffect, 40); // Speed of typing
+      setTimeout(typeEffect, 50); // Adjust speed for readability on mobile
     } else {
       typing = false;
-      setTimeout(typeEffect, 900); // Pause after typing the word
+      setTimeout(typeEffect, 1000); // Pause for readability
     }
   } else {
-    // Deleting effect
     if (charIndex > 0) {
       dynamicText.textContent = currentText.substring(0, charIndex - 1);
       charIndex--;
-      setTimeout(typeEffect, 10); // Speed of deleting
+      setTimeout(typeEffect, 30); // Slightly faster deleting speed
     } else {
       typing = true;
-      currentText = textArray[getRandomIndex()]; // Pick a new random word
-      setTimeout(typeEffect, 250); // Pause before typing the next word
+      currentText = textArray[getRandomIndex()];
+      setTimeout(typeEffect, 300);
     }
   }
 }
 
-// Initialize with the first random text
+// Initialize with the first text
 currentText = textArray[getRandomIndex()];
 typeEffect();
