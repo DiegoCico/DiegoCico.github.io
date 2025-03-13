@@ -18,7 +18,7 @@ async function fetchAllGitHubProjects(username) {
       document.getElementById('projectCount').textContent = repos.length;
     } catch (error) {
       console.error('Error fetching GitHub repositories:', error);
-      document.getElementById('projectCount').textContent = 'Error loading projects';
+      document.getElementById('projectCount').textContent = 'API used to much :(';
     }
   }
 
