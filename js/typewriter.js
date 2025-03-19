@@ -30,7 +30,7 @@ function getRandomIndex() {
   const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
 
   recentIndices.push(randomIndex);
-  if (recentIndices.length > 3) recentIndices.shift();
+  if (recentIndices.length > 5) recentIndices.shift();
 
   return randomIndex;
 }
@@ -40,7 +40,7 @@ function typeEffect() {
     if (charIndex < currentText.length) {
       dynamicText.textContent += currentText.charAt(charIndex);
       charIndex++;
-      setTimeout(typeEffect, 50); // Adjust speed for readability on mobile
+      setTimeout(typeEffect, 25); // Adjust speed for readability on mobile
     } else {
       typing = false;
       setTimeout(typeEffect, 1000); // Pause for readability
@@ -49,7 +49,7 @@ function typeEffect() {
     if (charIndex > 0) {
       dynamicText.textContent = currentText.substring(0, charIndex - 1);
       charIndex--;
-      setTimeout(typeEffect, 30); // Slightly faster deleting speed
+      setTimeout(typeEffect, 5); // Slightly faster deleting speed
     } else {
       typing = true;
       currentText = textArray[getRandomIndex()];
