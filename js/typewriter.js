@@ -5,6 +5,7 @@ const textArray = [
   "A Software Engineer",
   "A Full Stack Developer",
   "A Data Engineer at Supply Trace",
+  "A Product Manager at Supply Trace",
   "An Intern at Amazon",
   "A Manager at Code Ninjas",
   "A Snowboarder",
@@ -18,6 +19,10 @@ const textArray = [
   "A Coffee/Tea Lover",
   "A Team Leader",
   "A Hackathon Enthusiast",
+  "A Vacation Lover",
+  "A Coding Teacher",
+  "A Innovator",
+  "A Problem Solver"
 ];
 
 let currentText = "";
