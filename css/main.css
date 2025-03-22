@@ -701,6 +701,14 @@ section {
   background-color: #e34c26;
   color: white;
 }
+.filter-btn.active[data-language="typescript"] {
+  background-color: #00294a;
+  color: white;
+}
+.filter-btn.active[data-language="swift"] {
+  background-color: #ff9900;
+  color: black;
+}
 
 /* Projects Cards Container */
 .projects-cards {
