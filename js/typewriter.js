@@ -1,6 +1,6 @@
 const dynamicText = document.getElementById('dynamic-text');
 
-// Array of text options
+// Text options (tiny grammar fix: "An Innovator")
 const textArray = [
   "A Software Engineer",
   "A Full Stack Developer",
@@ -14,14 +14,14 @@ const textArray = [
   "A Wakeboarder",
   "A Car Enthusiast",
   "A Freelance Developer",
-  "An Intern at PinBank Brazil",  
+  "An Intern at PinBank Brazil",
   "An Open-Source Contributor",
   "A Coffee/Tea Lover",
   "A Team Leader",
   "A Hackathon Enthusiast",
   "A Vacation Lover",
   "A Coding Teacher",
-  "A Innovator",
+  "An Innovator",
   "A Problem Solver"
 ];
 
@@ -29,40 +29,49 @@ let currentText = "";
 let charIndex = 0;
 let typing = true;
 let recentIndices = [];
+let timerId = null;
 
 function getRandomIndex() {
-  const availableIndices = textArray.map((_, index) => index).filter(index => !recentIndices.includes(index));
-  const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+  // avoid recently used (last 5)
+  const available = textArray
+    .map((_, i) => i)
+    .filter(i => !recentIndices.includes(i));
+  const randomIndex = available[Math.floor(Math.random() * available.length)];
 
   recentIndices.push(randomIndex);
   if (recentIndices.length > 5) recentIndices.shift();
-
   return randomIndex;
 }
 
 function typeEffect() {
+  // safety: ensure only one timeout chain runs
+  if (timerId) clearTimeout(timerId);
+
   if (typing) {
     if (charIndex < currentText.length) {
       dynamicText.textContent += currentText.charAt(charIndex);
       charIndex++;
-      setTimeout(typeEffect, 25); // Adjust speed for readability on mobile
+      timerId = setTimeout(typeEffect, 25);
     } else {
       typing = false;
-      setTimeout(typeEffect, 1000); // Pause for readability
+      timerId = setTimeout(typeEffect, 1000); // pause fully typed
     }
   } else {
     if (charIndex > 0) {
       dynamicText.textContent = currentText.substring(0, charIndex - 1);
       charIndex--;
-      setTimeout(typeEffect, 5); // Slightly faster deleting speed
+      timerId = setTimeout(typeEffect, 5);
     } else {
+      // about to start a new one → CLEAR first so nothing else shows
+      dynamicText.textContent = "";
       typing = true;
       currentText = textArray[getRandomIndex()];
-      setTimeout(typeEffect, 300);
+      timerId = setTimeout(typeEffect, 300);
     }
   }
 }
 
-// Initialize with the first text
+// Initialize with the first text (clear first!)
+dynamicText.textContent = "";
 currentText = textArray[getRandomIndex()];
 typeEffect();
