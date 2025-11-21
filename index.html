@@ -101,63 +101,72 @@
       </div>
     </section>
 
-    <section id="experience-section">
-      <h1 style="font-size: 2.2rem;">Experience</h1>
-      <h5>*select to view the description*</h5>
-      <div class="experience-cards">
-      <div class="experience-card" onclick="showPopup('Amazon Web Services (AWS)', 'Starting July 2026', 'Software Development Engineer (Full-Time)', 'Joining AWS as a full-time Software Development Engineer, focusing on large-scale distributed systems, secure cloud services, and automation for global workloads.')" 
-          style="padding: 20px; border-radius: 12px; background: #1a1a1a; color: #fff; cursor: pointer; border: 1px solid #222; transition: 0.2s;">
-        <h3 style="margin: 0; font-size: 1.4rem;">Amazon (AWS)</h3>
-        <p style="margin: 5px 0; opacity: 0.8;">[Starting July 2026]</p>
-        <p style="margin: 0; font-weight: 600;">Incoming Software Development Engineer</p>
-      </div>
+ <section id="experience-section">
+  <h1 style="font-size: 2.2rem;">Experience</h1>
+  <h5>*select to view the description*</h5>
+  <div class="experience-cards" style="display: flex; flex-direction: column; gap: 16px;">
 
-      <!-- MASSACHUSETTS NATIONAL GUARD -->
-      <div class="experience-card" onclick="showPopup('Massachusetts National Guard', 'Sept 2025 - Dec 2025', 'Software Engineer (Contract)', 'Contract role building a full-stack inventory management and document automation platform. Implemented AWS Cognito authentication, S3 storage, API Gateway + Lambda backend, and automated equipment/role workflows for the National Guard.')" 
-          style="padding: 20px; border-radius: 12px; background: #1a1a1a; color: #fff; cursor: pointer; border: 1px solid #222; transition: 0.2s;">
-        <h3 style="margin: 0; font-size: 1.4rem;">Massachusetts National Guard</h3>
-        <p style="margin: 5px 0; opacity: 0.8;">[Sept 2025 - Dec 2025]</p>
-        <p style="margin: 0;">Software Engineer (Contract)</p>
-      </div>
-        <div class="experience-card" onclick="showPopup('Supply Trace', 'Sept 2024 - Nov 2025', 'Technical Project Manager',
-         'Built data pipelines and analytical tools under Dr. Shawn to streamline supply chain operations and enhance infrastructure for faster, safer data loading. Managed a high-performance team of 3, ensuring timely task completion and fostering productivity. Led weekly team meetings to align project goals and improve communication. Consolidated duplicated data on the platform to maintain accuracy and integrity.')">
-        <h3>Supply Trace</h3>
-        <p>[Sept 2024 - Nov 2025]</p>
-        <p>Technical Project Manager</p>
-        <button class="supply-trace-button" onclick="window.open('https://supplytrace.org', '_blank'); event.stopPropagation();">
-          Visit Supply Trace
-        </button>
-      </div>
-        <div class="experience-card" onclick="showPopup('Amazon Web Services (AWS)', 'May 2025 - Aug 2025', 'Software Development Engineer Intern', 
-        'Built a secure, scalable GenAI system with a React frontend and Lambda backend that automated contract processing, cutting time from hours to minutes and streamlining vendor onboarding.        ')">
-          <h3>Amazon (AWS)</h3>
-          <p>[May 2025 - Aug 2025]</p>
-          <p>Software Development Engineer Intern</p>
-        </div>
-        <div class="experience-card" onclick="showPopup('Amazon Web Services (AWS)', 'May 2024 - Aug 2024', 'Software Development Engineer Intern', 
-        'I extracted and processed data from over 2 million users utilizing the Productiv API, which enhanced data insights to inform business strategies. Additionally, I designed and deployed a custom data pipeline using TypeScript, achieving a 40% reduction in data processing time. To further optimize operations, I implemented data visualization on Amazon QuickSight, leading to a 15% improvement in user interface satisfaction and a cost savings of $15 million.')">
-          <h3>Amazon (AWS)</h3>
-          <p>[May 2024 - Aug 2024]</p>
-          <p>Software Development Engineer Intern</p>
-        </div>
-        <div class="experience-card" onclick="showPopup('Kid Teaches Kids', 'Jun 2021 - Sept 2023', 'Founder & CEO', 
-        'Founded and scaled an online coding tutoring platform, delivering 1,000+ hours of personalized sessions to children aged 8-16.')">
-          <h3>Kid Teaches Kids</h3>
-          <p>[Jun 2021 - Sept 2023]</p>
-          <p>Founder & CEO</p>
-        </div>
-        <div class="experience-card" onclick="showPopup('Code Ninjas', 'Jun 2021 - Aug 2023', 'Manager', 'Led a team of 15 instructors, mentoring kids in coding, revamping the franchise\'s performance, and delivering $30,000+ in monthly revenue.')">
-          <h3>Code Ninjas</h3>
-          <p>[Jun 2021 - Aug 2023]</p>
-          <p>Manager</p>
-        </div>
-        <div class="experience-card" onclick="showPopup('Pinbank Brazil', 'Jun 2019 - Nov 2021', 'Assistant Software Engineer', 
-        'Unpaid internship. Development of application projects using an Android platform in conjunction with JAVA, XML, HTML and CSS languages.')">
-          <h3>Pinbank Brazil</h3>
-          <p>[Jun 2019 - Nov 2019]</p>
-          <p>Assistant Software Engineer</p>
-        </div>
-      </div>
+    <div class="experience-card" onclick="showPopup('Amazon Web Services (AWS)', 'Starting July 2026', 'Software Development Engineer (Full-Time)', 'Joining AWS as a full-time Software Development Engineer, focusing on large-scale distributed systems, secure cloud services, and automation for global workloads.')"
+      style="padding: 20px; border-radius: 12px; background: #1a1a1a; color: #fff; cursor: pointer; border: 1px solid #222; transition: 0.2s;">
+      <h3 style="margin: 0; font-size: 1.4rem;">Amazon (AWS)</h3>
+      <p style="margin: 5px 0; opacity: 0.8;">[Starting July 2026]</p>
+      <p style="margin: 0; font-weight: 600;">Incoming Software Development Engineer</p>
+    </div>
+
+    <div class="experience-card" onclick="showPopup('Massachusetts National Guard', 'Sept 2025 - Dec 2025', 'Software Engineer (Contract)', 'Contract role building a full-stack inventory management and document automation platform. Implemented AWS Cognito authentication, S3 storage, API Gateway + Lambda backend, and automated equipment/role workflows for the National Guard.')"
+      style="padding: 20px; border-radius: 12px; background: #1a1a1a; color: #fff; cursor: pointer; border: 1px solid #222; transition: 0.2s;">
+      <h3 style="margin: 0; font-size: 1.4rem;">Massachusetts National Guard</h3>
+      <p style="margin: 5px 0; opacity: 0.8;">[Sept 2025 - Dec 2025]</p>
+      <p style="margin: 0; font-weight: 600;">Software Engineer (Contract)</p>
+    </div>
+
+    <div class="experience-card" onclick="showPopup('Supply Trace', 'Sept 2024 - Nov 2025', 'Technical Project Manager', 'Built data pipelines and analytical tools under Dr. Shawn to streamline supply chain operations and enhance infrastructure for faster, safer data loading. Managed a high-performance team of 3, ensured timely task completion, and led weekly meetings to align project goals.')"
+      style="padding: 20px; border-radius: 12px; background: #1a1a1a; color: #fff; cursor: pointer; border: 1px solid #222; transition: 0.2s;">
+      <h3 style="margin: 0; font-size: 1.4rem;">Supply Trace</h3>
+      <p style="margin: 5px 0; opacity: 0.8;">[Sept 2024 - Nov 2025]</p>
+      <p style="margin: 0; font-weight: 600;">Technical Project Manager</p>
+      <button class="supply-trace-button" onclick="window.open('https://supplytrace.org', '_blank'); event.stopPropagation();"
+        style="margin-top: 8px; padding: 6px 12px; background: #444; color: white; border: none; border-radius: 6px; cursor: pointer;">Visit Supply Trace</button>
+    </div>
+
+    <div class="experience-card" onclick="showPopup('Amazon Web Services (AWS)', 'May 2025 - Aug 2025', 'Software Development Engineer Intern', 'Built a secure, scalable GenAI system with a React frontend and Lambda backend that automated contract processing, cutting time from hours to minutes and streamlining vendor onboarding.')"
+      style="padding: 20px; border-radius: 12px; background: #1a1a1a; color: #fff; cursor: pointer; border: 1px solid #222; transition: 0.2s;">
+      <h3 style="margin: 0; font-size: 1.4rem;">Amazon (AWS)</h3>
+      <p style="margin: 5px 0; opacity: 0.8;">[May 2025 - Aug 2025]</p>
+      <p style="margin: 0; font-weight: 600;">Software Development Engineer Intern</p>
+    </div>
+
+    <div class="experience-card" onclick="showPopup('Amazon Web Services (AWS)', 'May 2024 - Aug 2024', 'Software Development Engineer Intern', 'Extracted and processed data from over 2 million users using Productiv API, reducing processing time by 40%. Built a custom data pipeline in TypeScript and visualized insights in QuickSight, saving $15M.')"
+      style="padding: 20px; border-radius: 12px; background: #1a1a1a; color: #fff; cursor: pointer; border: 1px solid #222; transition: 0.2s;">
+      <h3 style="margin: 0; font-size: 1.4rem;">Amazon (AWS)</h3>
+      <p style="margin: 5px 0; opacity: 0.8;">[May 2024 - Aug 2024]</p>
+      <p style="margin: 0; font-weight: 600;">Software Development Engineer Intern</p>
+    </div>
+
+    <div class="experience-card" onclick="showPopup('Kid Teaches Kids', 'Jun 2021 - Sept 2023', 'Founder & CEO', 'Founded and scaled an online coding tutoring platform, delivering 1,000+ hours of personalized sessions to children aged 8-16.')"
+      style="padding: 20px; border-radius: 12px; background: #1a1a1a; color: #fff; cursor: pointer; border: 1px solid #222; transition: 0.2s;">
+      <h3 style="margin: 0; font-size: 1.4rem;">Kid Teaches Kids</h3>
+      <p style="margin: 5px 0; opacity: 0.8;">[Jun 2021 - Sept 2023]</p>
+      <p style="margin: 0; font-weight: 600;">Founder & CEO</p>
+    </div>
+
+    <div class="experience-card" onclick="showPopup('Code Ninjas', 'Jun 2021 - Aug 2023', 'Manager', 'Led a team of 15 instructors, mentoring kids in coding, revamping franchise performance, and delivering $30,000+ in monthly revenue.')"
+      style="padding: 20px; border-radius: 12px; background: #1a1a1a; color: #fff; cursor: pointer; border: 1px solid #222; transition: 0.2s;">
+      <h3 style="margin: 0; font-size: 1.4rem;">Code Ninjas</h3>
+      <p style="margin: 5px 0; opacity: 0.8;">[Jun 2021 - Aug 2023]</p>
+      <p style="margin: 0; font-weight: 600;">Manager</p>
+    </div>
+
+    <div class="experience-card" onclick="showPopup('Pinbank Brazil', 'Jun 2019 - Nov 2021', 'Assistant Software Engineer', 'Unpaid internship. Developed Android application projects using JAVA, XML, HTML, and CSS.')"
+      style="padding: 20px; border-radius: 12px; background: #1a1a1a; color: #fff; cursor: pointer; border: 1px solid #222; transition: 0.2s;">
+      <h3 style="margin: 0; font-size: 1.4rem;">Pinbank Brazil</h3>
+      <p style="margin: 5px 0; opacity: 0.8;">[Jun 2019 - Nov 2019]</p>
+      <p style="margin: 0; font-weight: 600;">Assistant Software Engineer</p>
+    </div>
+
+  </div>
+</section>
+
       
       <!-- Popup Modal -->
       <div id="popup" class="popup hidden" onclick="closePopup(event)">
