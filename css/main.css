@@ -371,23 +371,24 @@ section {
 
 .experience-cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
-  gap: 2rem; /* Space between cards */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
   margin-top: 2rem;
 }
 
 .experience-card {
-  background-color: #1c1c1c; /* Dark gray */
+  background-color: #1c1c1c;
   border-radius: 12px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-  padding: 2rem; /* Increased padding for larger cards */
+  padding: 20px;
   text-align: center;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 90%; /* Adjust card width */
-  max-width: 400px; /* Ensure it doesn’t exceed a reasonable size */
-  margin: 0 auto; /* Center cards within the grid */
+  width: 100%;        /* allow grid to determine size */
+  max-width: none;    /* remove cap */
 }
+
+
 
 .experience-card h3 {
   color: #ff0000; /* Red */
