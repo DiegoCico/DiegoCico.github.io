@@ -40,6 +40,7 @@ const Sidebar = ({}: SidebarProps) => {
   const handleNavClick = (sectionId: string) => {
     setIsMobileMenuOpen(false); // Close mobile menu when navigating
     // Prevent default anchor behavior
+    console.log(`Navigating to ${sectionId}`);
   };
 
   const toggleMobileMenu = () => {
