@@ -25,6 +25,7 @@ const ContentSection = () => {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [filteredCurrentPage, setFilteredCurrentPage] = useState(1);
   const [expandedExperience, setExpandedExperience] = useState(false);
+  const [lastCommitText, setLastCommitText] = useState('Loading...');
   const totalPages = 5;
   const itemsPerPage = 4;
 
@@ -180,6 +181,83 @@ const ContentSection = () => {
     return () => document.removeEventListener('click', handlePopupClick);
   }, []);
 
+  useEffect(() => {
+  const username = 'DiegoCico';
+
+  type Repo = {
+    name: string;
+  };
+
+  type CommitResponse = {
+    commit: {
+      author: {
+        date: string;
+      };
+    };
+  };
+
+  const fetchLatestCommit = async (): Promise<void> => {
+    try {
+      const repoRes = await fetch(
+        `https://api.github.com/users/${username}/repos?sort=updated&direction=desc`
+      );
+
+      if (!repoRes.ok) {
+        throw new Error('Failed to fetch repositories');
+      }
+
+      const repos: Repo[] = await repoRes.json();
+
+      if (!repos.length) {
+        setLastCommitText('No repositories found');
+        return;
+      }
+
+      const latestRepo = repos[0];
+
+      const commitRes = await fetch(
+        `https://api.github.com/repos/${username}/${latestRepo.name}/commits`
+      );
+
+      if (!commitRes.ok) {
+        throw new Error('Failed to fetch commits');
+      }
+
+      const commits: CommitResponse[] = await commitRes.json();
+
+      if (!commits.length) {
+        setLastCommitText('No commits found');
+        return;
+      }
+
+      const commitDate = new Date(commits[0].commit.author.date);
+      const now = new Date();
+
+      const diffMs = now.getTime() - commitDate.getTime();
+      const minutes = Math.floor(diffMs / (1000 * 60));
+      const hours = Math.floor(diffMs / (1000 * 60 * 60));
+      const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+      let timeText =
+        days > 0
+          ? `${days} days ago`
+          : hours > 0
+          ? `${hours} hours ago`
+          : `${minutes} minutes ago`;
+
+      setLastCommitText(
+        `<strong><a href="https://github.com/${username}/${latestRepo.name}" target="_blank" rel="noopener noreferrer">${latestRepo.name}</a></strong>: ${timeText}`
+      );
+    } catch (err) {
+      console.error(err);
+      setLastCommitText('Error loading repository data');
+    }
+  };
+
+  fetchLatestCommit();
+}, []);
+
+
   return (
     <div className="content-section-container">
       {/* ABOUT Section */}
@@ -208,6 +286,14 @@ const ContentSection = () => {
                 automated many parts of my life—whether it’s extending my Alexa, house searching, or building
                 apps for me and my loved ones to simplify everyday tasks.
               </p>
+
+              <p>
+                  My most recent public project, completed on:{' '}
+                  <span
+                    className="highlight"
+                    dangerouslySetInnerHTML={{ __html: lastCommitText }}
+                  />
+                </p>
 
               
               <div className="action-buttons">

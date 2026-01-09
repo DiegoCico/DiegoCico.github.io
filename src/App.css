@@ -1486,3 +1486,12 @@ body {
   opacity: 1;
   transform: scale(1.05);
 }
+
+.highlight a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.highlight a:hover {
+  opacity: 0.85;
+}
