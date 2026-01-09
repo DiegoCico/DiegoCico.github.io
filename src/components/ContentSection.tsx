@@ -698,7 +698,6 @@ const ContentSection = () => {
                 <SiReact className="tech-icon react" size={32} />
                 <FaAws className="tech-icon aws" size={32} />
                 <SiGooglecloud className="tech-icon gcp" size={32} />
-                <SiGooglecloud className="tech-icon gcp" size={32} />
                 <FaMicrosoft className="tech-icon azure" size={32} />
                 <SiFastapi className="tech-icon fastapi" size={32} />
                 <SiDjango className="tech-icon django" size={32} />
@@ -721,7 +720,6 @@ const ContentSection = () => {
                 <SiFlask className="tech-icon flask" size={32} />
                 <SiReact className="tech-icon react" size={32} />
                 <FaAws className="tech-icon aws" size={32} />
-                <SiGooglecloud className="tech-icon gcp" size={32} />
                 <SiGooglecloud className="tech-icon gcp" size={32} />
                 <FaMicrosoft className="tech-icon azure" size={32} />
                 <SiFastapi className="tech-icon fastapi" size={32} />

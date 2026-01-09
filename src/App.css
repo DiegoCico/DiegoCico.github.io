@@ -92,34 +92,39 @@ body {
   flex-direction: column;
 }
 
-.nav-item {
-  display: block;
-  color: #666666;
-  text-decoration: none;
-  padding: 1rem 0;
-  margin: 0.5rem 0;
+ .nav-item {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font: inherit;
+  padding: 0.75rem 1rem;
+  text-align: left;
+
   border-left: 2px solid transparent;
   padding-left: 1rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease,
+    border-left-color 0.2s ease;
 }
 
+/* hover (non-active) */
 .nav-item:hover {
   color: #ffffff;
-  border-left-color: #ff2222;
+  border-left-color: #ffffff;
   padding-left: 1.5rem;
 }
 
-.nav-item:focus,
-.nav-item:active,
+/* active section */
 .nav-item.active {
   color: #ff2222;
   border-left-color: #ff2222;
+  padding-left: 1.5rem;
+  font-weight: 600;
 }
+
 
 .social-links {
   margin-top: 3rem;

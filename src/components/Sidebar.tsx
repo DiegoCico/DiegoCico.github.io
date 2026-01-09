@@ -1,35 +1,38 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-interface SidebarProps {}
+const SECTIONS = ['terminal', 'about', 'projects', 'experience', 'stack'];
 
-const Sidebar = ({}: SidebarProps) => {
+const Sidebar = () => {
   const [activeSection, setActiveSection] = useState('terminal');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['terminal', 'about', 'projects', 'experience', 'stack'];
-      const scrollPosition = window.scrollY + 200; // Offset for better detection
+      const scrollPos = window.scrollY + 150;
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const element = document.getElementById(sections[i]);
-        if (element && element.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
+      for (let i = SECTIONS.length - 1; i >= 0; i--) {
+        const el = document.getElementById(SECTIONS[i]);
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveSection(SECTIONS[i]);
           break;
         }
       }
     };
 
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (e: MouseEvent) => {
       const sidebar = document.querySelector('.sidebar');
-      if (sidebar && !sidebar.contains(event.target as Node) && isMobileMenuOpen) {
+      if (
+        sidebar &&
+        !sidebar.contains(e.target as Node) &&
+        isMobileMenuOpen
+      ) {
         setIsMobileMenuOpen(false);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     document.addEventListener('mousedown', handleClickOutside);
-    handleScroll(); // Check initial position
+    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -38,82 +41,48 @@ const Sidebar = ({}: SidebarProps) => {
   }, [isMobileMenuOpen]);
 
   const handleNavClick = (sectionId: string) => {
-    setIsMobileMenuOpen(false); // Close mobile menu when navigating
-    // Prevent default anchor behavior
-    console.log(`Navigating to ${sectionId}`);
-  };
+    const el = document.getElementById(sectionId);
+    if (!el) return;
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    const y = el.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+
+    history.replaceState(null, '', `#${sectionId}`);
+    setActiveSection(sectionId);
+    setIsMobileMenuOpen(false);
   };
 
   return (
     <div className={`sidebar ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
       <div className="sidebar-header">
         <div className="logo">DiegoCico</div>
-        <button 
+        <button
           className="mobile-menu-toggle"
-          onClick={toggleMobileMenu}
-          aria-label="Toggle navigation menu"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           type="button"
+          aria-label="Toggle menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span />
+          <span />
+          <span />
         </button>
       </div>
-      
+
       <nav className={`sidebar-nav ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-        <a 
-          href="#terminal" 
-          className={`nav-item ${activeSection === 'terminal' ? 'active' : ''}`}
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavClick('terminal');
-          }}
-        >
-          HOME
-        </a>
-        <a 
-          href="#about" 
-          className={`nav-item ${activeSection === 'about' ? 'active' : ''}`}
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavClick('about');
-          }}
-        >
-          ABOUT
-        </a>
-        <a 
-          href="#projects" 
-          className={`nav-item ${activeSection === 'projects' ? 'active' : ''}`}
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavClick('projects');
-          }}
-        >
-          PROJECTS
-        </a>
-        <a 
-          href="#experience" 
-          className={`nav-item ${activeSection === 'experience' ? 'active' : ''}`}
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavClick('experience');
-          }}
-        >
-          EXPERIENCE
-        </a>
-        <a 
-          href="#stack" 
-          className={`nav-item ${activeSection === 'stack' ? 'active' : ''}`}
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavClick('stack');
-          }}
-        >
-          STACK
-        </a>
+        {SECTIONS.map((section) => (
+          <button
+            key={section}
+            className={`nav-item ${
+              activeSection === section ? 'active' : ''
+            }`}
+            onClick={() => handleNavClick(section)}
+            type="button"
+          >
+            {section === 'terminal'
+              ? 'HOME'
+              : section.toUpperCase()}
+          </button>
+        ))}
       </nav>
     </div>
   );

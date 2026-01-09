@@ -32,7 +32,7 @@ const Terminal = () => {
     ],
     origin: () => [
       { content: 'Brazil → USA', color: '#ff6666' },
-      { content: 'Born and raised in Brazil 🇧🇷', color: '#ff6666' },
+      { content: 'Born in Brazil 🇧🇷', color: '#ff6666' },
       { content: 'Currently studying in Boston, MA 🇺🇸', color: '#ff6666' }
     ],
     education: () => [
@@ -153,7 +153,7 @@ const Terminal = () => {
           <div className="terminal-button close"></div>
           <div className="terminal-button minimize"></div>
           <div className="terminal-button maximize"></div>
-          <div className="terminal-title">diego@northeastern: ~/portfolio</div>
+          <div className="terminal-title">diego@life: ~/portfolio</div>
         </div>
         <div className="terminal-content" ref={terminalContentRef}>
           {history.map((line, index) => (
