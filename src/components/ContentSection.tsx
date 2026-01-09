@@ -211,9 +211,9 @@ const ContentSection = () => {
 
               
               <div className="action-buttons">
-                <a href="https://github.com/DiegoCico/Resume_latex/blob/main/Resume%203.2.pdf" className="action-button">View Resume</a>
-                <a href="https://calendly.com/cicotosted/coffee-chat?month=2026-01" className="action-button">Schedule Coffee Chat</a>
-                <a href="https://www.linkedin.com/in/diego-cicotoste/" className="action-button">View LinkedIn</a>
+                <a href="https://github.com/DiegoCico/Resume_latex/blob/main/Resume%203.2.pdf" target="_blank" className="action-button">View Resume</a>
+                <a href="https://calendly.com/cicotosted/coffee-chat?month=2026-01" target="_blank" className="action-button">Schedule Coffee Chat</a>
+                <a href="https://www.linkedin.com/in/diego-cicotoste/" target="_blank" className="action-button">View LinkedIn</a>
               </div>
             </div>
             <div className="about-image">
