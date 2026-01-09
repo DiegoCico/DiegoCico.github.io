@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useRef } from 'react';
 
 const Terminal = () => {
   const [input, setInput] = useState('');
   const [history, setHistory] = useState<Array<{ type: string; content: string; color?: string }>>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [currentCommandIndex, setCurrentCommandIndex] = useState(0);
+  const terminalContentRef = useRef<HTMLDivElement>(null);
 
   // Pre-scripted commands to type automatically
   const autoCommands = [
@@ -135,6 +137,15 @@ const Terminal = () => {
     setInput('');
   };
 
+  useEffect(() => {
+    const el = terminalContentRef.current;
+    if (!el) return;
+
+    el.scrollTop = el.scrollHeight;
+  }, [history, isTyping]);
+
+
+
   return (
     <div id="terminal" className="terminal-container">
       <div className="terminal">
@@ -144,7 +155,7 @@ const Terminal = () => {
           <div className="terminal-button maximize"></div>
           <div className="terminal-title">diego@northeastern: ~/portfolio</div>
         </div>
-        <div className="terminal-content">
+        <div className="terminal-content" ref={terminalContentRef}>
           {history.map((line, index) => (
             <div key={index} className="terminal-line">
               {line.type === 'input' ? (
@@ -174,7 +185,6 @@ const Terminal = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   className="terminal-input"
-                  autoFocus
                   spellCheck={false}
                   placeholder="Type 'help' for commands..."
                   style={{ color: '#ffffff' }}
@@ -182,6 +192,7 @@ const Terminal = () => {
               </div>
             </form>
           )}
+
         </div>
       </div>
     </div>

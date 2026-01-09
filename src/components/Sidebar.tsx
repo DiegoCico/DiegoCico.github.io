@@ -4,6 +4,7 @@ interface SidebarProps {}
 
 const Sidebar = ({}: SidebarProps) => {
   const [activeSection, setActiveSection] = useState('terminal');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,28 +20,105 @@ const Sidebar = ({}: SidebarProps) => {
       }
     };
 
+    const handleClickOutside = (event: MouseEvent) => {
+      const sidebar = document.querySelector('.sidebar');
+      if (sidebar && !sidebar.contains(event.target as Node) && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
     handleScroll(); // Check initial position
 
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
+
+  const handleNavClick = (sectionId: string) => {
+    setIsMobileMenuOpen(false); // Close mobile menu when navigating
+    // Prevent default anchor behavior
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
-    <div className="sidebar">
-      <div className="logo">DiegoCico</div>
-      
-      <nav>
-        <a href="#terminal" className={`nav-item ${activeSection === 'terminal' ? 'active' : ''}`}>HOME</a>
-        <a href="#about" className={`nav-item ${activeSection === 'about' ? 'active' : ''}`}>ABOUT</a>
-        <a href="#projects" className={`nav-item ${activeSection === 'projects' ? 'active' : ''}`}>PROJECTS</a>
-        <a href="#experience" className={`nav-item ${activeSection === 'experience' ? 'active' : ''}`}>EXPERIENCE</a>
-        <a href="#stack" className={`nav-item ${activeSection === 'stack' ? 'active' : ''}`}>STACK</a>
-      </nav>
-
-      <div className="social-links">
-        <a href="#" className="social-link">📁</a>
-        <a href="#" className="social-link">🔗</a>
+    <div className={`sidebar ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+      <div className="sidebar-header">
+        <div className="logo">DiegoCico</div>
+        <button 
+          className="mobile-menu-toggle"
+          onClick={toggleMobileMenu}
+          aria-label="Toggle navigation menu"
+          type="button"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
+      
+      <nav className={`sidebar-nav ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+        <a 
+          href="#terminal" 
+          className={`nav-item ${activeSection === 'terminal' ? 'active' : ''}`}
+          onClick={(e) => {
+            e.preventDefault();
+            handleNavClick('terminal');
+          }}
+        >
+          HOME
+        </a>
+        <a 
+          href="#about" 
+          className={`nav-item ${activeSection === 'about' ? 'active' : ''}`}
+          onClick={(e) => {
+            e.preventDefault();
+            handleNavClick('about');
+          }}
+        >
+          ABOUT
+        </a>
+        <a 
+          href="#projects" 
+          className={`nav-item ${activeSection === 'projects' ? 'active' : ''}`}
+          onClick={(e) => {
+            e.preventDefault();
+            handleNavClick('projects');
+          }}
+        >
+          PROJECTS
+        </a>
+        <a 
+          href="#experience" 
+          className={`nav-item ${activeSection === 'experience' ? 'active' : ''}`}
+          onClick={(e) => {
+            e.preventDefault();
+            handleNavClick('experience');
+          }}
+        >
+          EXPERIENCE
+        </a>
+        <a 
+          href="#stack" 
+          className={`nav-item ${activeSection === 'stack' ? 'active' : ''}`}
+          onClick={(e) => {
+            e.preventDefault();
+            handleNavClick('stack');
+          }}
+        >
+          STACK
+        </a>
+
+        <div className="social-links">
+          <a href="#" className="social-link">📁</a>
+          <a href="#" className="social-link">🔗</a>
+        </div>
+      </nav>
     </div>
   );
 };

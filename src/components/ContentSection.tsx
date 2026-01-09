@@ -4,6 +4,7 @@ const ContentSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [filteredCurrentPage, setFilteredCurrentPage] = useState(1);
+  const [expandedExperience, setExpandedExperience] = useState(false);
   const totalPages = 5;
   const itemsPerPage = 4;
 
@@ -62,8 +63,6 @@ const ContentSection = () => {
     const projectsPages = document.querySelectorAll('.projects-page');
     
     if (activeFilters.length > 0 && filteredContainer) {
-      console.log('Filtering active, filters:', activeFilters);
-      
       // Hide regular project pages and show filtered results
       projectsPages.forEach(page => {
         (page as HTMLElement).style.display = 'none';
@@ -77,26 +76,19 @@ const ContentSection = () => {
       const allProjects = document.querySelectorAll('.projects-page .project-card');
       const matchingProjects: Element[] = [];
       
-      console.log('Total projects found:', allProjects.length);
-      
       allProjects.forEach(card => {
         const languages = (card.getAttribute('data-language') || '').toLowerCase().split(',').map(lang => lang.trim());
         const matches = activeFilters.some(filter => languages.includes(filter.toLowerCase()));
         
         if (matches) {
           matchingProjects.push(card);
-          console.log('Matching project:', card.querySelector('h3')?.textContent, 'languages:', languages);
         }
       });
-
-      console.log('Matching projects:', matchingProjects.length);
 
       // Paginate filtered results - show only 4 at a time
       const startIndex = (filteredCurrentPage - 1) * itemsPerPage;
       const endIndex = startIndex + itemsPerPage;
       const currentPageProjects = matchingProjects.slice(startIndex, endIndex);
-
-      console.log('Current page projects:', currentPageProjects.length);
 
       currentPageProjects.forEach(card => {
         const clone = card.cloneNode(true) as HTMLElement;
@@ -118,7 +110,6 @@ const ContentSection = () => {
         filteredContainer.appendChild(clone);
       });
     } else if (filteredContainer) {
-      console.log('No filters active, showing regular pages');
       // Show regular project pages and hide filtered results
       projectsPages.forEach(page => {
         (page as HTMLElement).style.display = '';
@@ -126,6 +117,48 @@ const ContentSection = () => {
       filteredContainer.className = 'filtered-projects-container';
     }
   }, [activeFilters, filteredCurrentPage]);
+
+  // Experience popup functions
+  const showExperiencePopup = (company: string, date: string, role: string, description: string) => {
+    const popup = document.getElementById('experience-popup');
+    const companyEl = document.getElementById('popup-company');
+    const dateEl = document.getElementById('popup-date');
+    const roleEl = document.getElementById('popup-role');
+    const descriptionEl = document.getElementById('popup-description');
+    
+    if (popup && companyEl && dateEl && roleEl && descriptionEl) {
+      companyEl.textContent = company;
+      dateEl.textContent = date;
+      roleEl.textContent = role;
+      descriptionEl.textContent = description;
+      popup.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  const closeExperiencePopup = () => {
+    const popup = document.getElementById('experience-popup');
+    if (popup) {
+      popup.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  };
+
+  // Close popup when clicking outside
+  useEffect(() => {
+    const handlePopupClick = (e: MouseEvent) => {
+      const popup = document.getElementById('experience-popup');
+      const popupContent = document.querySelector('.popup-content');
+      
+      if (popup && popup.style.display === 'flex' && 
+          !popupContent?.contains(e.target as Node)) {
+        closeExperiencePopup();
+      }
+    };
+
+    document.addEventListener('click', handlePopupClick);
+    return () => document.removeEventListener('click', handlePopupClick);
+  }, []);
 
   return (
     <div className="content-section-container">
@@ -157,10 +190,11 @@ const ContentSection = () => {
               </div>
             </div>
             <div className="about-image">
-              <div className="profile-placeholder">
-                <div className="profile-icon">👨‍💻</div>
-                <p>Diego Cicotoste</p>
-              </div>
+                <img
+                  src="/me.JPG"
+                  alt="Diego Cicotoste"
+                  className="profile-image"
+                />
             </div>
           </div>
         </div>
@@ -172,10 +206,6 @@ const ContentSection = () => {
           <h1 className="section-title">PROJECTS</h1>
         </div>
         <div className="content-body">
-          <h2>Featured Projects</h2>
-          <p style={{ marginBottom: '1rem', color: '#cccccc' }}>*select to view the code/documentation*</p>
-          <p style={{ marginBottom: '2rem', color: '#cccccc' }}>*these are some of my impactful projects in my github there are more!*</p>
-          
           {/* Filter Buttons */}
           <div className="filter-buttons">
             {['java', 'python', 'ai', 'react', 'htmlcss', 'typescript', 'swift'].map(lang => (
@@ -498,31 +528,122 @@ const ContentSection = () => {
         <div className="section-header">
           <h1 className="section-title">EXPERIENCE</h1>
         </div>
-        <div className="content-body">
+        <div className="content-body">          
           <div className="timeline">
-            <div className="timeline-item">
+            {/* Top 3 Experiences - Always Visible */}
+            <div className="timeline-item" onClick={() => showExperiencePopup('Amazon Web Services (AWS)', 'Starting July 2026', 'Software Development Engineer (Full-Time)', 'AWS AFX Generative AI services')}>
               <div className="timeline-date">2026</div>
               <div className="timeline-content">
                 <h3>Software Development Engineer</h3>
                 <p className="company">Amazon Web Services (AWS) - Future Role</p>
                 <p>Post-graduation position focusing on cloud infrastructure and scalable systems.</p>
               </div>
+              <div className="timeline-hover-effect"></div>
             </div>
-            <div className="timeline-item">
-              <div className="timeline-date">2024</div>
+
+            <div className="timeline-item" onClick={() => showExperiencePopup('Massachusetts National Guard', 'Sept 2025 - Dec 2025', 'Software Engineer (Contract)', 'Built a cloud-native inventory system for the Massachusetts National Guard with a multi-team Teamspace model, granular role permissions, a scalable DynamoDB PK/SK + GSI design, secure presigned S3 flows, and a React + TypeScript front end for fast item management and real-time visibility.')}>
+              <div className="timeline-date">2025</div>
               <div className="timeline-content">
-                <h3>SDE Intern</h3>
-                <p className="company">Amazon Web Services (AWS) - Incoming</p>
-                <p>Contributing to cloud infrastructure and backend systems.</p>
+                <h3>Software Engineer (Contract)</h3>
+                <p className="company">Massachusetts National Guard</p>
+                <p>Built cloud-native inventory system with React + TypeScript frontend.</p>
+              </div>
+              <div className="timeline-hover-effect"></div>
+            </div>
+
+            <div className="timeline-item" onClick={() => showExperiencePopup('Supply Trace', 'Sept 2024 - Nov 2025', 'Technical Project Manager', 'Built data pipelines and analytical tools under Dr. Shawn to streamline supply chain operations and enhance infrastructure for faster, safer data loading. Managed a high-performance team of 3, ensured timely task completion, and led weekly meetings to align project goals.')}>
+              <div className="timeline-date">2024-2025</div>
+              <div className="timeline-content">
+                <h3>Technical Project Manager</h3>
+                <p className="company">Supply Trace</p>
+                <p>Built data pipelines and managed high-performance team of 3.</p>
+                <button 
+                  className="supply-trace-button" 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.open('https://supplytrace.org', '_blank');
+                  }}
+                >
+                  Visit Supply Trace
+                </button>
+              </div>
+              <div className="timeline-hover-effect"></div>
+            </div>
+
+            {/* Expand Tree Button */}
+            <div className="expand-tree-container">
+              <button 
+                className={`expand-tree-button ${expandedExperience ? 'expanded' : ''}`}
+                onClick={() => setExpandedExperience(!expandedExperience)}
+              >
+                <span className="tree-icon">+</span>
+                {expandedExperience ? 'Collapse Tree' : 'Expand Tree'}
+                <span className={`arrow ${expandedExperience ? 'up' : 'down'}`}>▼</span>
+              </button>
+            </div>
+
+            {/* Additional Experiences - Expandable */}
+            <div className={`additional-experiences ${expandedExperience ? 'expanded' : ''}`}>
+              <div className="timeline-item" onClick={() => showExperiencePopup('Amazon Web Services (AWS)', 'May 2025 - Aug 2025', 'Software Development Engineer Intern', 'Built a secure, scalable GenAI system with a React frontend and Lambda backend that automated contract processing, cutting time from hours to minutes and streamlining vendor onboarding.')}>
+                <div className="timeline-date">2025</div>
+                <div className="timeline-content">
+                  <h3>SDE Intern (Summer 2025)</h3>
+                  <p className="company">Amazon Web Services (AWS)</p>
+                  <p>Built secure GenAI system automating contract processing.</p>
+                </div>
+                <div className="timeline-hover-effect"></div>
+              </div>
+
+              <div className="timeline-item" onClick={() => showExperiencePopup('Amazon Web Services (AWS)', 'May 2024 - Aug 2024', 'Software Development Engineer Intern', 'Extracted and processed data from over 2 million users using Productiv API, reducing processing time by 40%. Built a custom data pipeline in TypeScript and visualized insights in QuickSight, saving $15M.')}>
+                <div className="timeline-date">2024</div>
+                <div className="timeline-content">
+                  <h3>SDE Intern (Summer 2024)</h3>
+                  <p className="company">Amazon Web Services (AWS)</p>
+                  <p>Built data pipeline processing 2M+ users, saving $15M.</p>
+                </div>
+                <div className="timeline-hover-effect"></div>
+              </div>
+
+              <div className="timeline-item" onClick={() => showExperiencePopup('Kid Teaches Kids', 'Jun 2021 - Sept 2023', 'Founder & CEO', 'Founded and scaled an online coding tutoring platform, delivering 1,000+ hours of personalized sessions to children aged 8-16.')}>
+                <div className="timeline-date">2021-2023</div>
+                <div className="timeline-content">
+                  <h3>Founder & CEO</h3>
+                  <p className="company">Kid Teaches Kids</p>
+                  <p>Founded online coding platform, 1,000+ tutoring hours.</p>
+                </div>
+                <div className="timeline-hover-effect"></div>
+              </div>
+
+              <div className="timeline-item" onClick={() => showExperiencePopup('Code Ninjas', 'Jun 2021 - Aug 2023', 'Manager', 'Led a team of 15 instructors, mentoring kids in coding, revamping franchise performance, and delivering $30,000+ in monthly revenue.')}>
+                <div className="timeline-date">2021-2023</div>
+                <div className="timeline-content">
+                  <h3>Manager</h3>
+                  <p className="company">Code Ninjas</p>
+                  <p>Led team of 15 instructors, $30,000+ monthly revenue.</p>
+                </div>
+                <div className="timeline-hover-effect"></div>
+              </div>
+
+              <div className="timeline-item" onClick={() => showExperiencePopup('Pinbank Brazil', 'Jun 2019 - Nov 2021', 'Assistant Software Engineer', 'Unpaid internship. Developed Android application projects using JAVA, XML, HTML, and CSS.')}>
+                <div className="timeline-date">2019</div>
+                <div className="timeline-content">
+                  <h3>Assistant Software Engineer</h3>
+                  <p className="company">Pinbank Brazil</p>
+                  <p>Developed Android applications using Java, XML, HTML, CSS.</p>
+                </div>
+                <div className="timeline-hover-effect"></div>
               </div>
             </div>
-            <div className="timeline-item">
-              <div className="timeline-date">2022-2026</div>
-              <div className="timeline-content">
-                <h3>Computer Science Student</h3>
-                <p className="company">Northeastern University</p>
-                <p>Focus on software engineering, algorithms, and system design. Class of 2026.</p>
-              </div>
+          </div>
+
+          {/* Experience Popup Modal */}
+          <div id="experience-popup" className="experience-popup">
+            <div className="popup-content">
+              <span className="popup-close" onClick={() => closeExperiencePopup()}>&times;</span>
+              <h2 id="popup-company"></h2>
+              <p id="popup-date"></p>
+              <h3 id="popup-role"></h3>
+              <p id="popup-description"></p>
             </div>
           </div>
         </div>
