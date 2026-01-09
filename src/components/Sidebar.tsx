@@ -27,7 +27,7 @@ const Sidebar = ({}: SidebarProps) => {
 
   return (
     <div className="sidebar">
-      <div className="logo">D.CICO</div>
+      <div className="logo">DiegoCico</div>
       
       <nav>
         <a href="#terminal" className={`nav-item ${activeSection === 'terminal' ? 'active' : ''}`}>HOME</a>
