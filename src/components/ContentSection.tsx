@@ -9,9 +9,15 @@ import {
   SiFirebase,
   SiGit,
   SiLinux,
+  SiGooglecloud,   
+  SiFastapi,          
+  SiDjango,          
+  SiMongodb,          
+  SiVite,             
 } from "react-icons/si";
 
-import { FaJava, FaAws, FaNodeJs } from "react-icons/fa";
+
+import { FaJava, FaAws, FaNodeJs, FaMicrosoft } from "react-icons/fa";
 import { SiExpress, SiFlask } from "react-icons/si";
 
 const ContentSection = () => {
@@ -691,6 +697,14 @@ const ContentSection = () => {
 
                 <SiReact className="tech-icon react" size={32} />
                 <FaAws className="tech-icon aws" size={32} />
+                <SiGooglecloud className="tech-icon gcp" size={32} />
+                <SiGooglecloud className="tech-icon gcp" size={32} />
+                <FaMicrosoft className="tech-icon azure" size={32} />
+                <SiFastapi className="tech-icon fastapi" size={32} />
+                <SiDjango className="tech-icon django" size={32} />
+                <SiMongodb className="tech-icon mongodb" size={32} />
+
+                <SiVite className="tech-icon vite" size={32} />
                 <SiDocker className="tech-icon docker" size={32} />
                 <SiPostgresql className="tech-icon postgres" size={32} />
                 <SiFirebase className="tech-icon firebase" size={32} />
@@ -707,6 +721,13 @@ const ContentSection = () => {
                 <SiFlask className="tech-icon flask" size={32} />
                 <SiReact className="tech-icon react" size={32} />
                 <FaAws className="tech-icon aws" size={32} />
+                <SiGooglecloud className="tech-icon gcp" size={32} />
+                <SiGooglecloud className="tech-icon gcp" size={32} />
+                <FaMicrosoft className="tech-icon azure" size={32} />
+                <SiFastapi className="tech-icon fastapi" size={32} />
+                <SiDjango className="tech-icon django" size={32} />
+                <SiMongodb className="tech-icon mongodb" size={32} />
+                <SiVite className="tech-icon vite" size={32} />
                 <SiDocker className="tech-icon docker" size={32} />
                 <SiPostgresql className="tech-icon postgres" size={32} />
                 <SiFirebase className="tech-icon firebase" size={32} />

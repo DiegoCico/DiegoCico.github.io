@@ -1009,6 +1009,14 @@ body {
 .tech-icon.firebase { color: #ffca28; }
 .tech-icon.git { color: #f05032; }
 .tech-icon.linux { color: #fcc624; }
+.tech-icon.gcp {
+  color: #4285f4; 
+}
+.tech-icon.azure { color: #0078d4; }
+.tech-icon.fastapi { color: #009688; }
+.tech-icon.django { color: #092e20; }
+.tech-icon.mongodb { color: #47a248; }
+.tech-icon.vite { color: #646cff; }
 
 
 .tech-scroll-item {
