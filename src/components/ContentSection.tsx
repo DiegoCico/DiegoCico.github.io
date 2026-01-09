@@ -1,4 +1,18 @@
 import { useState, useEffect } from 'react';
+import {
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiReact,
+  SiDocker,
+  SiPostgresql,
+  SiFirebase,
+  SiGit,
+  SiLinux,
+} from "react-icons/si";
+
+import { FaJava, FaAws, FaNodeJs } from "react-icons/fa";
+import { SiExpress, SiFlask } from "react-icons/si";
 
 const ContentSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -171,17 +185,24 @@ const ContentSection = () => {
           <div className="about-content">
             <div className="about-text">
               <p>
-                I am a student at <span className="highlight">Northeastern University</span> (Class of 2026), originally 
-                from Brazil. My engineering focus lies in backend architecture, AI-driven automation, and building systems that scale.
+                Hello! My name is <span className="highlight">Diego Cicotoste</span>. I'm an undergraduate at
+                <span className="highlight"> Northeastern University</span>, class of 2026. After graduation,
+                I plan on being an <span className="highlight">SDE @ AWS</span>, working on scalable systems and
+                cloud-backed applications. A quick fun fact about me is that I was born and raised in Brazil.
               </p>
+
               <p>
-                I am proud to be an <span className="highlight">incoming SDE Intern at Amazon Web Services (AWS)</span>, where I'll be contributing to 
-                cloud infrastructure.
+                My interests are centered around backend engineering, automation, and building software that
+                scales. I enjoy working close to infrastructure and cloud services, especially when systems
+                need to be reliable, secure, and efficient under real-world load.
               </p>
+
               <p>
-                Social impact is core to my identity—I founded <span className="highlight">The Hope Box</span> to support 
-                underprivileged children in Brazil with educational materials.
+                Outside of work, I love to travel, snowboard, and experiment with personal projects. I’ve
+                automated many parts of my life—whether it’s extending my Alexa, house searching, or building
+                apps for me and my loved ones to simplify everyday tasks.
               </p>
+
               
               <div className="action-buttons">
                 <a href="https://github.com/DiegoCico/Resume_latex/blob/main/Resume%203.2.pdf" className="action-button">View Resume</a>
@@ -657,62 +678,44 @@ const ContentSection = () => {
         <div className="content-body">
           {/* Animated Tech Scroll */}
           <div className="tech-scroll-container">
-            <div className="tech-scroll">
-              <div className="tech-scroll-item">🚀 JavaScript</div>
-              <div className="tech-scroll-item">⚡ TypeScript</div>
-              <div className="tech-scroll-item">🐍 Python</div>
-              <div className="tech-scroll-item">☕ Java</div>
-              <div className="tech-scroll-item">⚛️ React</div>
-              <div className="tech-scroll-item">🟢 Node.js</div>
-              <div className="tech-scroll-item">☁️ AWS</div>
-              <div className="tech-scroll-item">🐳 Docker</div>
-              <div className="tech-scroll-item">📱 React Native</div>
-              <div className="tech-scroll-item">🔥 Express</div>
-              <div className="tech-scroll-item">🎯 VS Code</div>
-              <div className="tech-scroll-item">🔧 Git</div>
-            </div>
-          </div>
-          
-          <div className="tech-grid">
-            <div className="tech-category">
-              <h3>Languages</h3>
-              <div className="tech-items">
-                <span className="tech-item">JavaScript</span>
-                <span className="tech-item">TypeScript</span>
-                <span className="tech-item">Python</span>
-                <span className="tech-item">Java</span>
-              </div>
-            </div>
-            <div className="tech-category">
-              <h3>Frontend</h3>
-              <div className="tech-items">
-                <span className="tech-item">React</span>
-                <span className="tech-item">HTML5</span>
-                <span className="tech-item">CSS3</span>
-                <span className="tech-item">React Native</span>
-              </div>
-            </div>
-            <div className="tech-category">
-              <h3>Backend & Cloud</h3>
-              <div className="tech-items">
-                <span className="tech-item">Node.js</span>
-                <span className="tech-item">Express</span>
-                <span className="tech-item">AWS Lambda</span>
-                <span className="tech-item">S3</span>
-                <span className="tech-item">EC2</span>
-              </div>
-            </div>
-            <div className="tech-category">
-              <h3>Tools & Automation</h3>
-              <div className="tech-items">
-                <span className="tech-item">Git</span>
-                <span className="tech-item">Docker</span>
-                <span className="tech-item">VS Code</span>
-                <span className="tech-item">Alexa Skills</span>
-                <span className="tech-item">Home Assistant</span>
+            <div className="tech-scroll-track">
+              <div className="tech-scroll">
+                <SiJavascript className="tech-icon js" size={32} />
+                <SiTypescript className="tech-icon ts" size={32} />
+                <SiPython className="tech-icon py" size={32} />
+                <FaJava className="tech-icon java" size={32} />
+
+                <FaNodeJs className="tech-icon node" size={32} />
+                <SiExpress className="tech-icon express" size={32} />
+                <SiFlask className="tech-icon flask" size={32} />
+
+                <SiReact className="tech-icon react" size={32} />
+                <FaAws className="tech-icon aws" size={32} />
+                <SiDocker className="tech-icon docker" size={32} />
+                <SiPostgresql className="tech-icon postgres" size={32} />
+                <SiFirebase className="tech-icon firebase" size={32} />
+                <SiGit className="tech-icon git" size={32} />
+                <SiLinux className="tech-icon linux" size={32} />
+
+                {/* duplicate once for seamless loop */}
+                <SiJavascript className="tech-icon js" size={32} />
+                <SiTypescript className="tech-icon ts" size={32} />
+                <SiPython className="tech-icon py" size={32} />
+                <FaJava className="tech-icon java" size={32} />
+                <FaNodeJs className="tech-icon node" size={32} />
+                <SiExpress className="tech-icon express" size={32} />
+                <SiFlask className="tech-icon flask" size={32} />
+                <SiReact className="tech-icon react" size={32} />
+                <FaAws className="tech-icon aws" size={32} />
+                <SiDocker className="tech-icon docker" size={32} />
+                <SiPostgresql className="tech-icon postgres" size={32} />
+                <SiFirebase className="tech-icon firebase" size={32} />
+                <SiGit className="tech-icon git" size={32} />
+                <SiLinux className="tech-icon linux" size={32} />
               </div>
             </div>
           </div>
+
         </div>
       </section>
     </div>

@@ -952,7 +952,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* Animated Tech Scroll */
 .tech-scroll-container {
   overflow: hidden;
   margin: 4rem 0;
@@ -962,11 +961,55 @@ body {
   border: 1px solid #2a2a2a;
 }
 
+.tech-scroll-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
 .tech-scroll {
   display: flex;
-  animation: scroll-left 25s linear infinite;
-  white-space: nowrap;
+  align-items: center;
+  gap: 5rem;
+  padding-right: 3rem;
 }
+
+/* infinite loop */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* icons */
+.tech-icon {
+  opacity: 0.9;
+  transition: transform 0.2s ease;
+}
+
+.tech-icon:hover {
+  transform: scale(1.15);
+}
+
+/* colors */
+.tech-icon.js { color: #f7df1e; }
+.tech-icon.ts { color: #3178c6; }
+.tech-icon.py { color: #3776ab; }
+.tech-icon.java { color: #f89820; }
+.tech-icon.node { color: #339933; }
+.tech-icon.express { color: #ffffff; }
+.tech-icon.flask { color: #ffffff; }
+.tech-icon.react { color: #61dafb; }
+.tech-icon.aws { color: #ff9900; }
+.tech-icon.docker { color: #2496ed; }
+.tech-icon.postgres { color: #336791; }
+.tech-icon.firebase { color: #ffca28; }
+.tech-icon.git { color: #f05032; }
+.tech-icon.linux { color: #fcc624; }
+
 
 .tech-scroll-item {
   display: inline-flex;
@@ -1419,4 +1462,14 @@ body {
     padding: 0.9rem 1.2rem;
     font-size: 0.9rem;
   }
+}
+
+.tech-scroll svg {
+  opacity: 0.75;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.tech-scroll svg:hover {
+  opacity: 1;
+  transform: scale(1.05);
 }
