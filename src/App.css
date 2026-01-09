@@ -658,7 +658,7 @@ body {
 .timeline::before {
   content: '';
   position: absolute;
-  left: 0;
+  left: 2.5vw;
   top: 0;
   bottom: 0;
   width: 2px;
@@ -698,7 +698,7 @@ body {
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: -9px;
+  left: 1px;
   top: 0.4rem;            
   width: 14px;
   height: 14px;
@@ -768,17 +768,9 @@ body {
 }
 
 .expand-tree-container::before {
-  content: '';
-  position: absolute;
-  left: -3rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
-  background: #ff2222;
-  border-radius: 50%;
-  border: 3px solid #0a0a0a;
+  content: none;
 }
+
 
 .expand-tree-button {
   background: #1a1a1a;
@@ -1301,7 +1293,7 @@ body {
   }
   
   .expand-tree-container::before {
-    left: -2rem;
+    display: none ;
   }
   
   .expand-tree-button {

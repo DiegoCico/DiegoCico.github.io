@@ -113,11 +113,6 @@ const Sidebar = ({}: SidebarProps) => {
         >
           STACK
         </a>
-
-        <div className="social-links">
-          <a href="#" className="social-link">📁</a>
-          <a href="#" className="social-link">🔗</a>
-        </div>
       </nav>
     </div>
   );
