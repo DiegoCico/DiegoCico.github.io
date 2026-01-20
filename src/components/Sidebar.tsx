@@ -9,6 +9,13 @@ const Sidebar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPos = window.scrollY + 150;
+      const scrollBottom = window.scrollY + window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      if (scrollBottom >= docHeight - 2) {
+        setActiveSection(SECTIONS[SECTIONS.length - 1]);
+        return;
+      }
 
       for (let i = SECTIONS.length - 1; i >= 0; i--) {
         const el = document.getElementById(SECTIONS[i]);

@@ -20,7 +20,7 @@ body {
 .app {
   display: flex;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 
 .main-content {
@@ -28,6 +28,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-left: 250px;
+  min-width: 0;
 }
 
 /* Sidebar Styles */
@@ -145,21 +146,23 @@ body {
 
 /* Terminal Styles */
 .terminal-container {
-  padding: 3rem 2rem;
+  padding: clamp(1.5rem, 3vw, 3rem) clamp(1rem, 3vw, 2rem);
   background: #0a0a0a;
 }
 
 .terminal {
-  width: 900px;
-  max-width: 900px;
-  min-width: 900px;
+  width: min(900px, 100%);
+  max-width: 100%;
+  min-width: 0;
   background-color: #1a1a1a;
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   margin: 0 auto;
-  height: 500px;
+  height: clamp(360px, 60vh, 500px);
   border: 1px solid #2a2a2a;
+  display: flex;
+  flex-direction: column;
 }
 
 .terminal-header {
@@ -191,7 +194,8 @@ body {
 .terminal-content {
   padding: 2rem;
   background-color: #1a1a1a;
-  height: calc(500px - 60px);
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }
@@ -258,7 +262,7 @@ body {
 
 /* Content Section Styles */
 .content-section-container {
-  padding: 3rem 2rem;
+  padding: clamp(1.5rem, 3vw, 3rem) clamp(1rem, 3vw, 2rem);
   background: #0a0a0a;
 }
 
@@ -276,7 +280,7 @@ body {
 }
 
 .section-title {
-  font-size: 5rem;
+  font-size: clamp(2.5rem, 6vw, 5rem);
   color: #ff2222;
   font-weight: 800;
   line-height: 1;
@@ -333,7 +337,13 @@ body {
     align-items: center;
   }
 
+  .about-text {
+    order: 2;
+    width: 100%;
+  }
+
   .about-image {
+    order: 1;
     width: 140px;
     margin-bottom: 1.5rem;
   }
@@ -345,8 +355,9 @@ body {
 }
 
 .profile-image {
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: auto;
+  max-width: 400px;
   border-radius: 8px;
   object-fit: cover;
 }
@@ -1205,7 +1216,7 @@ body {
   
   .terminal-content {
     padding: 1rem;
-    height: calc(400px - 60px);
+    height: auto;
     font-size: 0.9rem;
   }
   
@@ -1422,7 +1433,7 @@ body {
   }
   
   .terminal-content {
-    height: calc(350px - 60px);
+    height: auto;
     font-size: 0.8rem;
     padding: 0.8rem;
   }

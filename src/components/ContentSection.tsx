@@ -645,31 +645,31 @@ const ContentSection = () => {
           <div className="timeline">
             {/* Top 3 Experiences - Always Visible */}
             <div className="timeline-item" onClick={() => showExperiencePopup('Amazon Web Services (AWS)', 'Starting July 2026', 'Software Development Engineer (Full-Time)', 'AWS AFX Generative AI services')}>
-              <div className="timeline-date">2026</div>
+              <div className="timeline-date">Jul 2026 - Present</div>
               <div className="timeline-content">
                 <h3>Software Development Engineer</h3>
-                <p className="company">Amazon Web Services (AWS) - Future Role</p>
-                <p>Post-graduation position focusing on cloud infrastructure and scalable systems.</p>
+                <p className="company">Amazon Web Services (AWS)</p>
+                <p>Post graduation position on AFX GenAi Services.</p>
               </div>
               <div className="timeline-hover-effect"></div>
             </div>
 
             <div className="timeline-item" onClick={() => showExperiencePopup('Massachusetts National Guard', 'Sept 2025 - Dec 2025', 'Software Engineer (Contract)', 'Built a cloud-native inventory system for the Massachusetts National Guard with a multi-team Teamspace model, granular role permissions, a scalable DynamoDB PK/SK + GSI design, secure presigned S3 flows, and a React + TypeScript front end for fast item management and real-time visibility.')}>
-              <div className="timeline-date">2025</div>
+              <div className="timeline-date">Sep 2025 - Dec 2025</div>
               <div className="timeline-content">
-                <h3>Software Engineer (Contract)</h3>
+                <h3>Lead Software Engineer (Contract)</h3>
                 <p className="company">Massachusetts National Guard</p>
-                <p>Built cloud-native inventory system with React + TypeScript frontend.</p>
+                <p>Built a full cloud-native inventory management system for the Massachusetts National Guard on AWS, featuring a secure multi-team role-based architecture, a React/TypeScript + TRPC + MUI frontend, and a scalable DynamoDB (PK/SK + GSIs) data model optimized for fast inventory workflows, uploads, and audit trails.</p>
               </div>
               <div className="timeline-hover-effect"></div>
             </div>
 
             <div className="timeline-item" onClick={() => showExperiencePopup('Supply Trace', 'Sept 2024 - Nov 2025', 'Technical Project Manager', 'Built data pipelines and analytical tools under Dr. Shawn to streamline supply chain operations and enhance infrastructure for faster, safer data loading. Managed a high-performance team of 3, ensured timely task completion, and led weekly meetings to align project goals.')}>
-              <div className="timeline-date">2024-2025</div>
+              <div className="timeline-date">Sep 2024- Nov 2025</div>
               <div className="timeline-content">
                 <h3>Technical Project Manager</h3>
                 <p className="company">Supply Trace</p>
-                <p>Built data pipelines and managed high-performance team of 3.</p>
+                <p>Managed a high-performance team of 5 by leading weekly meetings, keeping tasks on track, improving platform data integrity through deduplication and structured storage, reviewing code to optimize website/database efficiency, and helping rebuild infrastructure for faster, safer data loading and retrieval.</p>
                 <button 
                   className="supply-trace-button" 
                   onClick={(e) => {
@@ -698,51 +698,61 @@ const ContentSection = () => {
             {/* Additional Experiences - Expandable */}
             <div className={`additional-experiences ${expandedExperience ? 'expanded' : ''}`}>
               <div className="timeline-item" onClick={() => showExperiencePopup('Amazon Web Services (AWS)', 'May 2025 - Aug 2025', 'Software Development Engineer Intern', 'Built a secure, scalable GenAI system with a React frontend and Lambda backend that automated contract processing, cutting time from hours to minutes and streamlining vendor onboarding.')}>
-                <div className="timeline-date">2025</div>
+                <div className="timeline-date">May 2025 - Aug 2025</div>
                 <div className="timeline-content">
-                  <h3>SDE Intern (Summer 2025)</h3>
+                  <h3>Software Development Engineer Intern</h3>
                   <p className="company">Amazon Web Services (AWS)</p>
-                  <p>Built secure GenAI system automating contract processing.</p>
+                  <p>Built a scalable GenAI contract extraction and ingestion platform with a secure React + SSO frontend and Lambda-based AWS backend (Bedrock, Glue, S3, DynamoDB), reducing manual effort by 80% and processing time from 3 hours to under 2 minutes while accelerating vendor onboarding and negotiations through automated metadata extraction and validation.</p>
+                </div>
+                <div className="timeline-hover-effect"></div>
+              </div>
+
+              <div className="timeline-item" onClick={() => showExperiencePopup('MMPay', 'Dec 2024 - Feb 2025', 'Web Developer', 'Design and develop an engaging and user-friendly website for a leading bank in Brazil.')}>
+                <div className="timeline-date">Dec 2024 - Feb 2025</div>
+                <div className="timeline-content">
+                  <h3>Web Developer</h3>
+                  <p className="company">MMPay</p>
+                  <p>Design and develop an engaging and user-friendly website for a leading bank in Brazil.</p>
                 </div>
                 <div className="timeline-hover-effect"></div>
               </div>
 
               <div className="timeline-item" onClick={() => showExperiencePopup('Amazon Web Services (AWS)', 'May 2024 - Aug 2024', 'Software Development Engineer Intern', 'Extracted and processed data from over 2 million users using Productiv API, reducing processing time by 40%. Built a custom data pipeline in TypeScript and visualized insights in QuickSight, saving $15M.')}>
-                <div className="timeline-date">2024</div>
+                <div className="timeline-date">May 2024 - Aug 2024</div>
                 <div className="timeline-content">
-                  <h3>SDE Intern (Summer 2024)</h3>
+                  <h3>Software Development Engineer Intern</h3>
                   <p className="company">Amazon Web Services (AWS)</p>
-                  <p>Built data pipeline processing 2M+ users, saving $15M.</p>
+                  <p>Extracted and processed data for 2M+ users via the Productiv API, built and deployed a custom TypeScript data pipeline that cut processing time by 40%, and delivered QuickSight dashboards that improved UI satisfaction by 15% while helping drive up to $10M in cost savings.</p>
                 </div>
                 <div className="timeline-hover-effect"></div>
               </div>
 
               <div className="timeline-item" onClick={() => showExperiencePopup('Kid Teaches Kids', 'Jun 2021 - Sept 2023', 'Founder & CEO', 'Founded and scaled an online coding tutoring platform, delivering 1,000+ hours of personalized sessions to children aged 8-16.')}>
-                <div className="timeline-date">2021-2023</div>
+                <div className="timeline-date">Jun 2021 - Sept 2023</div>
                 <div className="timeline-content">
                   <h3>Founder & CEO</h3>
                   <p className="company">Kid Teaches Kids</p>
-                  <p>Founded online coding platform, 1,000+ tutoring hours.</p>
+                  <p>Founded and scaled an online coding tutoring platform, delivering 1,000+ hours of personalized instruction for students ages 8–16 through tailored curriculum, interactive coding exercises, and engaging teaching methods that improved retention and made coding accessible.</p>
                 </div>
                 <div className="timeline-hover-effect"></div>
               </div>
 
               <div className="timeline-item" onClick={() => showExperiencePopup('Code Ninjas', 'Jun 2021 - Aug 2023', 'Manager', 'Led a team of 15 instructors, mentoring kids in coding, revamping franchise performance, and delivering $30,000+ in monthly revenue.')}>
-                <div className="timeline-date">2021-2023</div>
+                <div className="timeline-date">Jun 2021 - Aug 2023</div>
                 <div className="timeline-content">
                   <h3>Manager</h3>
                   <p className="company">Code Ninjas</p>
-                  <p>Led team of 15 instructors, $30,000+ monthly revenue.</p>
+                  <p>Managed a team of 15 instructors at Code Ninjas (Aventura, FL), driving $30K+ monthly revenue and peaking at $70K+ during summer camps by implementing performance strategies, improving customer satisfaction, and fostering a collaborative, high-performing team culture.</p>
                 </div>
                 <div className="timeline-hover-effect"></div>
               </div>
 
               <div className="timeline-item" onClick={() => showExperiencePopup('Pinbank Brazil', 'Jun 2019 - Nov 2021', 'Assistant Software Engineer', 'Unpaid internship. Developed Android application projects using JAVA, XML, HTML, and CSS.')}>
-                <div className="timeline-date">2019</div>
+                <div className="timeline-date">Jun 2019 - Nov 2021</div>
                 <div className="timeline-content">
                   <h3>Assistant Software Engineer</h3>
                   <p className="company">Pinbank Brazil</p>
-                  <p>Developed Android applications using Java, XML, HTML, CSS.</p>
+                  <p>Developed Android applications for Pinbank Brasil using Java, XML, HTML, and CSS, collaborating remotely to integrate features, enhance UX and performance, and support testing/debugging to deliver high-quality releases on schedule.</p>
                 </div>
                 <div className="timeline-hover-effect"></div>
               </div>
