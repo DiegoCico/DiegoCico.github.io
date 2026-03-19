@@ -654,31 +654,31 @@ const ContentSection = () => {
               <div className="timeline-hover-effect"></div>
             </div>
 
+            <div className="timeline-item" onClick={() => showExperiencePopup('Supply Trace', 'Sept 2024 - Nov 2025', 'Technical Project Manager', 'Built data pipelines and analytical tools under Dr. Shawn to streamline supply chain operations and enhance infrastructure for faster, safer data loading. Managed a high-performance team of 3, ensured timely task completion, and led weekly meetings to align project goals.')}>
+              <div className="timeline-date">Feb 2026 - Mar 2026</div>
+              <div className="timeline-content">
+                <h3>Web Developer</h3>
+                <p className="company">Tipagos</p>
+                <p>Developed and designed a professional website for TIPAGOS, a consulting company focused on helping businesses establish and operate in the United States.</p>
+                <button 
+                  className="supply-trace-button" 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.open('https://tipagos.com', '_blank');
+                  }}
+                >
+                  Visit Tipagos
+                </button>
+              </div>
+              <div className="timeline-hover-effect"></div>
+              </div>
+
             <div className="timeline-item" onClick={() => showExperiencePopup('Massachusetts National Guard', 'Sept 2025 - Dec 2025', 'Software Engineer (Contract)', 'Built a cloud-native inventory system for the Massachusetts National Guard with a multi-team Teamspace model, granular role permissions, a scalable DynamoDB PK/SK + GSI design, secure presigned S3 flows, and a React + TypeScript front end for fast item management and real-time visibility.')}>
               <div className="timeline-date">Sep 2025 - Dec 2025</div>
               <div className="timeline-content">
                 <h3>Lead Software Engineer (Contract)</h3>
                 <p className="company">Massachusetts National Guard</p>
                 <p>Built a full cloud-native inventory management system for the Massachusetts National Guard on AWS, featuring a secure multi-team role-based architecture, a React/TypeScript + TRPC + MUI frontend, and a scalable DynamoDB (PK/SK + GSIs) data model optimized for fast inventory workflows, uploads, and audit trails.</p>
-              </div>
-              <div className="timeline-hover-effect"></div>
-            </div>
-
-            <div className="timeline-item" onClick={() => showExperiencePopup('Supply Trace', 'Sept 2024 - Nov 2025', 'Technical Project Manager', 'Built data pipelines and analytical tools under Dr. Shawn to streamline supply chain operations and enhance infrastructure for faster, safer data loading. Managed a high-performance team of 3, ensured timely task completion, and led weekly meetings to align project goals.')}>
-              <div className="timeline-date">Sep 2024- Nov 2025</div>
-              <div className="timeline-content">
-                <h3>Technical Project Manager</h3>
-                <p className="company">Supply Trace</p>
-                <p>Managed a high-performance team of 5 by leading weekly meetings, keeping tasks on track, improving platform data integrity through deduplication and structured storage, reviewing code to optimize website/database efficiency, and helping rebuild infrastructure for faster, safer data loading and retrieval.</p>
-                <button 
-                  className="supply-trace-button" 
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    window.open('https://supplytrace.org', '_blank');
-                  }}
-                >
-                  Visit Supply Trace
-                </button>
               </div>
               <div className="timeline-hover-effect"></div>
             </div>
@@ -690,12 +690,33 @@ const ContentSection = () => {
                 onClick={() => setExpandedExperience(!expandedExperience)}
               >
                 <span className="tree-icon">+</span>
-                {expandedExperience ? 'Collapse Tree' : 'Expand Tree'}
+                {expandedExperience ? 'Collapse Experience' : 'Expand Experience'}
                 <span className={`arrow ${expandedExperience ? 'up' : 'down'}`}>▼</span>
               </button>
             </div>
 
             {/* Additional Experiences - Expandable */}
+            <div className={`additional-experiences ${expandedExperience ? 'expanded' : ''}`}>
+              <div className="timeline-item" onClick={() => showExperiencePopup('Supply Trace', 'Sept 2024 - Nov 2025', 'Technical Project Manager', 'Built data pipelines and analytical tools under Dr. Shawn to streamline supply chain operations and enhance infrastructure for faster, safer data loading. Managed a high-performance team of 3, ensured timely task completion, and led weekly meetings to align project goals.')}>
+                <div className="timeline-date">Sep 2024 - Nov 2025</div>
+                <div className="timeline-content">
+                  <h3>Technical Project Manager</h3>
+                  <p className="company">Supply Trace</p>
+                  <p>Managed a high-performance team of 5 by leading weekly meetings, keeping tasks on track, improving platform data integrity through deduplication and structured storage, reviewing code to optimize website/database efficiency, and helping rebuild infrastructure for faster, safer data loading and retrieval.</p>
+                  <button 
+                    className="supply-trace-button" 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open('https://supplytrace.org', '_blank');
+                    }}
+                  >
+                    Visit Supply Trace
+                  </button>
+                </div>
+                <div className="timeline-hover-effect"></div>
+              </div>
+            </div>
+
             <div className={`additional-experiences ${expandedExperience ? 'expanded' : ''}`}>
               <div className="timeline-item" onClick={() => showExperiencePopup('Amazon Web Services (AWS)', 'May 2025 - Aug 2025', 'Software Development Engineer Intern', 'Built a secure, scalable GenAI system with a React frontend and Lambda backend that automated contract processing, cutting time from hours to minutes and streamlining vendor onboarding.')}>
                 <div className="timeline-date">May 2025 - Aug 2025</div>
