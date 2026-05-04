@@ -566,60 +566,93 @@ const ContentSection = () => {
               </div>
             </div>
 
-            {/* Page 5 */}
-            <div className={`projects-page ${currentPage === 5 ? 'active' : ''}`} id="projects-page-5">
-              <div className="project-card" data-language="typescript,swift" onClick={() => window.open('https://github.com/DiegoCico/TwoPix-Swift', '_blank')}>
+            {/* Page 6 */}
+            <div
+              className={`projects-page ${currentPage === 5 ? 'active' : ''}`}
+              id="projects-page-5"
+            >
+
+              {/* AgenticTrade */}
+              <div
+                className="project-card"
+                data-language="react"
+                onClick={() =>
+                  window.open(
+                    'https://github.com/DiegoCico/AgenticTrade',
+                    '_blank'
+                  )
+                }
+              >
                 <div className="project-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M4,4H7L9,2H15L17,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z"/>
-                  </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                {/* head */}
+                <rect x="5" y="7" width="14" height="10" rx="2" />
+
+                {/* eyes */}
+                <circle cx="9" cy="12" r="1" fill="currentColor" />
+                <circle cx="15" cy="12" r="1" fill="currentColor" />
+
+                {/* mouth */}
+                <line x1="9" y1="15" x2="15" y2="15" />
+
+                {/* antenna */}
+                <line x1="12" y1="7" x2="12" y2="4" />
+                <circle cx="12" cy="3" r="1" fill="currentColor" />
+
+                {/* side ears */}
+                <line x1="5" y1="11" x2="3.5" y2="11" />
+                <line x1="19" y1="11" x2="20.5" y2="11" />
+              </svg>
                 </div>
-                <h3>TwoPix</h3>
-                <div className="project-tags">
-                  <span className="tag">Swift</span>
-                  <span className="tag">TypeScript</span>
-                </div>
-                <p>A private photo messaging app for two. Like Snapchat, but just for you and your favorite person — no feeds, no noise, just connection.</p>
-              </div>
-              <div className="project-card" data-language="python" onClick={() => window.open('https://github.com/DiegoCico/AutoJobApplier', '_blank')}>
-                <div className="project-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M10,2H14A2,2 0 0,1 16,4V6H20A2,2 0 0,1 22,8V19A2,2 0 0,1 20,21H4C2.89,21 2,20.1 2,19V8C2,6.89 2.89,6 4,6H8V4C8,2.89 8.89,2 10,2M14,6V4H10V6H14Z"/>
-                  </svg>
-                </div>
-                <h3>AutoJobApplier</h3>
-                <div className="project-tags">
-                  <span className="tag">Python</span>
-                </div>
-                <p>Automated job application bot for LinkedIn and Indeed, built with Python and Selenium. It logs into your accounts, searches for relevant roles, and automatically applies using features like "Easy Apply" when available—saving you hours of manual work.</p>
-              </div>
-              <div className="project-card" data-language="react,python,ai,typescript" onClick={() => window.open('https://github.com/DiegoCico/Neuro', '_blank')}>
-                <div className="project-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22V16H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V16H2V14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M5,16V20H19V16H5M6,9A1,1 0 0,1 7,10A1,1 0 0,1 6,11A1,1 0 0,1 5,10A1,1 0 0,1 6,9M18,9A1,1 0 0,1 19,10A1,1 0 0,1 18,11A1,1 0 0,1 17,10A1,1 0 0,1 18,9Z"/>
-                  </svg>
-                </div>
-                <h3>Neuro</h3>
-                <div className="project-tags">
-                  <span className="tag">React</span>
-                  <span className="tag">TypeScript</span>
-                  <span className="tag">Python</span>
-                  <span className="tag">AI/ML</span>
-                </div>
-                <p>A professional networking platform designed to go beyond static resumes and create a more dynamic, intelligent, and engaging environment for connecting people, showcasing projects, and enabling recruiters to discover talent more effectively.</p>
-              </div>
-              <div className="project-card" data-language="react" onClick={() => window.open('https://github.com/DiegoCico/botrally', '_blank')}>
-                <div className="project-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M5,11L6.5,6.5H17.5L19,11H5M17.5,16A1.5,1.5 0 0,1 16,14.5A1.5,1.5 0 0,1 17.5,13A1.5,1.5 0 0,1 19,14.5A1.5,1.5 0 0,1 17.5,16M6.5,16A1.5,1.5 0 0,1 5,14.5A1.5,1.5 0 0,1 6.5,13A1.5,1.5 0 0,1 8,14.5A1.5,1.5 0 0,1 6.5,16M18.92,6C18.72,5.42 18.16,5 17.5,5H6.5C5.84,5 5.28,5.42 5.08,6L3,12V20A1,1 0 0,0 4,21H5A1,1 0 0,0 6,20V19H18V20A1,1 0 0,0 19,21H20A1,1 0 0,0 21,20V12L18.92,6Z"/>
-                  </svg>
-                </div>
-                <h3>BotRally</h3>
+                <h3>AgenticTrade</h3>
                 <div className="project-tags">
                   <span className="tag">React</span>
+                  <span className="tag">Typescript</span>
                 </div>
-                <p>Innovative educational racing game where players program autonomous racing cars using visual block-based programming (like Scratch) and compete against AI opponents or other players in real-time multiplayer races.</p>
+                <p>
+AI-powered paper trading platform that analyzes markets, generates signals, and executes risk-validated decisions with a real-time portfolio dashboard.
+                </p>
               </div>
+
+              {/* Coinly */}
+<div
+  className="project-card"
+  data-language="react"
+  onClick={() =>
+    window.open(
+      'https://github.com/DiegoCico/Coinly',
+      '_blank'
+    )
+  }
+>
+  <div className="project-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      {/* coin outline */}
+      <circle cx="12" cy="12" r="8" />
+
+      {/* inner C shape */}
+      <path d="M15 9a3 3 0 1 0 0 6" />
+
+      {/* small nodes (tech feel) */}
+      <circle cx="12" cy="4" r="1" fill="currentColor" />
+      <circle cx="20" cy="12" r="1" fill="currentColor" />
+      <circle cx="12" cy="20" r="1" fill="currentColor" />
+      <circle cx="4" cy="12" r="1" fill="currentColor" />
+    </svg>
+  </div>
+
+  <h3>Coinly</h3>
+
+  <div className="project-tags">
+    <span className="tag">React</span>
+    <span className="tag">Typescript</span>
+  </div>
+
+  <p>
+    Portfolio tracker that aggregates balances, analyzes performance,
+    and provides real-time insights across multiple assets and wallets.
+  </p>
+</div>
             </div>
 
             <button className="carousel-arrow right" onClick={showNextPage}>
