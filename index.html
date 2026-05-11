@@ -1,13 +1,618 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diego Cicotoste</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Diego Cicotoste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="assets/dc_logo.svg" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <!-- <a class="nav-logo" href="#"><img src="assets/dc_logo.svg" alt="Diego Cicotoste" /></a> -->
+  <p class="nav-name">Diego Cicotoste</p>
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="https://github.com/DiegoCico/Resume_latex/blob/main/Resume%203.2.pdf" class="cta" target="_blank" rel="noopener noreferrer">Resume ↗</a>
+  </div>
+</nav>
+
+<!-- ─────────────── SCENE ─────────────── -->
+<div class="scene-wrap" id="sceneWrap">
+  <div class="scene-sticky">
+
+    <svg class="scene-svg" id="sceneSvg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="var(--sky-top)" />
+          <stop offset="38%"  stop-color="var(--sky-mid)" />
+          <stop offset="72%"  stop-color="var(--sky-warm)" />
+          <stop offset="92%"  stop-color="var(--sky-horizon)" />
+          <stop offset="100%" stop-color="var(--horizon-glow)" />
+        </linearGradient>
+        <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0%"   stop-color="var(--horizon-glow)" stop-opacity="0.9" />
+          <stop offset="40%"  stop-color="var(--sky-horizon)"  stop-opacity="0.35" />
+          <stop offset="100%" stop-color="var(--sky-horizon)"  stop-opacity="0" />
+        </radialGradient>
+        <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="var(--horizon-glow)" stop-opacity="0.55" />
+          <stop offset="8%"   stop-color="var(--sky-horizon)"  stop-opacity="0.4" />
+          <stop offset="26%"  stop-color="var(--sky-warm)"     stop-opacity="0.35" />
+          <stop offset="60%"  stop-color="var(--lake-mid)" />
+          <stop offset="100%" stop-color="var(--lake-deep)" />
+        </linearGradient>
+        <linearGradient id="mtnFrontShade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="var(--mtn-front)" />
+          <stop offset="100%" stop-color="var(--mtn-shadow)" />
+        </linearGradient>
+        <linearGradient id="snowTop" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="var(--snow)" />
+          <stop offset="100%" stop-color="var(--snow-shadow)" stop-opacity="0.2" />
+        </linearGradient>
+      </defs>
+
+      <!-- SKY -->
+      <rect x="0" y="0" width="1920" height="1080" fill="url(#sky)" />
+
+      <!-- Stars (populated by JS) -->
+      <g id="stars" opacity="0.85"></g>
+
+      <!-- Sun -->
+      <circle cx="960" cy="720" r="320" fill="url(#sun)" />
+      <circle cx="960" cy="720" r="38"  fill="var(--horizon-glow)" opacity="0.95" />
+
+      <!-- FAR MOUNTAINS -->
+      <g id="farLayer" opacity="0.7">
+        <path d="M 540 760 L 660 600 L 760 680 L 880 540 L 1020 660 L 1140 580 L 1280 700 L 1380 620 L 1440 760 Z" fill="var(--mtn-far)" />
+        <path d="M 660 600 L 692 630 L 720 612 L 760 680 L 738 660 L 712 668 Z"                                    fill="var(--snow)" opacity="0.7" />
+        <path d="M 880 540 L 920 580 L 950 560 L 1020 660 L 990 620 L 940 612 Z"                                   fill="var(--snow)" opacity="0.7" />
+        <path d="M 1280 700 L 1310 670 L 1340 686 L 1380 620 L 1346 658 L 1310 668 Z"                              fill="var(--snow)" opacity="0.7" />
+      </g>
+
+      <!-- MID MOUNTAINS -->
+      <g id="midLayer">
+        <path d="M 0 820 L 180 580 L 360 720 L 520 540 L 720 760 L 0 760 Z"             fill="var(--mtn-mid)" />
+        <path d="M 1920 820 L 1740 540 L 1560 720 L 1380 580 L 1240 760 L 1920 760 Z"  fill="var(--mtn-mid)" />
+        <path d="M 180 580 L 220 626 L 260 600 L 320 670 L 360 720 L 314 690 L 270 700 L 224 660 Z"                    fill="var(--snow)" opacity="0.85" />
+        <path d="M 520 540 L 560 590 L 600 564 L 660 638 L 720 760 L 660 712 L 600 720 L 552 678 Z"                    fill="var(--snow)" opacity="0.85" />
+        <path d="M 1740 540 L 1700 590 L 1660 564 L 1600 638 L 1560 720 L 1610 678 L 1660 690 L 1710 660 Z"            fill="var(--snow)" opacity="0.85" />
+        <path d="M 1380 580 L 1340 626 L 1300 602 L 1260 680 L 1240 760 L 1290 712 L 1340 700 L 1376 660 Z"            fill="var(--snow)" opacity="0.85" />
+      </g>
+
+      <!-- LAKE -->
+      <path d="M 0 760 L 1920 760 L 1920 1080 L 0 1080 Z" fill="url(#lake)" />
+
+      <!-- Mountain reflection in lake -->
+      <g opacity="0.22" transform="translate(0, 1520) scale(1, -1)">
+        <path d="M 540 760 L 660 600 L 760 680 L 880 540 L 1020 660 L 1140 580 L 1280 700 L 1380 620 L 1440 760 Z" fill="var(--mtn-far)" />
+      </g>
+
+      <!-- Lake ripples -->
+      <g stroke="var(--horizon-glow)" stroke-opacity="0.35" stroke-width="1" fill="none">
+        <path d="M 640 820 Q 700 818, 760 820 T 880 820" />
+        <path d="M 1040 850 Q 1100 848, 1160 850 T 1280 850" />
+        <path d="M 540 890 Q 620 888, 700 890 T 860 890" />
+        <path d="M 1100 920 Q 1180 918, 1260 920 T 1420 920" />
+        <path d="M 760 950 Q 840 948, 920 950 T 1080 950" />
+        <path d="M 1160 980 Q 1240 978, 1320 980 T 1480 980" />
+      </g>
+
+      <!-- LEFT FRONT MOUNTAIN (snowboarder rides this) -->
+      <g id="leftMtn">
+        <path d="M -40 1080 L -40 760 L 60 580 L 200 380 L 360 200 L 520 380 L 620 540 L 720 680 L 800 820 L 880 940 L 940 1080 Z" fill="url(#mtnFrontShade)" />
+        <!-- snow blanket + bands -->
+        <path d="M 200 380 L 260 410 L 310 396 L 360 200 L 420 320 L 470 308 L 520 380 L 482 396 L 446 432 L 408 420 L 372 462 L 332 446 L 296 482 L 258 466 L 222 504 L 200 380 Z" fill="url(#snowTop)" opacity="0.95" />
+        <path d="M 360 200 L 388 252 L 420 230 L 460 300 L 520 380 L 472 348 L 432 358 L 392 318 Z"                                                                                 fill="var(--snow)" />
+        <path d="M 520 380 L 558 422 L 596 408 L 620 540 L 600 522 L 580 542 L 560 524 L 540 540 L 524 510 Z"                                                                       fill="url(#snowTop)" opacity="0.92" />
+        <path d="M 620 540 L 644 572 L 670 558 L 696 590 L 720 680 L 696 654 L 672 670 L 648 644 L 632 668 Z"                                                                       fill="url(#snowTop)" opacity="0.78" />
+        <path d="M 720 680 L 744 706 L 768 696 L 794 724 L 800 820 L 778 800 L 754 814 L 730 792 Z"                                                                                 fill="url(#snowTop)" opacity="0.6" />
+        <path d="M 800 820 L 824 848 L 850 838 L 880 940 L 854 920 L 828 932 Z"                                                                                                     fill="url(#snowTop)" opacity="0.45" />
+        <path d="M 80 700 L 130 716 L 168 700 L 210 730 L 240 720 L 270 750 L 230 770 L 180 760 L 130 778 L 90 754 Z"                                                               fill="url(#snowTop)" opacity="0.55" />
+        <path d="M 140 860 L 220 870 L 280 858 L 340 890 L 280 910 L 200 900 L 140 918 Z"                                                                                           fill="url(#snowTop)" opacity="0.4" />
+        <path d="M 360 200 Q 320 380, 420 480 Q 320 580, 480 660 Q 380 740, 540 820 Q 460 900, 700 980 L 940 1080 L 360 1080 Z"                                                     fill="var(--snow)" opacity="0.1" />
+      </g>
+
+      <!-- RIGHT FRONT MOUNTAIN -->
+      <g id="rightMtn">
+        <path d="M 1960 1080 L 1960 760 L 1860 580 L 1720 380 L 1560 220 L 1400 400 L 1300 560 L 1200 700 L 1120 840 L 1060 960 L 1000 1080 Z" fill="url(#mtnFrontShade)" />
+        <!-- snow blanket + bands -->
+        <path d="M 1720 380 L 1660 410 L 1610 396 L 1560 220 L 1500 320 L 1450 308 L 1400 400 L 1438 396 L 1474 432 L 1512 420 L 1548 462 L 1588 446 L 1624 482 L 1662 466 L 1698 504 L 1720 380 Z" fill="url(#snowTop)" opacity="0.95" />
+        <path d="M 1560 220 L 1532 272 L 1500 250 L 1460 318 L 1400 400 L 1448 368 L 1488 378 L 1528 338 Z"                                                                                         fill="var(--snow)" />
+        <path d="M 1400 400 L 1362 442 L 1324 428 L 1300 560 L 1320 542 L 1340 562 L 1360 544 L 1380 560 L 1396 530 Z"                                                                              fill="url(#snowTop)" opacity="0.92" />
+        <path d="M 1300 560 L 1276 592 L 1250 578 L 1224 610 L 1200 700 L 1224 674 L 1248 690 L 1272 664 L 1288 688 Z"                                                                              fill="url(#snowTop)" opacity="0.78" />
+        <path d="M 1200 700 L 1176 726 L 1152 716 L 1126 744 L 1120 840 L 1142 820 L 1166 834 L 1190 812 Z"                                                                                         fill="url(#snowTop)" opacity="0.6" />
+        <path d="M 1120 840 L 1096 868 L 1070 858 L 1060 960 L 1086 940 L 1112 952 Z"                                                                                                               fill="url(#snowTop)" opacity="0.45" />
+        <path d="M 1840 700 L 1790 716 L 1752 700 L 1710 730 L 1680 720 L 1650 750 L 1690 770 L 1740 760 L 1790 778 L 1830 754 Z"                                                                   fill="url(#snowTop)" opacity="0.55" />
+        <path d="M 1780 860 L 1700 870 L 1640 858 L 1580 890 L 1640 910 L 1720 900 L 1780 918 Z"                                                                                                    fill="url(#snowTop)" opacity="0.4" />
+        <path d="M 1560 220 Q 1600 400, 1500 500 Q 1600 600, 1440 680 Q 1540 760, 1380 840 Q 1460 920, 1220 1000 L 1000 1080 L 1560 1080 Z"                                                         fill="var(--snow)" opacity="0.08" />
+      </g>
+
+      <!-- BOARDER PATH (invisible guide) -->
+      <path id="boardPath"
+            d="M 360 210
+               C 300 280, 420 320, 340 380
+               C 280 430, 410 460, 350 520
+               C 290 570, 440 600, 380 650
+               C 320 690, 480 720, 460 780
+               C 440 830, 600 850, 660 890
+               C 760 920, 900 920, 1040 910
+               C 1180 900, 1300 870, 1440 880
+               C 1560 890, 1700 880, 1860 860"
+            fill="none" stroke="none" />
+
+      <!-- Boarder trail (draws as you scroll) -->
+      <path id="trailPath"
+            d="M 360 210
+               C 300 280, 420 320, 340 380
+               C 280 430, 410 460, 350 520
+               C 290 570, 440 600, 380 650
+               C 320 690, 480 720, 460 780
+               C 440 830, 600 850, 660 890
+               C 760 920, 900 920, 1040 910
+               C 1180 900, 1300 870, 1440 880
+               C 1560 890, 1700 880, 1860 860"
+            fill="none"
+            stroke="var(--trail)"
+            stroke-width="3"
+            stroke-linecap="round"
+            opacity="0.85"
+            filter="drop-shadow(0 0 6px rgba(244,204,148,0.5))" />
+
+      <!-- SNOWBOARDER (positioned by JS) -->
+      <g id="boarder" transform="translate(360, 210)">
+        <g transform="scale(1.4)">
+          <ellipse cx="0" cy="18" rx="22" ry="2.5" fill="#000" opacity="0.35" />
+          <rect x="-22" y="13" width="44" height="5"   rx="2.5" fill="#1a1a2a" />
+          <rect x="-22" y="13" width="44" height="1.4"           fill="var(--horizon-glow)" opacity="0.7" />
+          <path d="M -8 4 L -10 13 L -4 13 L -3 4 Z"  fill="#8a8e99" />
+          <path d="M 6 4 L 11 13 L 5 13 L 3 4 Z"      fill="#8a8e99" />
+          <path d="M -10 -8 Q -8 -14, 0 -14 Q 8 -14, 10 -8 L 12 4 L -12 4 Z" fill="#d8232a" />
+          <path d="M -10 -4 Q -18 -2, -20 4"  stroke="#d8232a" stroke-width="4" stroke-linecap="round" fill="none" />
+          <path d="M 10 -4 Q 16 -8, 20 -10"  stroke="#d8232a" stroke-width="4" stroke-linecap="round" fill="none" />
+          <circle cx="0" cy="-18" r="5.5" fill="#f4ece3" />
+          <rect x="-5.5" y="-20" width="11" height="2.2" fill="var(--horizon-glow)" opacity="0.85" />
+        </g>
+      </g>
+    </svg>
+
+    <!-- Snow particles (populated by JS) -->
+    <div class="snow-layer" id="snowLayer"></div>
+
+    <!-- HERO TEXT -->
+    <div class="hero-text" id="heroText">
+      <p class="kicker">Portfolio · Northeastern '26</p>
+      <h1>Hello, my name is<br><em>Diego.</em></h1>
+      <p class="scroll-cue">scroll to follow me down</p>
+    </div>
+
+    <!-- SCROLL CHAPTERS -->
+    <div class="chapter chapter-1" data-start="0.18" data-end="0.36">
+      <div class="ch-tag">Origin</div>
+      <h2>Born in <em>Brazil</em>.</h2>
+      <p>Moved to Miami for middle &amp; high school, then up to Boston for college and work. From beaches to palms to snow — the route keeps getting colder.</p>
+    </div>
+
+    <div class="chapter chapter-2" data-start="0.40" data-end="0.58">
+      <div class="ch-tag">Next chapter</div>
+      <h2>Class of '26 → <em>SDE @ AWS</em>.</h2>
+      <p>Joining Amazon Web Services as a full-time Software Development Engineer after graduation. Previously interned there as well.</p>
+    </div>
+
+    <div class="chapter chapter-3" data-start="0.64" data-end="0.84">
+      <div class="ch-tag">Off the clock</div>
+      <h2>I <em>travel</em>, I <em>snowboard</em>, I <em>code</em>.</h2>
+      <p>And I automate everything I touch — Alexa skills, house-hunting bots, little apps for my favorite people. If a task repeats, it's getting scripted.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ─────────────── AFTER THE SCENE ─────────────── -->
+<div class="after">
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-head">
+      <h3>The <em>person</em> behind it.</h3>
+      <div class="label">— A quick hello</div>
+    </div>
+    <div class="about-grid">
+      <figure class="portrait">
+        <img src="assets/me.jpg" alt="Diego Cicotoste at Northeastern University" loading="lazy" />
+        <figcaption>Northeastern · Boston, MA</figcaption>
+      </figure>
+      <div class="about-copy">
+        <p class="about-lede">Hey — I'm Diego.</p>
+        <p>I'm a computer-science student at Northeastern, soon-to-be Software Development Engineer at AWS, and a builder at heart.</p>
+        <p>When I'm not shipping code, I'm on a snowboard, traveling somewhere new, or automating a problem nobody asked me to solve. The projects below are some of my favorites.</p>
+        <div class="about-stats">
+          <div class="about-stat"><span class="about-num">80+</span><span class="about-lab">Projects shipped</span></div>
+          <div class="about-stat"><span class="about-num">5</span><span class="about-lab">Cities called home</span></div>
+          <div class="about-stat"><span class="about-num">'26</span><span class="about-lab">Northeastern grad</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="section-head">
+      <h3>Where I've <em>been</em>.</h3>
+      <div class="label">— Experience &amp; education</div>
+    </div>
+
+    <ol class="timeline" id="timeline">
+
+      <li class="tl-item">
+        <div class="tl-when">
+          <span class="tl-year">Jul 2026 → Present</span>
+          <span class="tl-dur">Incoming · Full-time</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-role">Software Development Engineer</div>
+          <div class="tl-org">Amazon Web Services<span class="tl-loc"> · AFX Generative AI</span></div>
+          <p>Joining AWS full-time post-graduation on the AFX GenAI Services team — building generative-AI tooling that scales across Amazon.</p>
+        </div>
+      </li>
+
+      <li class="tl-item">
+        <div class="tl-when">
+          <span class="tl-year">Feb 2026 – Mar 2026</span>
+          <span class="tl-dur">2 mos · Freelance</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-role">Web Developer</div>
+          <div class="tl-org">Tipagos<span class="tl-loc"> · Remote</span></div>
+          <p>Designed and developed a professional website for Tipagos, a consulting firm helping Brazilian businesses establish and operate in the United States.</p>
+          <a class="tl-link" href="https://tipagos.com" target="_blank" rel="noopener">Visit Tipagos ↗</a>
+        </div>
+      </li>
+
+      <li class="tl-item">
+        <div class="tl-when">
+          <span class="tl-year">Sep 2025 – Dec 2025</span>
+          <span class="tl-dur">4 mos · Contract</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-role">Lead Software Engineer</div>
+          <div class="tl-org">Massachusetts National Guard<span class="tl-loc"> · Contract</span></div>
+          <p>Built a cloud-native inventory system on AWS with a multi-team Teamspace model, granular role permissions, a scalable DynamoDB PK/SK + GSI design, secure presigned S3 flows, and a React + TypeScript + tRPC + MUI front end for fast item management and real-time visibility.</p>
+        </div>
+      </li>
+
+      <!-- Hidden by default — revealed by "View more" button -->
+
+      <li class="tl-item is-hidden">
+        <div class="tl-when">
+          <span class="tl-year">Sep 2024 – Nov 2025</span>
+          <span class="tl-dur">15 mos · Part-time</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-role">Technical Project Manager</div>
+          <div class="tl-org">Supply Trace<span class="tl-loc"> · Boston, MA</span></div>
+          <p>Led a team of 5 — weekly meetings, code review, deduplication &amp; structured storage, infrastructure rebuilds for faster, safer data loading and retrieval across the platform.</p>
+          <a class="tl-link" href="https://supplytrace.org" target="_blank" rel="noopener">Visit Supply Trace ↗</a>
+        </div>
+      </li>
+
+      <li class="tl-item is-hidden">
+        <div class="tl-when">
+          <span class="tl-year">May 2025 – Aug 2025</span>
+          <span class="tl-dur">4 mos · Internship</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-role">Software Development Engineer Intern</div>
+          <div class="tl-org">Amazon Web Services<span class="tl-loc"> · Seattle, WA</span></div>
+          <p>Built a scalable GenAI contract-extraction platform — React + SSO frontend, Lambda backend on Bedrock / Glue / S3 / DynamoDB. Cut manual effort by 80% and processing time from 3 hours to under 2 minutes.</p>
+        </div>
+      </li>
+
+      <li class="tl-item is-hidden">
+        <div class="tl-when">
+          <span class="tl-year">Dec 2024 – Feb 2025</span>
+          <span class="tl-dur">3 mos · Freelance</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-role">Web Developer</div>
+          <div class="tl-org">MMPay<span class="tl-loc"> · Brazil</span></div>
+          <p>Designed and developed an engaging, user-friendly website for a leading bank in Brazil — brand, build, and deploy.</p>
+        </div>
+      </li>
+
+      <li class="tl-item is-hidden">
+        <div class="tl-when">
+          <span class="tl-year">May 2024 – Aug 2024</span>
+          <span class="tl-dur">4 mos · Internship</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-role">Software Development Engineer Intern</div>
+          <div class="tl-org">Amazon Web Services<span class="tl-loc"> · Seattle, WA</span></div>
+          <p>Processed data for 2M+ users via the Productiv API, shipped a TypeScript pipeline that cut processing time 40%, and built QuickSight dashboards that helped drive up to $10M in cost savings.</p>
+        </div>
+      </li>
+
+      <li class="tl-item is-hidden">
+        <div class="tl-when">
+          <span class="tl-year">Jun 2021 – Sep 2023</span>
+          <span class="tl-dur">2 yrs 4 mos · Founder</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-role">Founder &amp; CEO</div>
+          <div class="tl-org">Kid Teaches Kids<span class="tl-loc"> · Remote</span></div>
+          <p>Founded and scaled an online coding-tutoring platform — 1,000+ hours of personalized instruction for students ages 8–16, with a tailored curriculum and interactive exercises that made coding accessible.</p>
+        </div>
+      </li>
+
+      <li class="tl-item is-hidden">
+        <div class="tl-when">
+          <span class="tl-year">Jun 2021 – Aug 2023</span>
+          <span class="tl-dur">2 yrs 3 mos · Manager</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-role">Manager</div>
+          <div class="tl-org">Code Ninjas<span class="tl-loc"> · Aventura, FL</span></div>
+          <p>Led a team of 15 instructors — $30K+ in monthly revenue (peaking at $70K+ during summer camps) through performance strategies, customer-experience improvements, and a collaborative team culture.</p>
+        </div>
+      </li>
+
+      <li class="tl-item is-hidden">
+        <div class="tl-when">
+          <span class="tl-year">Jun 2019 – Nov 2021</span>
+          <span class="tl-dur">2 yrs 6 mos · Internship</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-role">Assistant Software Engineer</div>
+          <div class="tl-org">Pinbank Brazil<span class="tl-loc"> · Remote</span></div>
+          <p>Developed Android applications in Java, XML, HTML, and CSS — integrating features, polishing UX and performance, and supporting testing &amp; debugging to ship on schedule.</p>
+        </div>
+      </li>
+
+    </ol>
+
+    <div class="tl-toggle-wrap">
+      <button class="tl-toggle" id="tlToggle" aria-expanded="false">
+        <span class="tl-toggle-icon">+</span>
+        <span class="tl-toggle-label">View 7 more</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="section-head">
+      <h3>Selected <em>work</em>.</h3>
+      <div class="label" id="projectCount">— 18 projects</div>
+    </div>
+
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="python">Python</button>
+      <button class="filter-btn" data-filter="java">Java</button>
+      <button class="filter-btn" data-filter="react">React</button>
+      <button class="filter-btn" data-filter="typescript">TypeScript</button>
+      <button class="filter-btn" data-filter="htmlcss">HTML/CSS</button>
+      <button class="filter-btn" data-filter="ai">AI/ML</button>
+    </div>
+
+    <div class="projects" id="projectsGrid">
+      <a class="project" data-lang="react,typescript" href="https://github.com/DiegoCico/AgenticTrade" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 01</span><span>AI Trading</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>AgenticTrade</h4>
+        <p>AI-powered paper-trading platform that analyzes markets, generates signals, and executes risk-validated decisions with a real-time portfolio dashboard.</p>
+        <div class="project-tags"><span>React</span><span>TypeScript</span></div>
+      </a>
+      <a class="project" data-lang="react,typescript" href="https://github.com/DiegoCico/Coinly" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 02</span><span>Portfolio Tracker</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>Coinly</h4>
+        <p>Portfolio tracker that aggregates balances, analyzes performance, and surfaces real-time insights across multiple assets and wallets.</p>
+        <div class="project-tags"><span>React</span><span>TypeScript</span></div>
+      </a>
+      <a class="project" data-lang="react,htmlcss" href="https://github.com/DiegoCico/treeva" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 03</span><span>Productivity</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>Treeva</h4>
+        <p>Task-management app with a 3D tree visualization of sprint progress — dark/light modes, Firebase integration, and team analytics.</p>
+        <div class="project-tags"><span>React</span><span>HTML/CSS</span></div>
+      </a>
+      <a class="project" data-lang="react,htmlcss,python,ai" href="https://github.com/DiegoCico/WaveCap" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 04</span><span>Fintech</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>WaveCap</h4>
+        <p>Stock portfolio management system on Flask + React — charts, virtual portfolios, trade simulation, and news-sentiment analysis in one place.</p>
+        <div class="project-tags"><span>React</span><span>HTML/CSS</span><span>Python</span><span>AI/ML</span></div>
+      </a>
+      <a class="project" data-lang="react,htmlcss,ai" href="https://github.com/DiegoCico/ConnectHealth" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 05</span><span>Healthcare</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>ConnectHealth</h4>
+        <p>Secure platform for hospitals to manage patient data and collaborate across providers, powered by Ruff — an AI assistant for medication, treatment, and care-protocol decisions.</p>
+        <div class="project-tags"><span>React</span><span>HTML/CSS</span><span>AI/ML</span></div>
+      </a>
+      <a class="project" data-lang="react,htmlcss,python,ai" href="https://github.com/DiegoCico/ruff" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 06</span><span>Voice AI</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>Ruff</h4>
+        <p>AI-powered medical symptom analysis and call-handling system. Assesses symptoms through voice interactions using natural-language processing and sentiment analysis.</p>
+        <div class="project-tags"><span>React</span><span>HTML/CSS</span><span>Python</span><span>AI/ML</span></div>
+      </a>
+      <a class="project" data-lang="python" href="https://github.com/DiegoCico/HouseFinder" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 07</span><span>Automation</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>HouseFinder</h4>
+        <p>Automated discovery and analysis of real-estate listings with rich neighborhood data — web scraping, semantic search, and AWS (S3, EC2, IAM).</p>
+        <div class="project-tags"><span>Python</span></div>
+      </a>
+      <a class="project" data-lang="react,htmlcss,python" href="https://github.com/DiegoCico/text-me-wrapped" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 08</span><span>Data Viz</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>Text Me Wrapped</h4>
+        <p>React frontend + Flask backend on AWS EC2 — sentiment analysis, emoji usage, and participation stats from your chat logs in an interactive visual format.</p>
+        <div class="project-tags"><span>React</span><span>HTML/CSS</span><span>Python</span></div>
+      </a>
+      <a class="project" data-lang="react,htmlcss" href="https://github.com/DiegoCico/DYA" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 09</span><span>EdTech</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>DYA</h4>
+        <p>Educational website that teaches kids and beginners to code through interactive game-like elements, visual programming, and step-by-step tutorials.</p>
+        <div class="project-tags"><span>React</span><span>HTML/CSS</span></div>
+      </a>
+      <a class="project" data-lang="python" href="https://github.com/DiegoCico/AlgoVisualizer" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 10</span><span>Visualization</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>AlgoVisualizer</h4>
+        <p>A Python app that graphically demonstrates how various sorting algorithms work — dynamic visualizations make the mechanics tangible.</p>
+        <div class="project-tags"><span>Python</span></div>
+      </a>
+      <a class="project" data-lang="python" href="https://github.com/DiegoCico/MergeCompaniesAlgorithm" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 11</span><span>Data</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>MergeAlgorithm</h4>
+        <p>Standardizes company data, geocodes addresses, and detects similar companies by name and location across two geocoding and matching approaches.</p>
+        <div class="project-tags"><span>Python</span></div>
+      </a>
+      <a class="project" data-lang="ai,java" href="https://github.com/DiegoCico/PredatorPreySim" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 12</span><span>Simulation</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>PredatorPreySim</h4>
+        <p>Models the interactions between predators and prey, with graphical representations of population changes over time.</p>
+        <div class="project-tags"><span>AI/ML</span><span>Java</span></div>
+      </a>
+      <a class="project" data-lang="java,ai" href="https://github.com/DiegoCico/SurvivalSprintHarvest" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 13</span><span>Simulation</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>SurvivalSprintHarvest</h4>
+        <p>AI-driven simulation where agents must find and collect food to survive — manage movement and energy, return to base before running dry.</p>
+        <div class="project-tags"><span>Java</span><span>AI/ML</span></div>
+      </a>
+      <a class="project" data-lang="java,ai" href="https://github.com/DiegoCico/AutoHospitalSystem/tree/main" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 14</span><span>Simulation</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>AutoHospitalManagement</h4>
+        <p>Simulates hospital room and patient management — admit and discharge, assign doctors, and maintain priority-based waitlists.</p>
+        <div class="project-tags"><span>Java</span><span>AI/ML</span></div>
+      </a>
+      <a class="project" data-lang="java" href="https://github.com/DiegoCico/diego-pipeline" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 15</span><span>DevOps</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>diego-pipeline</h4>
+        <p>Automates build, test, validation, and deployment of a Java project end-to-end — including user-input validation and automatic deployment to GitHub.</p>
+        <div class="project-tags"><span>Java</span></div>
+      </a>
+      <a class="project" data-lang="java" href="https://github.com/DiegoCico/diego.tools" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 16</span><span>Education</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>diego.tools</h4>
+        <p>An intuitive tool for coding beginners that simplifies complex concepts and provides an easy starting point for learning programming.</p>
+        <div class="project-tags"><span>Java</span></div>
+      </a>
+      <a class="project" data-lang="java" href="https://github.com/DiegoCico/ImageCompression" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 17</span><span>Algorithms</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>ImageCompression</h4>
+        <p>Efficient image-compression tool using seam carving for content-aware resizing — linked lists and maps power the optimized performance.</p>
+        <div class="project-tags"><span>Java</span></div>
+      </a>
+      <a class="project" data-lang="python" href="https://github.com/DiegoCico/ValentinesINV-2.0" target="_blank" rel="noopener">
+        <div class="project-meta"><span class="num">/ 18</span><span>Personal</span></div>
+        <span class="project-arrow">↗</span>
+        <h4>ValentinesINV-2.0</h4>
+        <p>A cute project I made to ask my girlfriend to be my valentine ◡̈</p>
+        <div class="project-tags"><span>Python</span></div>
+      </a>
+    </div>
+
+    <div class="view-all-wrap">
+      <div class="pager" id="pager">
+        <button class="pager-btn" id="pagerPrev" aria-label="Previous">← Prev</button>
+        <span class="pager-status" id="pagerStatus">01 / 05</span>
+        <button class="pager-btn" id="pagerNext" aria-label="Next">Next →</button>
+      </div>
+      <a class="view-all-btn" href="https://github.com/DiegoCico?tab=repositories" target="_blank" rel="noopener">
+        View all projects on GitHub ↗
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="section-head">
+      <h3>Let's <em>connect</em>.</h3>
+      <div class="label">— Always open to a coffee chat</div>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-cell" href="https://github.com/DiegoCico/Resume_latex/blob/main/Resume%203.2.pdf" target="_blank" rel="noopener">
+        <span class="c-label">→ Document</span>
+        <span class="c-value">View <em>Resume</em></span>
+      </a>
+      <a class="contact-cell" href="https://calendly.com/cicotosted/coffee-chat" target="_blank" rel="noopener noreferrer">
+        <span class="c-label">→ Calendar</span>
+        <span class="c-value">Schedule a <em>coffee chat</em></span>
+      </a>
+      <a class="contact-cell" href="https://www.linkedin.com/in/diego-cicotoste/" target="_blank" rel="noopener noreferrer">
+        <span class="c-label">→ Network</span>
+        <span class="c-value">View <em>LinkedIn</em></span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="sig">Diego Cicotoste</div>
+    <div>Boston · Built with a lot of coffee</div>
+    <div>© 2026</div>
+  </footer>
+
+</div>
+
+<!-- TWEAKS PANEL -->
+<div class="tweaks" id="tweaks">
+  <div class="tweaks-head">
+    <span>Tweaks</span>
+    <button id="tweakClose" aria-label="Close">×</button>
+  </div>
+  <div class="tweak-row">
+    <label>Time of day</label>
+    <div class="seg" data-key="timeOfDay">
+      <button data-val="dawn">Dawn</button>
+      <button data-val="dusk">Dusk</button>
+      <button data-val="night">Night</button>
+    </div>
+  </div>
+  <div class="tweak-row">
+    <label>Trail color</label>
+    <div class="swatches" data-key="trailColor">
+      <button data-val="#f4cc94" style="background:#f4cc94"></button>
+      <button data-val="#ff6b6b" style="background:#ff6b6b"></button>
+      <button data-val="#62d4c5" style="background:#62d4c5"></button>
+      <button data-val="#c5a8ff" style="background:#c5a8ff"></button>
+    </div>
+  </div>
+  <div class="tweak-row">
+    <label>Snowfall</label>
+    <div class="seg" data-key="snow">
+      <button data-val="off">Off</button>
+      <button data-val="light">Light</button>
+      <button data-val="heavy">Heavy</button>
+    </div>
+  </div>
+  <div class="tweak-row">
+    <label>Boarder speed</label>
+    <div class="seg" data-key="speed">
+      <button data-val="slow">Chill</button>
+      <button data-val="normal">Normal</button>
+      <button data-val="fast">Send it</button>
+    </div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
 </html>
